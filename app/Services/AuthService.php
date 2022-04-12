@@ -19,10 +19,20 @@ class AuthService extends BaseService
     {
         $data = $request->only('email','password');
         if(Auth::attempt($data)){
-            return true;
+            return response()->json(
+              [
+                  'status'=>201,
+                  'msg'=>'Dang nhap thanh cong'
+              ]
+          );
         }
         else{
-            return false;
+            return response()->json(
+              [
+                  'status'=>false,
+                  'msg'=>'Sai ten toan khoan hoac mat khau'
+              ]
+          );
         }
     }
 
