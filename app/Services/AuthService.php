@@ -26,10 +26,6 @@ class AuthService extends BaseService
         }
     }
 
-    public function logout()
-    {
-        Auth::logout();
-    }
 
   
 }
