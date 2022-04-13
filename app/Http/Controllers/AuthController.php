@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Requests\LoginFormRequest;
 use App\Services\AuthService;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,7 @@ class AuthController extends Controller
     {
         return $this->authService = $authService;
     }
-    public function login (Request $request)
+    public function login (LoginFormRequest $request)
     {
       if ( $this->authService->login($request))
       {
