@@ -19,7 +19,7 @@ class AuthController extends Controller
       {
           return response()->json(
               [
-                  'status'=>201,
+                  'status'=>true,
                   'msg'=>'Dang nhap thanh cong'
               ]
           );
