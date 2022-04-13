@@ -25,9 +25,9 @@ class CreatePostsTable extends Migration
             $table->string('experience');
             $table->date('posting_start');
             $table->date('posting_end');
-            $table->unsignedBigInteger('business_category_id');
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('status_id');
+            $table->unsignedBigInteger('business_category_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('status_id')->nullable();
             $table->foreign('business_category_id')->references('id')->on('business_categories');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('status_id')->references('id')->on('status');

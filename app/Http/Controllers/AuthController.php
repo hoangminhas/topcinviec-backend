@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\LoginFormRequest;
-
-
 use App\Services\AuthService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
+
 
 
 class AuthController extends Controller
@@ -38,8 +39,14 @@ class AuthController extends Controller
       }
     }
 
+    public function register(RegisterRequest $request)
+    {
+        $this->authService->register($request);
+        return response()->json('create user success', 201);
+    }
     public function logout()
     {
         Auth::logout();
     }
+
 }
