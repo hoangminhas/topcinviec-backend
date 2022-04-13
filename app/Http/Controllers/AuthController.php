@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Requests\LoginFormRequest;
 use App\Services\AuthService;
 use Illuminate\Http\Request;
 
@@ -13,13 +14,13 @@ class AuthController extends Controller
     {
         return $this->authService = $authService;
     }
-    public function login (Request $request)
+    public function login (LoginFormRequest $request)
     {
       if ( $this->authService->login($request))
       {
           return response()->json(
               [
-                  'status'=>201,
+                  'status'=>true,
                   'msg'=>'Dang nhap thanh cong'
               ]
           );
