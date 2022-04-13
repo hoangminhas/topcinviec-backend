@@ -18,4 +18,11 @@ class PostController extends Controller
         $posts = $this->postService->getAll();
         return response()->json($posts,201);
     }
+
+    public function store(Request $request)
+    {
+        $this->postService->store($request);
+        return response()->json("Success",201);
+
+    }
 }
