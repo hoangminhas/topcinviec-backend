@@ -37,5 +37,5 @@ class AuthService extends BaseService
     }
 
 
-  
+
 }
