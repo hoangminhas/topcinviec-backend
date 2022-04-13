@@ -21,3 +21,4 @@ Route::post('/login',[AuthController::class,'login']);
 
 Route::post('register',[AuthController::class, 'register']);
 Route::get('/posts',[PostController::class,'index']);
+Route::post('/posts',[PostController::class,'store']);
