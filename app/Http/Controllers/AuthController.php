@@ -1,18 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Requests\RegisterRequest;
+use App\Models\User;
 use App\Http\Requests\LoginFormRequest;
 use App\Services\AuthService;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Testing\Fluent\Concerns\Has;
 
 
 class AuthController extends Controller
 {
-     public $authService;
+    public $authService;
     public function __construct(AuthService $authService)
     {
-        return $this->authService = $authService;
+        $this->authService = $authService;
     }
     public function login (LoginFormRequest $request)
     {
@@ -35,4 +38,11 @@ class AuthController extends Controller
           );
       }
     }
+
+    public function register(RegisterRequest $request)
+    {
+        $this->authService->register($request);
+        return response()->json('create user success', 201);
+    }
+
 }
