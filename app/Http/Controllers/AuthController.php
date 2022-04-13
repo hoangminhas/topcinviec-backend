@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
+use App\Http\Requests\LoginFormRequest;
 use App\Services\AuthService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -16,14 +17,13 @@ class AuthController extends Controller
     {
         $this->authService = $authService;
     }
-
-    public function login (Request $request)
+    public function login (LoginFormRequest $request)
     {
       if ( $this->authService->login($request))
       {
           return response()->json(
               [
-                  'status'=>201,
+                  'status'=>true,
                   'msg'=>'Dang nhap thanh cong'
               ]
           );
@@ -41,7 +41,6 @@ class AuthController extends Controller
 
     public function register(RegisterRequest $request)
     {
-
         $this->authService->register($request);
         return response()->json('create user success', 201);
     }
