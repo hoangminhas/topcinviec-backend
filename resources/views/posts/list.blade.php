@@ -37,6 +37,8 @@
 {{--                                    <a href="blog-details.blade.php"><img src="assets/img/blog/7.webp" alt="Image" width="30" height="30"></a>--}}
                                 </div>
                                 <div class="content">
+                                    <div class="text-center"><h3>{{$post->user->name}}</h3></div>
+
                                     <h4 class="title"><a href="#">{{$post->title}}</a></h4>
                                     <p>{{$post->content}}</p>
                                     <div class="meta">
