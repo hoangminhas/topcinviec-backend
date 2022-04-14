@@ -1,4 +1,4 @@
-<?php include('layouts/header.php') ?>
+<?php include('layouts/header.blade.php') ?>
 <main class="main-content">
     <!--== Start Page Header Area Wrapper ==-->
     <div class="page-header-area sec-overlay sec-overlay-black" data-bg-img="assets/img/photos/bg2.webp">
@@ -230,4 +230,4 @@
     </section>
     <!--== End Job Details Area Wrapper ==-->
   </main>
-<?php include('layouts/footer.php') ?>
+<?php include('layouts/footer.blade.php') ?>
