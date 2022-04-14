@@ -1,4 +1,4 @@
-<?php include('layouts/header.php') ?>
+<?php include('layouts/header.blade.php') ?>
 
 <main class="main-content">
     <!--== Start Page Header Area Wrapper ==-->
@@ -47,23 +47,33 @@
                         @csrf
                       <div class="row">
                           <div class="col-12">
-                              <input type="hidden" name="role" value="2">
+                              <input type="hidden" name="role_id" value="2">
+                          </div>
+                          <div class="col-12">
+                              <div class="form-group">
+                                  <input class="form-control" name="name" type="text" placeholder="Name*">
+                              </div>
                           </div>
                         <div class="col-12">
                           <div class="form-group">
-                            <input class="form-control" name="email" type="email" placeholder="Email">
+                            <input class="form-control" name="email" type="email" placeholder="Email*">
                           </div>
                         </div>
                         <div class="col-12">
                           <div class="form-group">
-                            <input class="form-control" name="password" type="password" placeholder="Password">
+                            <input class="form-control" name="password" type="password" placeholder="Password*">
                           </div>
                         </div>
                         <div class="col-12">
                           <div class="form-group">
-                            <input class="form-control" name="password" type="password" placeholder="Confirm Password">
+                            <input class="form-control" name="confirmPassword" type="password" placeholder="Confirm Password*">
                           </div>
                         </div>
+                          <div class="col-12">
+                              <div class="form-group">
+                                  <input class="form-control" name="phone" type="text" placeholder="Phone">
+                              </div>
+                          </div>
                         <div class="col-12">
                           <div class="form-group">
                             <div class="remember-forgot-info">
@@ -88,23 +98,33 @@
                         @csrf
                       <div class="row">
                           <div class="col-12">
-                              <input type="hidden" name="role" value="3">
+                              <input type="hidden" name="role_id" value="3">
+                          </div>
+                          <div class="col-12">
+                              <div class="form-group">
+                                  <input class="form-control" name="name" type="text" placeholder="Name*">
+                              </div>
                           </div>
                         <div class="col-12">
                           <div class="form-group">
-                            <input class="form-control" name="email" type="email" placeholder="Email">
+                            <input class="form-control" name="email" type="email" placeholder="Email*">
                           </div>
                         </div>
                         <div class="col-12">
                           <div class="form-group">
-                            <input class="form-control" name="password" type="password" placeholder="Password">
+                            <input class="form-control" name="password" type="password" placeholder="Password*">
                           </div>
                         </div>
                         <div class="col-12">
                           <div class="form-group">
-                            <input class="form-control" name="password" type="password" placeholder="Confirm Password">
+                            <input class="form-control" name="password" type="password" placeholder="Confirm Password*">
                           </div>
                         </div>
+                          <div class="col-12">
+                              <div class="form-group">
+                                  <input class="form-control" name="phone" type="text" placeholder="Phone">
+                              </div>
+                          </div>
                         <div class="col-12">
                           <div class="form-group">
                             <div class="remember-forgot-info">
@@ -135,4 +155,4 @@
     </section>
     <!--== End Login Area Wrapper ==-->
   </main>
-<?php include('layouts/footer.php') ?>
+<?php include('layouts/footer.blade.php') ?>

@@ -32,7 +32,7 @@ class AuthService extends BaseService
 
     public function register($request)
     {
-        $data = $request->only('email', 'password');
+        $data = $request->only('name', 'email', 'password', 'role_id', 'phone');
         $data['password'] = Hash::make($data['password']);
         $this->authRepository->createUser($data);
     }

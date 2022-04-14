@@ -1,5 +1,5 @@
-<?php include('layouts/header.php') ?>
 
+@extends('layouts.header')
 <main class="main-content">
     <!--== Start Page Header Area Wrapper ==-->
     <div class="page-header-area sec-overlay sec-overlay-black" data-bg-img="assets/img/photos/bg2.webp">
@@ -76,4 +76,4 @@
     </section>
     <!--== End Login Area Wrapper ==-->
   </main>
-<?php include('layouts/footer.php') ?>
+@extends('layouts.footer')
