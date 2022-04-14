@@ -83,7 +83,7 @@
                   <li class="has-submenu"><a href="#/"><span>Pages</span></a>
                     <ul class="submenu-nav">
                       <li><a href="about-us.php"><span>About us</span></a></li>
-                      <li><a href="login.php"><span>Login</span></a></li>
+                      <li><a href="{{route('showFormLogin')}}"><span>Login</span></a></li>
                       <li><a href="registration.php"><span>Registration</span></a></li>
                       <li><a href="page-not-found.php"><span>Page Not Found</span></a></li>
                     </ul>
