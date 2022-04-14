@@ -41,7 +41,8 @@ class AuthController extends Controller
     public function register(RegisterRequest $request)
     {
         $this->authService->register($request);
-        return response()->json('create user success', 201);
+        return redirect()->route('login');
+//        return response()->json('create user success', 201);
     }
 
 

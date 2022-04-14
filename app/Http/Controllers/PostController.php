@@ -20,10 +20,21 @@ class PostController extends Controller
 //        return response()->json($posts,201);
     }
 
+    public function indexOfAdmin()
+    {
+        $posts = $this->postService->getAll();
+        return view('backend.posts.list', compact('posts'));
+    }
+
+    public function create()
+    {
+        return view('posts.create');
+    }
     public function store(Request $request)
     {
         $this->postService->store($request);
-        return response()->json("Success",201);
+        return redirect()->route('posts.index');
+//        return response()->json("Success",201);
 
     }
 

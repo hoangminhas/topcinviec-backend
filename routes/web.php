@@ -14,6 +14,13 @@ use App\Http\Controllers\AuthController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () {
+    return view('backend.dashboard');
+});
+
+Route::get('login',[AuthController::class,'showFormLogin'])->name('showFormLogin');
+Route::post('login', [AuthController::class,'login'])->name('login');
+
 
 Route::get('login',[AuthController::class,'showFormLogin'])->name('showFormLogin');
 Route::post('login', [AuthController::class,'login'])->name('login');
@@ -25,6 +32,10 @@ Route::get('candidates',[CandidateController::class, 'index']);
 
 Route::prefix('posts')->group(function (){
     Route::get('/',[PostController::class,'index'])->name('posts.index');
-    Route::get('/create',[PostController::class,'create']);
+    Route::get('create',[PostController::class,'create'])->name('posts.create');
+    Route::post('create',[PostController::class,'store'])->name('posts.store');
 });
 
+Route::post('/register', [AuthController::class, 'register'])->name('register');
+
+Route::get('/dashboard/post-list', [PostController::class, 'indexOfAdmin'])->name('backend.post.index');
