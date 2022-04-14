@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Repositories\BaseRepository;
 use App\Repositories\impl\PostInterface;
 use App\Repositories\PostRepository;
+use Illuminate\Support\Facades\Auth;
 
 class PostService extends BaseService implements PostInterface
 {
@@ -33,6 +34,8 @@ class PostService extends BaseService implements PostInterface
         $post->experience = $request->experience;
         $post->posting_start = $request->posting_start;
         $post->posting_end = $request->posting_end;
+        $post->status_id = $request->status ?? 1;
+        $post->user_id = Auth::user()->id;
         $post->save();
 
     }
