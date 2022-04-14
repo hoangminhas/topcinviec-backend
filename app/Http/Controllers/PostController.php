@@ -37,4 +37,8 @@ class PostController extends Controller
 //        return response()->json("Success",201);
 
     }
+
+    public function create() {
+        return view('posts.create');
+    }
 }
