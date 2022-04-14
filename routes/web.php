@@ -23,5 +23,7 @@ Route::post('/register', function () {
 
 Route::prefix('posts')->group(function (){
     Route::get('/',[PostController::class,'index'])->name('posts.index');
+    Route::get('create',[PostController::class,'create'])->name('posts.create');
+    Route::post('create',[PostController::class,'store'])->name('posts.store');
 });
 
