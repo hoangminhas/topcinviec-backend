@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 
 
+use App\Models\Status;
 use Illuminate\Database\Seeder;
 
 
@@ -20,5 +21,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PostSeeder::class);
         $this->call(RoleSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(StatusSeeder::class);
     }
 }
