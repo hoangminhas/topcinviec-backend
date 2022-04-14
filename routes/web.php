@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 /*
@@ -12,12 +13,18 @@ use App\Http\Controllers\AuthController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () {
+   return view('backend.dashboard');
+});
 
 Route::get('/login', function () {
     return view('login');
 });
-Route::post('login', [AuthController::class,'login']);
+Route::post('/login', [AuthController::class,'login'])->name('login');
 
 Route::get('/register', function () {
     return view('registration');
 });
+Route::post('/register', [AuthController::class, 'register'])->name('register');
+
+Route::get('/dashboard/post-list', [PostController::class, 'index'])->name('post.index');

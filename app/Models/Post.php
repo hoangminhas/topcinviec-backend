@@ -13,4 +13,9 @@ class Post extends Model
     protected $fillable = ['title', 'content', 'salary', 'job_type',
                           'job_level', 'quantity', 'gender', 'experience',
                           'posting_start', 'posting_end'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
