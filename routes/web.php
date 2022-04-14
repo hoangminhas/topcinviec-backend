@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\PostController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 /*
@@ -13,14 +16,17 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/login', function () {
-    return view('login');
-});
-Route::post('login', [AuthController::class,'login']);
+Route::get('login',[AuthController::class,'showFormLogin'])->name('showFormLogin');
+Route::post('login', [AuthController::class,'login'])->name('login');
 
 Route::post('/register', function () {
     return view('registration');
 });
+
+Route::prefix('posts')->group(function (){
+    Route::get('/',[PostController::class,'index'])->name('posts.index');
+});
+
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
@@ -38,5 +44,3 @@ Route::post('/email/verification-notification', function (Request $request) {
 Route::get('/profile', function () {
     // Only verified users may access this route...
 })->middleware('verified');
-
-//>>>>>>> d2d2b2aa7a3ed058f6bf900f7bd013091ca5f7bc
