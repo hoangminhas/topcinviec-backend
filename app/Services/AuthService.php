@@ -3,7 +3,9 @@
 namespace App\Services;
 
 use App\Repositories\AuthRepository;
+use http\Client\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 
 class AuthService extends BaseService
@@ -28,6 +30,11 @@ class AuthService extends BaseService
         }
     }
 
-
+    public function register($request)
+    {
+        $data = $request->only('email', 'password');
+        $data['password'] = Hash::make($data['password']);
+        $this->authRepository->createUser($data);
+    }
 
 }

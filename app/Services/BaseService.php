@@ -5,7 +5,7 @@ class BaseService
     public function sendResponse($data,$msg,$code = 200)
     {
         $response = [
-            'status'=>201,
+            'status'=>true,
             'data'=>$data,
             'msg'=>$msg
         ];
