@@ -6,8 +6,6 @@ use App\Models\User;
 use App\Http\Requests\LoginFormRequest;
 use App\Services\AuthService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Testing\Fluent\Concerns\Has;
 
 
 class AuthController extends Controller
@@ -42,14 +40,17 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $this->authService->register($request);
-        $token = $this->authService->register($request);
         return response()->json(
             [
                 'message'=>'Create user success',
                 'status' => 201,
-                'data'=> ['token' => $token->plainTextToken, 'data' => $data]
             ]
         );
     }
 
+
+    public function showFormLogin()
+    {
+        return view('login');
+    }
 }

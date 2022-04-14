@@ -3,6 +3,7 @@ namespace App\Repositories;
 
 use App\Models\User;
 use App\Repositories\impl\BaseInterface;
+use Illuminate\Auth\Events\Registered;
 
 class AuthRepository extends BaseRepository implements BaseInterface
 {
@@ -16,5 +17,13 @@ class AuthRepository extends BaseRepository implements BaseInterface
     public function createUser($data)
     {
         $this->model::create($data);
+        event(new Registered($data));
+
+        return response()->json(
+            [
+                'message'=>'User Registered',
+                'status' => 201
+            ]
+        );
     }
 }
