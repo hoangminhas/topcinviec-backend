@@ -6,6 +6,9 @@ use App\Models\User;
 use App\Http\Requests\LoginFormRequest;
 use App\Services\AuthService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+
 
 
 
@@ -45,6 +48,11 @@ class AuthController extends Controller
         $this->authService->register($request);
         return redirect()->route('login');
 //        return response()->json('create user success', 201);
+    }
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login');
     }
 
 
