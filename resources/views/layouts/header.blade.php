@@ -12,7 +12,7 @@
     <title>Finate - Job Portal Website Template Using Bootstrap 5</title>
 
     <!--== Favicon ==-->
-    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="./public/assets/img/favicon.ico" type="image/x-icon" />
 
     <!--== Google Fonts ==-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,18 +22,18 @@
 
 
     <!--== Bootstrap CSS ==-->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" />
     <!--== Icofont Icon CSS ==-->
-    <link href="assets/css/icofont.css" rel="stylesheet" />
+    <link href="{{asset('assets/css/icofont.css')}}" rel="stylesheet" />
     <!--== Swiper CSS ==-->
-    <link href="assets/css/swiper.min.css" rel="stylesheet" />
+    <link href="{{asset(('assets/css/swiper.min.css'))}}" rel="stylesheet" />
     <!--== Fancybox Min CSS ==-->
-    <link href="assets/css/fancybox.min.css" rel="stylesheet" />
+    <link href="{{asset('assets/css/fancybox.min.css')}}" rel="stylesheet" />
     <!--== Aos Min CSS ==-->
-    <link href="assets/css/aos.min.css" rel="stylesheet" />
+    <link href="{{asset('assets/css/aos.min.css')}}" rel="stylesheet" />
 
     <!--== Main Style CSS ==-->
-    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" />
 </head>
 
 <body>
@@ -50,8 +50,8 @@
             <div class="header-align-start">
               <div class="header-logo-area">
                 <a href="index.php">
-                  <img class="logo-main" src="assets/img/logo-light.webp" alt="Logo" />
-                  <img class="logo-light" src="assets/img/logo-light.webp" alt="Logo" />
+                  <img class="logo-main" src="{{asset('assets/img/logo-light.webp')}}" alt="Logo" />
+                  <img class="logo-light" src="{{asset('assets/img/logo-light.webp')}}" alt="Logo" />
                 </a>
               </div>
             </div>
@@ -106,3 +106,4 @@
     </div>
   </header>
   <!--== End Header Wrapper ==-->
+</div>

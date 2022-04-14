@@ -15,7 +15,7 @@ use App\Http\Controllers\AuthController;
 |
 */
 Route::get('/', function () {
-   return view('backend.dashboard');
+    return view('backend.dashboard');
 });
 
 Route::get('login',[AuthController::class,'showFormLogin'])->name('showFormLogin');
