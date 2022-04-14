@@ -1,4 +1,10 @@
 <?php include('layouts/header.php') ?>
+
+@if ( Session::has('success') )
+    <div style="position: fixed; top:90px; z-index: 1;" class="alert alert-success alert-dismissible" role="alert">
+        <strong>{{ Session::get('success') }}</strong>
+    </div>
+@endif
   <main class="main-content">
     <!--== Start Hero Area Wrapper ==-->
     <section class="home-slider-area">

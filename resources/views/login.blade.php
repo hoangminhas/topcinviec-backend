@@ -32,6 +32,11 @@
                 <div class="form-title">
                   <h4 class="title">Sign In</h4>
                 </div>
+                  @if ( Session::has('error') )
+                      <div class="alert alert-danger alert-dismissible" role="alert">
+                          <strong>{{ Session::get('error') }}</strong>
+                      </div>
+                  @endif
                 <form action="{{ url('login') }}" method="post">
                     @csrf
                   <div class="row">

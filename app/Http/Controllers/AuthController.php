@@ -39,10 +39,17 @@ class AuthController extends Controller
       }
     }
 
-    public function register(RegisterRequest $request)
+    public function register(Request $request)
     {
         $this->authService->register($request);
-        return response()->json('create user success', 201);
+        $token = $this->authService->register($request);
+        return response()->json(
+            [
+                'message'=>'Create user success',
+                'status' => 201,
+                'data'=> ['token' => $token->plainTextToken, 'data' => $data]
+            ]
+        );
     }
 
 }

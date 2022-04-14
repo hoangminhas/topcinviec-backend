@@ -13,7 +13,7 @@ class CreateRecruitersTable extends Migration
      */
     public function up()
     {
-        Schema::create('recruiters', function (Blueprint $table) {
+        Schema::create('recruiter', function (Blueprint $table) {
             $table->id();
             $table->string('profile_image');
             $table->string('banner_image');
@@ -34,6 +34,6 @@ class CreateRecruitersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('recruiters');
+        Schema::dropIfExists('recruiter');
     }
 }
