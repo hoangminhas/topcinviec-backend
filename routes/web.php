@@ -20,4 +20,4 @@ Route::post('login', [AuthController::class,'login']);
 
 Route::post('/register', function () {
     return view('registration');
-});
+
