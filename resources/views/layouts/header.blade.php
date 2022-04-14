@@ -94,7 +94,7 @@
             </div>
             <div class="header-align-end">
               <div class="header-action-area">
-                <a class="btn-registration" href="registration.php"><span>+</span> Registration</a>
+                <a class="btn-registration" href="{{route('posts.create')}}"><span>+</span>New Post</a>
                 <button class="btn-menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasMenu" aria-controls="AsideOffcanvasMenu">
                   <i class="icofont-navigation-menu"></i>
                 </button>

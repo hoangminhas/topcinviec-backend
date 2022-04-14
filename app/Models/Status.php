@@ -9,4 +9,8 @@ class Status extends Model
 {
     use HasFactory;
     public $table = "status";
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }

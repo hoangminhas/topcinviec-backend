@@ -126,7 +126,7 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <input type="checkbox" name="business_category_id" value=""> IT
-                                            <input type="checkbox" name="business_category_id" value=""> Marketing
+                                            <input type="checkbox" name="bgenderusiness_category_id" value=""> Marketing
                                             <input type="checkbox" name="business_category_id" value=""> Retail
                                             <input type="checkbox" name="business_category_id" value=""> Banking
                                         </div>
