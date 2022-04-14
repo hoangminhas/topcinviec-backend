@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -20,6 +21,7 @@ Route::post('login', [AuthController::class,'login'])->name('login');
 Route::post('/register', function () {
     return view('registration');
 });
+Route::get('candidates',[CandidateController::class, 'index']);
 
 Route::prefix('posts')->group(function (){
     Route::get('/',[PostController::class,'index'])->name('posts.index');
