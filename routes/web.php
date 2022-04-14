@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\WelcomeEmail;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 /*
@@ -22,12 +25,6 @@ Route::get('login',[AuthController::class,'showFormLogin'])->name('showFormLogin
 Route::post('login', [AuthController::class,'login'])->name('login');
 
 
-Route::get('login',[AuthController::class,'showFormLogin'])->name('showFormLogin');
-Route::post('login', [AuthController::class,'login'])->name('login');
-
-Route::post('/register', function () {
-    return view('registration');
-});
 Route::get('candidates',[CandidateController::class, 'index']);
 
 Route::prefix('posts')->group(function (){
@@ -36,6 +33,11 @@ Route::prefix('posts')->group(function (){
     Route::post('create',[PostController::class,'store'])->name('posts.store');
 });
 
+Route::get('/register', function () {
+    return view('registration');
+});
 Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::get('/send-welcomeEmail', [WelcomeEmail::class, 'sendWelcomeEmail'])->name('welcome-email');
+
 
 Route::get('/dashboard/post-list', [PostController::class, 'indexOfAdmin'])->name('backend.post.index');
