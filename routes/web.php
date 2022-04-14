@@ -18,6 +18,6 @@ Route::get('/login', function () {
 });
 Route::post('login', [AuthController::class,'login']);
 
-Route::get('/register', function () {
+Route::post('/register', function () {
     return view('registration');
-});
+
