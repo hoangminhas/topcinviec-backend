@@ -20,22 +20,24 @@ class AuthController extends Controller
     {
       if ( $this->authService->login($request))
       {
-          return response()->json(
-              [
-                  'status'=>true,
-                  'msg'=>'Dang nhap thanh cong'
-              ]
-          );
+          return redirect()->route('posts.index');
       }
-      else
-      {
-          return response()->json(
-              [
-                  'status'=>false,
-                  'msg'=>'Sai ten toan khoan hoac mat khau'
-              ]
-          );
-      }
+//          return response()->json(
+//              [
+//                  'status'=>true,
+//                  'msg'=>'Dang nhap thanh cong'
+//              ]
+//          );
+//      }
+//      else
+//      {
+//          return response()->json(
+//              [
+//                  'status'=>false,
+//                  'msg'=>'Sai ten toan khoan hoac mat khau'
+//              ]
+//          );
+//      }
     }
 
     public function register(RegisterRequest $request)
