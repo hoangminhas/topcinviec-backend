@@ -25,5 +25,7 @@ Route::get('candidates',[CandidateController::class, 'index']);
 
 Route::prefix('posts')->group(function (){
     Route::get('/',[PostController::class,'index'])->name('posts.index');
+    Route::get('create',[PostController::class,'create'])->name('posts.create');
+    Route::post('create',[PostController::class,'store'])->name('posts.store');
 });
 
