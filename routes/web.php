@@ -13,8 +13,8 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('login',[AuthController::class,'showFormLogin']);
-Route::post('login', [AuthController::class,'login']);
+Route::get('login',[AuthController::class,'showFormLogin'])->name('showFormLogin');
+Route::post('login', [AuthController::class,'login'])->name('login');
 
 Route::post('/register', function () {
     return view('registration');
