@@ -131,7 +131,8 @@
                                             <input type="checkbox" name="business_category_id" value=""> Banking
                                         </div>
                                     </div>
-
+                                    <input type="hidden" name="user_id" value="">
+                                    <input type="hidden" name="status_id" value="">
 
                                     <div class="col-12">
                                         <div class="form-group">
