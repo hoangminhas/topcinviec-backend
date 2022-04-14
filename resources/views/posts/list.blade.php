@@ -1,4 +1,5 @@
-<?php include('layouts/header.php') ?>
+@extends('layouts.header')
+
 
 <main class="main-content">
     <!--== Start Page Header Area Wrapper ==-->
@@ -33,7 +34,7 @@
                             <!--== Start Blog Post Item ==-->
                             <div class="post-item">
                                 <div class="thumb">
-                                    <a href="blog-details.blade.php"><img src="assets/img/blog/7.webp" alt="Image" width="370" height="270"></a>
+{{--                                    <a href="blog-details.blade.php"><img src="assets/img/blog/7.webp" alt="Image" width="30" height="30"></a>--}}
                                 </div>
                                 <div class="content">
                                     <h4 class="title"><a href="#">{{$post->title}}</a></h4>
@@ -188,4 +189,4 @@
     <!--== End Blog Area Wrapper ==-->
 </main>
 
-<?php include('layouts/footer.php') ?>
+@extends('layouts.footer')

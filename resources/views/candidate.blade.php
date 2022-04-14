@@ -1,4 +1,4 @@
-<?php include('layouts/header.php') ?>
+<?php include('layouts/header.blade.php') ?>
 
 <main class="main-content">
     <!--== Start Page Header Area Wrapper ==-->
@@ -263,4 +263,4 @@
     </section>
     <!--== End Team Area Wrapper ==-->
   </main>
-<?php include('layouts/footer.php') ?>
+<?php include('layouts/footer.blade.php') ?>
