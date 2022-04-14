@@ -22,4 +22,9 @@ class Post extends Model
         'posting_start',
         'posting_end'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
