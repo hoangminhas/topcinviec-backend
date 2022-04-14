@@ -14,6 +14,8 @@ class AuthController extends Controller
     {
         return $this->authService = $authService;
     }
+
+
     public function login (LoginFormRequest $request)
     {
       if ( $this->authService->login($request))
@@ -34,5 +36,10 @@ class AuthController extends Controller
               ]
           );
       }
+    }
+
+    public function showFormLogin()
+    {
+        return view('login');
     }
 }
