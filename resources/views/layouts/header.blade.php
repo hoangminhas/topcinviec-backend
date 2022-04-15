@@ -65,7 +65,8 @@
                       <li><a href="job-details.php"><span>Job Details</span></a></li>
                     </ul>
                   </li>
-                  <li><a href="employers-details.php"><span>Employers Details</span></a></li>
+
+                  <li><a href="{{route('posts.employers')}}"><span>Employers Details</span></a></li>
                   <li class="has-submenu"><a href="#/"><span>Candidates</span></a>
                     <ul class="submenu-nav">
                       <li><a href="candidate.php"><span>Candidates</span></a></li>

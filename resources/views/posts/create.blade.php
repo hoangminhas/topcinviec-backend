@@ -158,10 +158,9 @@
                                             @error('business_category_id')
                                             <p style="color: red">{{($message)}}</p>
                                             @enderror
-                                            <input type="checkbox" name="business_category_id" value=""> IT
-                                            <input type="checkbox" name="bgenderusiness_category_id" value=""> Marketing
-                                            <input type="checkbox" name="business_category_id" value=""> Retail
-                                            <input type="checkbox" name="business_category_id" value=""> Banking
+                                            @foreach($buns as $item)
+                                            <input type="checkbox" name="business_category_id" value="{{$item->id}}">{{$item->name}}
+                                            @endforeach
                                         </div>
                                     </div>
                                     <input type="hidden" name="user_id" value="">

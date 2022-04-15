@@ -45,11 +45,6 @@
                                         <span class="post-date">03 April, 2022</span>
                                         <span class="dots"></span>
                                         <span class="post-time">10 min read</span>
-                                        <td><a style="color: #0d730a" href="{{route('posts.edit',$post->id)}}">Update</a></td>
-                                        <td><a style="color: red" onclick="return confirm('Are you sure?')"
-                                               href="{{route('posts.destroy',$post->id)}}">Delete</a></td>
-
-
                                     </div>
                                 </div>
                             </div>

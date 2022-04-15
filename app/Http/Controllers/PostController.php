@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
+use App\Models\Business_categories;
 use App\Repositories\PostRepository;
 use App\Services\PostService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -36,11 +38,17 @@ class PostController extends Controller
         return view('posts.detail', compact('post'));
     }
 
+    public function employers()
+    {
+        $posts = $this->postService->getAll();
+        return view('posts.employers',compact('posts'));
+    }
     public function create()
     {
-        return view('posts.create');
+        $buns = Business_categories::all();
+        return view('posts.create',compact('buns'));
     }
-    public function store(PostRequest $request)
+    public function store(Request $request)
     {
         $this->postService->store($request);
         return redirect()->route('posts.index');
@@ -50,11 +58,12 @@ class PostController extends Controller
 
     public function edit($id)
     {
+        $buns = Business_categories::all();
         $post = $this->postService->getById($id);
-        return view('posts.update',compact('post'));
+        return view('posts.update',compact('post','buns'));
     }
 
-    public function update($id , PostRequest $request)
+    public function update($id , Request $request)
     {
         $this->postService->update($id,$request);
 
@@ -64,7 +73,7 @@ class PostController extends Controller
     public function destroy($id)
     {
         $this->postRepository->deleteById($id);
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.employers');
     }
 
 

@@ -24,11 +24,12 @@ class LoginFormRequest extends FormRequest
     public function rules()
     {
         return [
-           'email' => 'required|email',
+            'email' => 'required',
             'password' => 'required',
         ];
     }
-     public function messages()
+
+    public function messages()
     {
         $message = [
             'email.required' => 'Your email can not  empty',
