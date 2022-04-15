@@ -29,9 +29,9 @@
                     <div class="login-register-form-wrap">
                         <div class="login-register-form">
                             <div class="form-title">
-                                <h4 class="title">Create Job</h4>
+                                <h4 class="title">Update Job</h4>
                             </div>
-                            <form action="{{route('posts.store')}}" method="post">
+                            <form action="{{route('posts.update',$post->id)}}" method="post">
                                 @csrf
                                 <div class="row">
                                     <div class="col-12">
@@ -45,7 +45,7 @@
                                             @error('title')
                                             <p style="color: red">{{($message)}}</p>
                                             @enderror
-                                            <input class="form-control" name="title" type="text" value="{{old('title')}}">
+                                            <input class="form-control" name="title" type="text" value="{{$post->title}}">
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -56,7 +56,7 @@
                                             @error('content')
                                             <p style="color: red">{{($message)}}</p>
                                             @enderror
-                                            <textarea class="form-control" name="content" type="text">{{old('content')}}</textarea>
+                                            <textarea class="form-control" name="content" type="text">{{$post->content}}</textarea>
                                         </div>
                                     </div>
                                     <div class="col-6">
@@ -70,7 +70,7 @@
                                             @error('salary')
                                             <p style="color: red">{{($message)}}</p>
                                             @enderror
-                                            <input class="form-control" name="salary" type="text" value="{{old('salary')}}">
+                                            <input class="form-control" name="salary" type="text" value="{{$post->salary}}">
                                         </div>
                                     </div>
 
@@ -79,7 +79,7 @@
                                             @error('job_type')
                                             <p style="color: red">{{($message)}}</p>
                                             @enderror
-                                            <input class="form-control" name="job_type" type="text" value="{{old('job_type')}}">
+                                            <input class="form-control" name="job_type" type="text" value="{{$post->job_type}}">
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -90,7 +90,7 @@
                                             @error('job_level')
                                             <p style="color: red">{{($message)}}</p>
                                             @enderror
-                                            <input class="form-control" name="job_level" type="text" value="{{old('job_level')}}">
+                                            <input class="form-control" name="job_level" type="text" value="{{$post->job_level}}">
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -101,7 +101,7 @@
                                             @error('quantity')
                                             <p style="color: red">{{($message)}}</p>
                                             @enderror
-                                            <input class="form-control" name="quantity" type="number" value="{{old('quantity')}}">
+                                            <input class="form-control" name="quantity" type="number" value="{{$post->quantity}}">
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -125,7 +125,7 @@
                                             @error('experience')
                                             <p style="color: red">{{($message)}}</p>
                                             @enderror
-                                            <input class="form-control" type="text" name="experience" value="{{old('experience')}}">
+                                            <input class="form-control" type="text" name="experience" value="{{$post->experience}}">
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -136,7 +136,7 @@
                                             @error('posting_start')
                                             <p style="color: red">{{($message)}}</p>
                                             @enderror
-                                            <input class="form-control" type="date" name="posting_start" value="{{old('posting_start')}}">
+                                            <input class="form-control" type="date" name="posting_start" value="{{$post->posting_start}}">
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -147,7 +147,7 @@
                                             @error('posting_end')
                                             <p style="color: red">{{($message)}}</p>
                                             @enderror
-                                            <input class="form-control" type="date" name="posting_end" value="{{old('posting_end')}}">
+                                            <input class="form-control" type="date" name="posting_end" value="{{$post->posting_end}}">
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -158,10 +158,10 @@
                                             @error('business_category_id')
                                             <p style="color: red">{{($message)}}</p>
                                             @enderror
-                                            <input type="checkbox" name="business_category_id" value=""> IT
-                                            <input type="checkbox" name="bgenderusiness_category_id" value=""> Marketing
-                                            <input type="checkbox" name="business_category_id" value=""> Retail
-                                            <input type="checkbox" name="business_category_id" value=""> Banking
+                                            <input type="checkbox" name="business_category_id" value="{{$post->business_category_id}}"> IT
+                                            <input type="checkbox" name="business_category_id" value="{{$post->business_category_id}}"> Marketing
+                                            <input type="checkbox" name="business_category_id" value="{{$post->business_category_id}}"> Retail
+                                            <input type="checkbox" name="business_category_id" value="{{$post->business_category_id}}"> Banking
                                         </div>
                                     </div>
                                     <input type="hidden" name="user_id" value="">
@@ -184,3 +184,4 @@
     <!--== End Login Area Wrapper ==-->
 </main>
 @extends('layouts.footer')
+

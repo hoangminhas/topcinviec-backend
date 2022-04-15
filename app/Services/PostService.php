@@ -42,6 +42,25 @@ class PostService extends BaseService implements PostInterface
 
     public function update($id, $request)
     {
-        // TODO: Implement update() method.
+        $post =$this->postRepository->getById($id);
+//        dd($post);
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->salary = $request->salary;
+        $post->job_type = $request->job_type;
+        $post->job_level = $request->job_level;
+        $post->quantity = $request->quantity;
+        $post->gender = $request->gender_field;
+        $post->experience = $request->experience;
+        $post->posting_start = $request->posting_start;
+        $post->posting_end = $request->posting_end;
+//        $post->status_id = $request->status ?? 1;
+        $post->user_id = Auth::user()->id;
+        $post->save();
+    }
+
+    public function getById($id)
+    {
+        return $this->postRepository->getById($id);
     }
 }
