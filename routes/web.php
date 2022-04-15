@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RecruiterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 /*
@@ -34,6 +35,11 @@ Route::prefix('posts')->group(function (){
     Route::get('/',[PostController::class,'index'])->name('posts.index');
     Route::get('create',[PostController::class,'create'])->name('posts.create');
     Route::post('create',[PostController::class,'store'])->name('posts.store');
+});
+
+Route::prefix('/recruiters')->group(function () {
+    Route::get('/' ,[RecruiterController::class, 'index'])->name('recruiters.index');
+    Route::get('/edit/{id}',[RecruiterController::class, 'update'])->name('recruiters.update');
 });
 
 Route::post('/register', [AuthController::class, 'register'])->name('register');
