@@ -53,7 +53,6 @@ class RecruiterController extends Controller
         return redirect()->route('recruiters.index');
     }
 
-
     public function destroy($id)
     {
         $this->recruiterRepository->deleteById($id);

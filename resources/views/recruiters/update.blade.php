@@ -38,12 +38,21 @@
                                     <div class="col-12">
                                         <h4>Recruiter Information</h4>
                                     </div>
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
                                     <div class="col-12">
                                         <label>Profile Image<font style="color:red;">*</font></label>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input class="form-control" name="profile_image" type="text" value="{{$recruiter->profile_image}}">
+                                            <input class="form-control" name="profile_image" type="file" value="{{$recruiter->profile_image}}">
                                         </div>
                                     </div>
 
@@ -52,9 +61,10 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input class="form-control" name="banner_image" type="text" value="{{$recruiter->banner_image}}">
+                                            <input class="form-control" name="banner_image" type="file" value="{{$recruiter->banner_image}}">
                                         </div>
                                     </div>
+
                                     <input type="hidden" name="user_id" value="{{$recruiter->user_id}}">
                                     <input type="hidden" name="status_id" value="{{$recruiter->status_id}}">
                                     <input type="hidden" name="business_category_id" value="{{$recruiter->business_category_id}}">
