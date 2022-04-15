@@ -32,7 +32,7 @@
                             <div class="form-title">
                                 <h4 class="title">Update Information</h4>
                             </div>
-                            <form action="{{route('recruiters.update',$recruiter->id)}}" method="post">
+                            <form action="{{route('recruiters.update',$recruiter->id)}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-12">
