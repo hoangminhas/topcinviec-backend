@@ -18,12 +18,16 @@ use App\Http\Controllers\AuthController;
 |
 */
 Route::get('/', function () {
-   return view('backend.dashboard');
+    return view('backend.dashboard');
 });
 
 Route::get('login',[AuthController::class,'showFormLogin'])->name('showFormLogin');
 Route::post('login', [AuthController::class,'login'])->name('login');
 
+
+Route::get('login',[AuthController::class,'showFormLogin'])->name('showFormLogin');
+Route::post('login', [AuthController::class,'login'])->name('login');
+Route::get('logout',[AuthController::class,'logout'])->name('logout');
 
 Route::get('candidates',[CandidateController::class, 'index']);
 
@@ -31,6 +35,9 @@ Route::prefix('posts')->group(function (){
     Route::get('/',[PostController::class,'index'])->name('posts.index');
     Route::get('create',[PostController::class,'create'])->name('posts.create');
     Route::post('create',[PostController::class,'store'])->name('posts.store');
+    Route::get('edit/{id}',[PostController::class,'edit'])->name('posts.edit');
+    Route::post('update/{id}',[PostController::class,'update'])->name('posts.update');
+    Route::get('delete/{id}',[PostController::class,'destroy'])->name('posts.destroy');
 });
 
 Route::get('/register', function () {
