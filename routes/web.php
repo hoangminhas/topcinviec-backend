@@ -38,6 +38,7 @@ Route::prefix('posts')->group(function (){
     Route::get('edit/{id}',[PostController::class,'edit'])->name('posts.edit');
     Route::post('update/{id}',[PostController::class,'update'])->name('posts.update');
     Route::get('detail/{id}',[PostController::class,'detail'])->name('posts.detail');
+    Route::get('employers/',[PostController::class,'employers'])->name('posts.employers');
     Route::get('delete/{id}',[PostController::class,'destroy'])->name('posts.destroy');
 });
 
