@@ -15,7 +15,7 @@ use App\Http\Controllers\AuthController;
 |
 */
 Route::get('/', function () {
-    return view('backend.dashboard');
+    return view('posts.detail');
 });
 
 Route::get('login',[AuthController::class,'showFormLogin'])->name('showFormLogin');
@@ -39,6 +39,7 @@ Route::prefix('posts')->group(function (){
     Route::post('create',[PostController::class,'store'])->name('posts.store');
     Route::get('edit/{id}',[PostController::class,'edit'])->name('posts.edit');
     Route::post('update/{id}',[PostController::class,'update'])->name('posts.update');
+    Route::get('detail/{id}',[PostController::class,'detail'])->name('posts.detail');
     Route::get('delete/{id}',[PostController::class,'destroy'])->name('posts.destroy');
 });
 

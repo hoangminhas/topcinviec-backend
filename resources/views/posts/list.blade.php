@@ -39,7 +39,7 @@
                                 <div class="content">
                                     <div class="text-center"><h3>{{$post->user->name}}</h3></div>
 
-                                    <h4 class="title"><a href="#">{{$post->title}}</a></h4>
+                                    <h4 class="title"><a href="{{route('posts.detail',$post->id)}}">{{$post->title}}</a></h4>
                                     <p>{{$post->content}}</p>
                                     <div class="meta">
                                         <span class="post-date">03 April, 2022</span>
