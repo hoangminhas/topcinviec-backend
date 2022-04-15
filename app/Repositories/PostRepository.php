@@ -12,4 +12,9 @@ class PostRepository extends BaseRepository implements BaseInterface
     {
         return Post::class;
     }
+
+    public function getAllDesc()
+    {
+        return $this->model::all()->sortByDesc('id')->values();
+    }
 }

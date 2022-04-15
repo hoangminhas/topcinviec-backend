@@ -32,4 +32,5 @@ class Post extends Model
     {
         return $this->belongsTo(Status::class);
     }
+
 }

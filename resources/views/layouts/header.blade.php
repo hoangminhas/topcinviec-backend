@@ -58,7 +58,7 @@
             <div class="header-align-center">
               <div class="header-navigation-area position-relative">
                 <ul class="main-menu nav">
-                  <li><a href="index.php"><span>Home</span></a></li>
+                  <li><a href="{{route('home')}}"><span>Home</span></a></li>
                   <li class="has-submenu"><a href="#/"><span>Find Jobs</span></a>
                     <ul class="submenu-nav">
                       <li><a href="job.php"><span>Jobs</span></a></li>
@@ -95,8 +95,13 @@
             </div>
             <div class="header-align-end">
               <div class="header-action-area">
+                  @if(\Illuminate\Support\Facades\Auth::check())
                 <a class="btn-registration" href="{{route('posts.create')}}"><span>+</span>New Post</a>
-                <button class="btn-menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasMenu" aria-controls="AsideOffcanvasMenu">
+                <a class="btn-registration" href="{{route('logout')}}"><span>+</span>Logout</a>
+                  @else
+                      <a class="btn-registration" href="{{route('formRegister')}}"><span>+</span>Register</a>
+                  @endif
+                      <button class="btn-menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasMenu" aria-controls="AsideOffcanvasMenu">
                   <i class="icofont-navigation-menu"></i>
                 </button>
               </div>
