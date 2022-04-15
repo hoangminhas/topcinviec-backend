@@ -39,11 +39,17 @@
                       <div class="form-group">
                         <input class="form-control" name="email" type="email" placeholder="Email">
                       </div>
+                        @error('email')
+                        <p style="color:red">{{$message}}</p>
+                        @enderror
                     </div>
                     <div class="col-12">
                       <div class="form-group">
                         <input class="form-control" name="password" type="password" placeholder="Password">
                       </div>
+                        @error('password')
+                        <p style="color:red">{{$message}}</p>
+                        @enderror
                     </div>
                     <div class="col-12">
                       <div class="form-group">
