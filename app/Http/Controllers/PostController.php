@@ -42,7 +42,24 @@ class PostController extends Controller
     }
 
 
+    public function edit($id)
+    {
+        $post = $this->postService->getById($id);
+        return view('posts.update',compact('post'));
+    }
 
+    public function update($id , Request $request)
+    {
+        $this->postService->update($id,$request);
+
+        return redirect()->route('posts.index');
+    }
+
+    public function destroy($id)
+    {
+        $this->postRepository->deleteById($id);
+        return redirect()->route('posts.index');
+    }
 
 
 }
