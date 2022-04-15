@@ -34,7 +34,7 @@ class PostRequest extends FormRequest
             'experience'=>'required',
             'posting_start'=>'required',
             'posting_end'=>'required',
-            'business_category_id'=>'required'
+//            'business_category_id'=>'required'
         ];
     }
     public function messages()
@@ -52,7 +52,7 @@ class PostRequest extends FormRequest
             'experience.required'=>'You must fill the experience of your post',
             'posting_start.required'=>'You must fill the posting_start of your post',
             'posting_end.required'=>'You must fill the posting_end of your post',
-            'business_category_id.required'=>'You must fill the business_category_id of your post'
+//            'business_category_id.required'=>'You must fill the business_category_id of your post'
         ];
     }
 }
