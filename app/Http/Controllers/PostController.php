@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostRequest;
 use App\Repositories\PostRepository;
 use App\Services\PostService;
 use Illuminate\Http\Request;
@@ -29,11 +30,17 @@ class PostController extends Controller
         return view('backend.posts.list', compact('posts'));
     }
 
+    public function detail($id)
+    {
+        $post = $this->postService->getById($id);
+        return view('posts.detail', compact('post'));
+    }
+
     public function create()
     {
         return view('posts.create');
     }
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
         $this->postService->store($request);
         return redirect()->route('posts.index');
@@ -41,14 +48,13 @@ class PostController extends Controller
 
     }
 
-
     public function edit($id)
     {
         $post = $this->postService->getById($id);
         return view('posts.update',compact('post'));
     }
 
-    public function update($id , Request $request)
+    public function update($id , PostRequest $request)
     {
         $this->postService->update($id,$request);
 

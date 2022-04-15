@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use App\Http\Requests\LoginFormRequest;
+use App\Notifications\WelcomeEmailNotification;
 use App\Services\AuthService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,9 +16,12 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
     public $authService;
-    public function __construct(AuthService $authService)
+    public $welcomeEmail;
+    public function __construct(AuthService $authService,
+                                WelcomeEmail $welcomeEmail)
     {
         $this->authService = $authService;
+        $this->welcomeEmail = $welcomeEmail;
     }
     public function login (LoginFormRequest $request)
     {
@@ -45,7 +49,10 @@ class AuthController extends Controller
 
     public function register(RegisterRequest $request)
     {
-        $this->authService->register($request);
+        $user = $request->only('name', 'email', 'password', 'role_id', 'phone');
+        $this->authService->register($user);
+//        $user->notify(new WelcomeEmailNotification());
+        $this->welcomeEmail->sendWelcomeEmail();
         return redirect()->route('login');
 //        return response()->json('create user success', 201);
     }
