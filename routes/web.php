@@ -30,11 +30,17 @@ Route::post('/register', function () {
 });
 Route::get('candidates',[CandidateController::class, 'index']);
 
+
+
 Route::prefix('posts')->group(function (){
     Route::get('/',[PostController::class,'index'])->name('posts.index');
     Route::get('create',[PostController::class,'create'])->name('posts.create');
     Route::post('create',[PostController::class,'store'])->name('posts.store');
+    Route::get('edit/{id}',[PostController::class,'edit'])->name('posts.edit');
+    Route::post('update/{id}',[PostController::class,'update'])->name('posts.update');
 });
+
+
 
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 
