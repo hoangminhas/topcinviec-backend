@@ -45,8 +45,6 @@
             </div>
 
 
-
-
             <div class="row">
                 <div class="col-lg-7 col-xl-8">
                     <div class="job-details-item">
@@ -66,7 +64,9 @@
                         <div class="content">
                             <h4 class="title">Benefits</h4>
                             <ul class="job-details-list">
-                                <li><i class="icofont-check"></i> Work in a flat organization where your voice is always heard.</li>
+                                <li><i class="icofont-check"></i> Work in a flat organization where your voice is always
+                                    heard.
+                                </li>
                                 <li><i class="icofont-check"></i> Provident fund.</li>
                                 <li><i class="icofont-check"></i> Gratuity.</li>
                                 <li><i class="icofont-check"></i> Medical Fund.</li>
@@ -84,20 +84,26 @@
                                 <li><i class="icofont-check"></i> Knowledge Sharing Session.</li>
                                 <li><i class="icofont-check"></i> Leave Encashment Facilities.</li>
                                 <li><i class="icofont-check"></i> Work with a vibrant team and amazing products.</li>
-                                <li><i class="icofont-check"></i> Table Tennis(Ping Pong) :table_tennis_paddle_and_ball:</li>
-                                <li><i class="icofont-check"></i> Training and learning materials to improve skills.</li>
-                                <li><i class="icofont-check"></i> Last but not the least, WorldClass Work Environment.</li>
+                                <li><i class="icofont-check"></i> Table Tennis(Ping Pong) :table_tennis_paddle_and_ball:
+                                </li>
+                                <li><i class="icofont-check"></i> Training and learning materials to improve skills.
+                                </li>
+                                <li><i class="icofont-check"></i> Last but not the least, WorldClass Work Environment.
+                                </li>
                             </ul>
                         </div>
                         <div class="content">
                             <h4 class="title">Statement</h4>
-                            <p class="desc">Finate is committed to creating the happiest company working for and is proud to provide equal opportunity to all. All the qualified applicants will receive consideration for employment without regard to race, color, ancestry, religion, sex,  sexual orientation, age, citizenship, marital status, disability, gender identity, or any other basis protected by federal, state, or local law.</p>
-                            <a class="btn-apply-now" href="contact.blade.php">Apply Now <i class="icofont-long-arrow-right"></i></a>
+                            <p class="desc">Finate is committed to creating the happiest company working for and is
+                                proud to provide equal opportunity to all. All the qualified applicants will receive
+                                consideration for employment without regard to race, color, ancestry, religion, sex,
+                                sexual orientation, age, citizenship, marital status, disability, gender identity, or
+                                any other basis protected by federal, state, or local law.</p>
+                            <a class="btn-apply-now" href="contact.blade.php">Apply Now <i
+                                    class="icofont-long-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-
-
 
 
                 <div class="col-lg-5 col-xl-4">
@@ -124,31 +130,33 @@
                                         <td class="dotted">:</td>
                                         <td>{{$post->posting_start}}</td>
                                     </tr>
-                                    <tr>
-                                        <td class="table-name">Salary</td>
-                                        <td class="dotted">:</td>
-                                        <td>{{$post->salary}} / Monthly</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table-name">Experience</td>
-                                        <td class="dotted">:</td>
-                                        <td>{{$post->experience}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table-name">Gender</td>
-                                        <td class="dotted">:</td>
-                                        <td>{{$post->gender}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table-name">Level</td>
-                                        <td class="dotted">:</td>
-                                        <td>{{$post->job_level}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table-name">Expired</td>
-                                        <td class="dotted">:</td>
-                                        <td data-text-color="#ff6000">{{$post->posting_end}}</td>
-                                    </tr>
+                                    @if(\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()->role_id !== 1)
+                                        <tr>
+                                            <td class="table-name">Salary</td>
+                                            <td class="dotted">:</td>
+                                            <td>{{$post->salary}} / Monthly</td>
+                                        </tr>
+                                    @endif
+                                        <tr>
+                                            <td class="table-name">Experience</td>
+                                            <td class="dotted">:</td>
+                                            <td>{{$post->experience}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="table-name">Gender</td>
+                                            <td class="dotted">:</td>
+                                            <td>{{$post->gender}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="table-name">Level</td>
+                                            <td class="dotted">:</td>
+                                            <td>{{$post->job_level}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="table-name">Expired</td>
+                                            <td class="dotted">:</td>
+                                            <td data-text-color="#ff6000">{{$post->posting_end}}</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -158,11 +166,16 @@
                                 <h3 class="title">Share With</h3>
                             </div>
                             <div class="social-icons">
-                                <a href="https://www.facebook.com" target="_blank" rel="noopener"><i class="icofont-facebook"></i></a>
-                                <a href="https://twitter.com" target="_blank" rel="noopener"><i class="icofont-twitter"></i></a>
-                                <a href="https://www.skype.com" target="_blank" rel="noopener"><i class="icofont-skype"></i></a>
-                                <a href="https://www.pinterest.com" target="_blank" rel="noopener"><i class="icofont-pinterest"></i></a>
-                                <a href="https://dribbble.com/" target="_blank" rel="noopener"><i class="icofont-dribbble"></i></a>
+                                <a href="https://www.facebook.com" target="_blank" rel="noopener"><i
+                                        class="icofont-facebook"></i></a>
+                                <a href="https://twitter.com" target="_blank" rel="noopener"><i
+                                        class="icofont-twitter"></i></a>
+                                <a href="https://www.skype.com" target="_blank" rel="noopener"><i
+                                        class="icofont-skype"></i></a>
+                                <a href="https://www.pinterest.com" target="_blank" rel="noopener"><i
+                                        class="icofont-pinterest"></i></a>
+                                <a href="https://dribbble.com/" target="_blank" rel="noopener"><i
+                                        class="icofont-dribbble"></i></a>
                             </div>
                         </div>
                         <div class="widget-item widget-tag">
