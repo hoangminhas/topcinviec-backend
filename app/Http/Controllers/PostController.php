@@ -29,6 +29,12 @@ class PostController extends Controller
         return view('backend.posts.list', compact('posts'));
     }
 
+    public function detail($id)
+    {
+        $post = $this->postService->getById($id);
+        return view('posts.detail', compact('post'));
+    }
+
     public function create()
     {
         return view('posts.create');
@@ -40,7 +46,6 @@ class PostController extends Controller
 //        return response()->json("Success",201);
 
     }
-
 
     public function edit($id)
     {
