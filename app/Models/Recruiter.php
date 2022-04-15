@@ -16,4 +16,9 @@ class Recruiter extends Model
         'status_id',
         'business_category_id'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

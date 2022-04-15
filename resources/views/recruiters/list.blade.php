@@ -26,9 +26,9 @@
     <section class="team-area team-inner2-area">
       <div class="container">
         <div class="row">
+              @foreach($recruiters as $recruiter)
           <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
             <!--== Start Team Item ==-->
-{{--              @foreach($recruiters as $recruiter)--}}
             <div class="team-item">
               <div class="thumb">
                 <a href="../candidate-details.blade.php">
@@ -38,7 +38,6 @@
               <div class="content">
                 <h4 class="title"><a href="../candidate-details.blade.php">Lauran Benitez</a></h4>
                   <h5 class="sub-title">Web Designer</h5>
-{{--                  <h5 class="sub-title"><?= $candidate->education?></h5>--}}
                 <div class="rating-box">
                   <i class="icofont-star"></i>
                   <i class="icofont-star"></i>
@@ -46,15 +45,14 @@
                   <i class="icofont-star"></i>
                   <i class="icofont-star"></i>
                 </div>
-{{--                <p class="desc"><?= $candidate->experience ?></p>--}}
                 <a class="btn-theme btn-white btn-sm" href="../candidate-details.blade.php">View Profile</a>
               </div>
               <div class="bookmark-icon"><img src="assets/img/icons/bookmark1.webp" alt="Image-HasTech"></div>
-              <div class="bookmark-icon-hover"><img src="assets/img/icons/bookmark2.webp" alt="Image-HasTech"></div>
+              <div class="bookmark-icon-hover"><img src="{{asset('assets/img/icons/bookmark2.webp')}}" alt="Image-HasTech"></div>
             </div>
-{{--              @endforeach--}}
             <!--== End Team Item ==-->
           </div>
+              @endforeach
 
         </div>
         <div class="row">

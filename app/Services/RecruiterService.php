@@ -12,7 +12,7 @@ class RecruiterService extends BaseService implements RecruiterInterface
     public $recruiterRepository;
     public function __construct(RecruiterRepository $recruiterRepository)
     {
-        $this>$this->recruiterRepository = $recruiterRepository;
+        $this->recruiterRepository = $recruiterRepository;
     }
 
     public function getAll()
@@ -31,6 +31,18 @@ class RecruiterService extends BaseService implements RecruiterInterface
     }
     public function update($id, $request)
     {
-        // TODO: Implement update() method.
+        $recruiter = $this->recruiterRepository->getById($id);
+//        dd($recruiter);
+        $recruiter->profile_image = $request->profile_image;
+        $recruiter->banner_image = $request->banner_image;
+        $recruiter->user_id = $request->user_id;
+        $recruiter->status_id = $request->status_id;
+        $recruiter->business_category_id = $request->business_category_id;
+        $recruiter->save();
+
+    }
+    public function getById($id)
+    {
+        return $this->recruiterRepository->getById($id);
     }
 }

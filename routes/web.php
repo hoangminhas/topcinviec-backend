@@ -22,9 +22,9 @@ Route::get('/', function () {
 Route::get('login',[AuthController::class,'showFormLogin'])->name('showFormLogin');
 Route::post('login', [AuthController::class,'login'])->name('login');
 
-
 Route::get('login',[AuthController::class,'showFormLogin'])->name('showFormLogin');
 Route::post('login', [AuthController::class,'login'])->name('login');
+Route::get('logout',[AuthController::class,'logout'])->name('logout');
 
 Route::post('/register', function () {
     return view('registration');
@@ -35,11 +35,16 @@ Route::prefix('posts')->group(function (){
     Route::get('/',[PostController::class,'index'])->name('posts.index');
     Route::get('create',[PostController::class,'create'])->name('posts.create');
     Route::post('create',[PostController::class,'store'])->name('posts.store');
+    Route::get('edit/{id}',[PostController::class,'edit'])->name('posts.edit');
+    Route::post('update/{id}',[PostController::class,'update'])->name('posts.update');
+    Route::get('delete/{id}',[PostController::class,'destroy'])->name('posts.destroy');
 });
 
 Route::prefix('/recruiters')->group(function () {
     Route::get('/' ,[RecruiterController::class, 'index'])->name('recruiters.index');
-    Route::get('/edit/{id}',[RecruiterController::class, 'update'])->name('recruiters.update');
+    Route::get('/edit/{id}',[RecruiterController::class, 'edit'])->name('recruiters.edit');
+    Route::post('/edit/{id}', [RecruiterController::class, 'update'])->name('recruiters.update');
+//    Route::get('delete/{id}', [RecruiterController::class, 'destroy'])->name('recruiters.destroy');
 });
 
 Route::post('/register', [AuthController::class, 'register'])->name('register');
