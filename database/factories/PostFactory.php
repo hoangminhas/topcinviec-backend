@@ -24,6 +24,9 @@ class PostFactory extends Factory
             'experience'=>$this->faker->text(),
             'posting_start'=>$this->faker->date(),
             'posting_end'=>$this->faker->date(),
+            'business_category_id'=>rand(1,4),
+            'user_id'=>rand(1,5),
+            'status_id'=>rand(1,2)
         ];
     }
 }
