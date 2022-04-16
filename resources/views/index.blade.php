@@ -1,4 +1,5 @@
-<?php include('layouts/header.blade.php') ?>
+<?php //include('layouts/header.blade.php') ?>
+@extends('layouts.header')
   <main class="main-content">
     <!--== Start Hero Area Wrapper ==-->
     <section class="home-slider-area">
@@ -10,8 +11,8 @@
                 <div class="row justify-content-center align-items-center">
                   <div class="col-12 col-lg-8">
                     <div class="slider-content">
-                      <h2 class="title"><span class="counter" data-counterup-delay="80">2,568</span> job available <br>You can choose your dream job</h2>
-                      <p class="desc">Find great job for build your bright career. Have many job in this plactform.</p>
+                      <h2 class="title"><span class="counter" data-counterup-delay="80">{{$totalPosts}}</span> job available <br>You can choose your dream job</h2>
+                      <p class="desc">Find great job for build your bright career. Have many job in this platform.</p>
                     </div>
                   </div>
                   <div class="col-12">
@@ -28,7 +29,6 @@
                               <div class="form-group">
                                 <select class="form-control">
                                   <option value="1" selected>Choose City</option>
-
                                 </select>
                               </div>
                             </div>
@@ -36,11 +36,9 @@
                               <div class="form-group">
                                 <select class="form-control">
                                   <option value="1" selected>Category</option>
-                                  <option value="2">Web Designer</option>
-                                  <option value="3">Web Developer</option>
-                                  <option value="4">Graphic Designer</option>
-                                  <option value="5">App Developer</option>
-                                  <option value="6">UI &amp; UX Expert</option>
+                                  @foreach($businessCategory as $category)
+                                  <option value="{{$category->id}}">{{$category->name}}</option>
+                                    @endforeach
                                 </select>
                               </div>
                             </div>
@@ -94,126 +92,18 @@
           </div>
         </div>
         <div class="row row-gutter-20" >
+            @foreach($businessCategory as $category)
           <div class="col-sm-6 col-lg-3">
             <!--== Start Job Category Item ==-->
             <div class="job-category-item">
               <div class="content">
-                <h3 class="title"><a href="job-details.blade.php">Accounting/Finance <span>(305)</span></a></h3>
+                <h3 class="title"><a href="job-details.blade.php">{{$category->name}} <span>(305)</span></a></h3>
               </div>
               <a class="overlay-link" href="job-details.blade.php"></a>
             </div>
             <!--== End Job Category Item ==-->
           </div>
-          <div class="col-sm-6 col-lg-3">
-            <!--== Start Job Category Item ==-->
-            <div class="job-category-item">
-              <div class="content">
-                <h3 class="title"><a href="job-details.blade.php">Production/Operation <span>(95)</span></a></h3>
-              </div>
-              <a class="overlay-link" href="job-details.blade.php"></a>
-            </div>
-            <!--== End Job Category Item ==-->
-          </div>
-          <div class="col-sm-6 col-lg-3">
-            <!--== Start Job Category Item ==-->
-            <div class="job-category-item">
-              <div class="content">
-                <h3 class="title"><a href="job-details.blade.php">Education/Training <span>(212)</span></a></h3>
-              </div>
-              <a class="overlay-link" href="job-details.blade.php"></a>
-            </div>
-            <!--== End Job Category Item ==-->
-          </div>
-          <div class="col-sm-6 col-lg-3">
-            <!--== Start Job Category Item ==-->
-            <div class="job-category-item">
-              <div class="content">
-                <h3 class="title"><a href="job-details.blade.php">Design/Creative <span>(93)</span></a></h3>
-              </div>
-              <a class="overlay-link" href="job-details.blade.php"></a>
-            </div>
-            <!--== End Job Category Item ==-->
-          </div>
-          <div class="col-sm-6 col-lg-3">
-            <!--== Start Job Category Item ==-->
-            <div class="job-category-item">
-              <div class="content">
-                <h3 class="title"><a href="job-details.blade.php">Health & Fitness <span>(4)</span></a></h3>
-              </div>
-              <a class="overlay-link" href="job-details.blade.php"></a>
-            </div>
-            <!--== End Job Category Item ==-->
-          </div>
-          <div class="col-sm-6 col-lg-3">
-            <!--== Start Job Category Item ==-->
-            <div class="job-category-item">
-              <div class="content">
-                <h3 class="title"><a href="job-details.blade.php">Research/Consultancy <span>(34)</span></a></h3>
-              </div>
-              <a class="overlay-link" href="job-details.blade.php"></a>
-            </div>
-            <!--== End Job Category Item ==-->
-          </div>
-          <div class="col-sm-6 col-lg-3">
-            <!--== Start Job Category Item ==-->
-            <div class="job-category-item">
-              <div class="content">
-                <h3 class="title"><a href="job-details.blade.php">Engineer/Architects <span>(376)</span></a></h3>
-              </div>
-              <a class="overlay-link" href="job-details.blade.php"></a>
-            </div>
-            <!--== End Job Category Item ==-->
-          </div>
-          <div class="col-sm-6 col-lg-3">
-            <!--== Start Job Category Item ==-->
-            <div class="job-category-item">
-              <div class="content">
-                <h3 class="title"><a href="job-details.blade.php">Telecommunication <span>(450)</span></a></h3>
-              </div>
-              <a class="overlay-link" href="job-details.blade.php"></a>
-            </div>
-            <!--== End Job Category Item ==-->
-          </div>
-          <div class="col-sm-6 col-lg-3">
-            <!--== Start Job Category Item ==-->
-            <div class="job-category-item">
-              <div class="content">
-                <h3 class="title"><a href="job-details.blade.php">Data Entry/Operator <span>(25)</span></a></h3>
-              </div>
-              <a class="overlay-link" href="job-details.blade.php"></a>
-            </div>
-            <!--== End Job Category Item ==-->
-          </div>
-          <div class="col-sm-6 col-lg-3">
-            <!--== Start Job Category Item ==-->
-            <div class="job-category-item">
-              <div class="content">
-                <h3 class="title"><a href="job-details.blade.php">Production/Operation <span>(95)</span></a></h3>
-              </div>
-              <a class="overlay-link" href="job-details.blade.php"></a>
-            </div>
-            <!--== End Job Category Item ==-->
-          </div>
-          <div class="col-sm-6 col-lg-3">
-            <!--== Start Job Category Item ==-->
-            <div class="job-category-item">
-              <div class="content">
-                <h3 class="title"><a href="job-details.blade.php">Marketing/Sales <span>(666)</span></a></h3>
-              </div>
-              <a class="overlay-link" href="job-details.blade.php"></a>
-            </div>
-            <!--== End Job Category Item ==-->
-          </div>
-          <div class="col-sm-6 col-lg-3">
-            <!--== Start Job Category Item ==-->
-            <div class="job-category-item">
-              <div class="content">
-                <h3 class="title"><a href="job-details.blade.php">Security/Support Service <span>(62)</span></a></h3>
-              </div>
-              <a class="overlay-link" href="job-details.blade.php"></a>
-            </div>
-            <!--== End Job Category Item ==-->
-          </div>
+            @endforeach
         </div>
       </div>
     </section>
@@ -233,250 +123,39 @@
           </div>
         </div>
         <div class="row">
+            @foreach($posts as $post)
           <div class="col-md-6 col-lg-4">
             <!--== Start Recent Job Item ==-->
             <div class="recent-job-item">
               <div class="company-info">
                 <div class="logo">
-                  <a href="company-details.php"><img src="assets/img/companies/1.webp" width="75" height="75" alt="Image-HasTech"></a>
+                  <a href="company-details.php"><img src="{{$post->user->recruiter->profile_image}}" width="75" height="75" alt="Image-HasTech"></a>
                 </div>
                 <div class="content">
-                  <h4 class="name"><a href="company-details.php">Darkento Ltd.</a></h4>
+                  <h4 class="name"><a href="company-details.php">{{$post->user->name}}</a></h4>
                   <p class="address">New York, USA</p>
                 </div>
               </div>
               <div class="main-content">
-                <h3 class="title"><a href="job-details.blade.php">Front-end Developer</a></h3>
-                <h5 class="work-type">Full-time</h5>
+                <h3 class="title"><a href="job-details.blade.php">{{$post->title}}</a></h3>
+                <h5 class="work-type">{{$post->job_type}}</h5>
                 <p class="desc">CSS3, HTML5, Javascript, Bootstrap, Jquery</p>
               </div>
               <div class="recent-job-info">
+                  @if(\Illuminate\Support\Facades\Auth::check())
                 <div class="salary">
-                  <h4>$5000</h4>
+                  <h4>{{$post->salary}}</h4>
                   <p>/monthly</p>
                 </div>
+                  @endif
                 <a class="btn-theme btn-sm" href="job-details.blade.php">Apply Now</a>
               </div>
             </div>
             <!--== End Recent Job Item ==-->
           </div>
-          <div class="col-md-6 col-lg-4">
-            <!--== Start Recent Job Item ==-->
-            <div class="recent-job-item">
-              <div class="company-info">
-                <div class="logo">
-                  <a href="company-details.php"><img src="assets/img/companies/2.webp" width="75" height="75" alt="Image-HasTech"></a>
-                </div>
-                <div class="content">
-                  <h4 class="name"><a href="company-details.php">Inspire Fitness Co.</a></h4>
-                  <p class="address">New York, USA</p>
-                </div>
-              </div>
-              <div class="main-content">
-                <h3 class="title"><a href="job-details.blade.php">Senior UI Designer</a></h3>
-                <h5 class="work-type" data-text-color="#ff7e00">Part-time</h5>
-                <p class="desc">CSS3, HTML5, Javascript, Bootstrap, Jquery</p>
-              </div>
-              <div class="recent-job-info">
-                <div class="salary">
-                  <h4>$5000</h4>
-                  <p>/monthly</p>
-                </div>
-                <a class="btn-theme btn-sm" href="job-details.blade.php">Apply Now</a>
-              </div>
-            </div>
-            <!--== End Recent Job Item ==-->
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <!--== Start Recent Job Item ==-->
-            <div class="recent-job-item">
-              <div class="company-info">
-                <div class="logo">
-                  <a href="company-details.php"><img src="assets/img/companies/3.webp" width="75" height="75" alt="Image-HasTech"></a>
-                </div>
-                <div class="content">
-                  <h4 class="name"><a href="company-details.php">Cogent Data</a></h4>
-                  <p class="address">New York, USA</p>
-                </div>
-              </div>
-              <div class="main-content">
-                <h3 class="title"><a href="job-details.blade.php">Graphic Designer</a></h3>
-                <h5 class="work-type" data-text-color="#0054ff">Remote</h5>
-                <p class="desc">CSS3, HTML5, Javascript, Bootstrap, Jquery</p>
-              </div>
-              <div class="recent-job-info">
-                <div class="salary">
-                  <h4>$5000</h4>
-                  <p>/monthly</p>
-                </div>
-                <a class="btn-theme btn-sm" href="job-details.blade.php">Apply Now</a>
-              </div>
-            </div>
-            <!--== End Recent Job Item ==-->
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <!--== Start Recent Job Item ==-->
-            <div class="recent-job-item">
-              <div class="company-info">
-                <div class="logo">
-                  <a href="company-details.php"><img src="assets/img/companies/4.webp" width="75" height="75" alt="Image-HasTech"></a>
-                </div>
-                <div class="content">
-                  <h4 class="name"><a href="company-details.php">Obelus Concepts</a></h4>
-                  <p class="address">New York, USA</p>
-                </div>
-              </div>
-              <div class="main-content">
-                <h3 class="title"><a href="job-details.blade.php">UX Researcher</a></h3>
-                <h5 class="work-type">Full-time</h5>
-                <p class="desc">CSS3, HTML5, Javascript, Bootstrap, Jquery</p>
-              </div>
-              <div class="recent-job-info">
-                <div class="salary">
-                  <h4>$5000</h4>
-                  <p>/monthly</p>
-                </div>
-                <a class="btn-theme btn-sm" href="job-details.blade.php">Apply Now</a>
-              </div>
-            </div>
-            <!--== End Recent Job Item ==-->
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <!--== Start Recent Job Item ==-->
-            <div class="recent-job-item">
-              <div class="company-info">
-                <div class="logo">
-                  <a href="company-details.php"><img src="assets/img/companies/5.webp" width="75" height="75" alt="Image-HasTech"></a>
-                </div>
-                <div class="content">
-                  <h4 class="name"><a href="company-details.php">Sanguine Skincare</a></h4>
-                  <p class="address">New York, USA</p>
-                </div>
-              </div>
-              <div class="main-content">
-                <h3 class="title"><a href="job-details.blade.php">Android App Developer</a></h3>
-                <h5 class="work-type" data-text-color="#0054ff">Remote</h5>
-                <p class="desc">CSS3, HTML5, Javascript, Bootstrap, Jquery</p>
-              </div>
-              <div class="recent-job-info">
-                <div class="salary">
-                  <h4>$5000</h4>
-                  <p>/monthly</p>
-                </div>
-                <a class="btn-theme btn-sm" href="job-details.blade.php">Apply Now</a>
-              </div>
-            </div>
-            <!--== End Recent Job Item ==-->
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <!--== Start Recent Job Item ==-->
-            <div class="recent-job-item">
-              <div class="company-info">
-                <div class="logo">
-                  <a href="company-details.php"><img src="assets/img/companies/6.webp" width="75" height="75" alt="Image-HasTech"></a>
-                </div>
-                <div class="content">
-                  <h4 class="name"><a href="company-details.php">Flux Water Gear</a></h4>
-                  <p class="address">New York, USA</p>
-                </div>
-              </div>
-              <div class="main-content">
-                <h3 class="title"><a href="job-details.blade.php">Product Designer</a></h3>
-                <h5 class="work-type">Full-time</h5>
-                <p class="desc">CSS3, HTML5, Javascript, Bootstrap, Jquery</p>
-              </div>
-              <div class="recent-job-info">
-                <div class="salary">
-                  <h4>$5000</h4>
-                  <p>/monthly</p>
-                </div>
-                <a class="btn-theme btn-sm" href="job-details.blade.php">Apply Now</a>
-              </div>
-            </div>
-            <!--== End Recent Job Item ==-->
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <!--== Start Recent Job Item ==-->
-            <div class="recent-job-item">
-              <div class="company-info">
-                <div class="logo">
-                  <a href="company-details.php"><img src="assets/img/companies/7.webp" width="75" height="75" alt="Image-HasTech"></a>
-                </div>
-                <div class="content">
-                  <h4 class="name"><a href="company-details.php">Darkento Ltd.</a></h4>
-                  <p class="address">New York, USA</p>
-                </div>
-              </div>
-              <div class="main-content">
-                <h3 class="title"><a href="job-details.blade.php">Front-end Developer</a></h3>
-                <h5 class="work-type">Full-time</h5>
-                <p class="desc">CSS3, HTML5, Javascript, Bootstrap, Jquery</p>
-              </div>
-              <div class="recent-job-info">
-                <div class="salary">
-                  <h4>$5000</h4>
-                  <p>/monthly</p>
-                </div>
-                <a class="btn-theme btn-sm" href="job-details.blade.php">Apply Now</a>
-              </div>
-            </div>
-            <!--== End Recent Job Item ==-->
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <!--== Start Recent Job Item ==-->
-            <div class="recent-job-item">
-              <div class="company-info">
-                <div class="logo">
-                  <a href="company-details.php"><img src="assets/img/companies/8.webp" width="75" height="75" alt="Image-HasTech"></a>
-                </div>
-                <div class="content">
-                  <h4 class="name"><a href="company-details.php">Inspire Fitness Co.</a></h4>
-                  <p class="address">New York, USA</p>
-                </div>
-              </div>
-              <div class="main-content">
-                <h3 class="title"><a href="job-details.blade.php">Senior UI Designer</a></h3>
-                <h5 class="work-type" data-text-color="#ff7e00">Part-time</h5>
-                <p class="desc">CSS3, HTML5, Javascript, Bootstrap, Jquery</p>
-              </div>
-              <div class="recent-job-info">
-                <div class="salary">
-                  <h4>$5000</h4>
-                  <p>/monthly</p>
-                </div>
-                <a class="btn-theme btn-sm" href="job-details.blade.php">Apply Now</a>
-              </div>
-            </div>
-            <!--== End Recent Job Item ==-->
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <!--== Start Recent Job Item ==-->
-            <div class="recent-job-item">
-              <div class="company-info">
-                <div class="logo">
-                  <a href="company-details.php"><img src="assets/img/companies/9.webp" width="75" height="75" alt="Image-HasTech"></a>
-                </div>
-                <div class="content">
-                  <h4 class="name"><a href="company-details.php">Cogent Data</a></h4>
-                  <p class="address">New York, USA</p>
-                </div>
-              </div>
-              <div class="main-content">
-                <h3 class="title"><a href="job-details.blade.php">Graphic Designer</a></h3>
-                <h5 class="work-type" data-text-color="#0054ff">Part-time</h5>
-                <p class="desc">CSS3, HTML5, Javascript, Bootstrap, Jquery</p>
-              </div>
-              <div class="recent-job-info">
-                <div class="salary">
-                  <h4>$5000</h4>
-                  <p>/monthly</p>
-                </div>
-                <a class="btn-theme btn-sm" href="job-details.blade.php">Apply Now</a>
-              </div>
-            </div>
-            <!--== End Recent Job Item ==-->
-          </div>
+            @endforeach
         </div>
+{{--            {{$posts->links()}}--}}
       </div>
     </section>
     <!--== End Recent Job Area Wrapper ==-->
@@ -1052,5 +731,6 @@
     </section>
     <!--== End Blog Area Wrapper ==-->
   </main>
-<?php include('layouts/footer.blade.php') ?>
+@extends('layouts.footer')
+<?php //include('layouts/footer.blade.php') ?>
 
