@@ -13,4 +13,9 @@ class Status extends Model
     {
         return $this->hasMany(Post::class);
     }
+
+    public function recruiters()
+    {
+        return $this->hasMany(Recruiter::class);
+    }
 }

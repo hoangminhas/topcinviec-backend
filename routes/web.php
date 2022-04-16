@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RecruiterController;
 use App\Http\Controllers\WelcomeEmail;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
@@ -24,7 +25,6 @@ Route::get('/', function () {
 Route::get('login',[AuthController::class,'showFormLogin'])->name('showFormLogin');
 Route::post('login', [AuthController::class,'login'])->name('login');
 
-
 Route::get('login',[AuthController::class,'showFormLogin'])->name('showFormLogin');
 Route::post('login', [AuthController::class,'login'])->name('login');
 Route::get('logout',[AuthController::class,'logout'])->name('logout');
@@ -40,6 +40,15 @@ Route::prefix('posts')->group(function (){
     Route::get('detail/{id}',[PostController::class,'detail'])->name('posts.detail');
     Route::get('employers/',[PostController::class,'employers'])->name('posts.employers');
     Route::get('delete/{id}',[PostController::class,'destroy'])->name('posts.destroy');
+});
+
+Route::prefix('/recruiters')->group(function () {
+    Route::get('/' ,[RecruiterController::class, 'index'])->name('recruiters.index');
+    Route::get('/create', [RecruiterController::class, 'create'])->name('recruiters.create');
+    Route::post('/create', [RecruiterController::class, 'store'])->name('recruiters.store');
+    Route::get('/edit/{id}',[RecruiterController::class, 'edit'])->name('recruiters.edit');
+    Route::post('/edit/{id}', [RecruiterController::class, 'update'])->name('recruiters.update');
+    Route::get('/delete/{id}', [RecruiterController::class, 'destroy'])->name('recruiters.destroy');
 });
 
 Route::get('/register', function () {
