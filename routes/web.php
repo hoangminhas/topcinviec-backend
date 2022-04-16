@@ -48,6 +48,7 @@ Route::prefix('/recruiters')->group(function () {
     Route::post('/create', [RecruiterController::class, 'store'])->name('recruiters.store');
     Route::get('/edit/{id}',[RecruiterController::class, 'edit'])->name('recruiters.edit');
     Route::post('/edit/{id}', [RecruiterController::class, 'update'])->name('recruiters.update');
+    Route::get('detail/{id}', [RecruiterController::class, 'detail'])->name('recruiters.detail');
     Route::get('/delete/{id}', [RecruiterController::class, 'destroy'])->name('recruiters.destroy');
 });
 
