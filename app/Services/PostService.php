@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Business_categories;
 use App\Models\Post;
 use App\Repositories\BaseRepository;
 use App\Repositories\impl\PostInterface;
@@ -39,6 +40,7 @@ class PostService extends BaseService implements PostInterface
         $post->experience = $request->experience;
         $post->posting_start = $request->posting_start;
         $post->posting_end = $request->posting_end;
+        $post->business_category_id = $request->business_category_id;
 //        $post->status_id = $request->status ?? 1;
         $post->user_id = Auth::user()->id;
         $post->save();
@@ -59,6 +61,7 @@ class PostService extends BaseService implements PostInterface
         $post->experience = $request->experience;
         $post->posting_start = $request->posting_start;
         $post->posting_end = $request->posting_end;
+        $post->business_category_id = $request->business_category_id;
 //        $post->status_id = $request->status ?? 1;
         $post->user_id = Auth::user()->id;
         $post->save();

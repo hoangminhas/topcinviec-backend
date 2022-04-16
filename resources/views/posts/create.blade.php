@@ -42,6 +42,9 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
+                                            @error('title')
+                                            <p style="color: red">{{($message)}}</p>
+                                            @enderror
                                             <input class="form-control" name="title" type="text" value="{{old('title')}}">
                                         </div>
                                     </div>
@@ -50,6 +53,9 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
+                                            @error('content')
+                                            <p style="color: red">{{($message)}}</p>
+                                            @enderror
                                             <textarea class="form-control" name="content" type="text">{{old('content')}}</textarea>
                                         </div>
                                     </div>
@@ -61,12 +67,18 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
+                                            @error('salary')
+                                            <p style="color: red">{{($message)}}</p>
+                                            @enderror
                                             <input class="form-control" name="salary" type="text" value="{{old('salary')}}">
                                         </div>
                                     </div>
 
                                     <div class="col-6">
                                         <div class="form-group">
+                                            @error('job_type')
+                                            <p style="color: red">{{($message)}}</p>
+                                            @enderror
                                             <input class="form-control" name="job_type" type="text" value="{{old('job_type')}}">
                                         </div>
                                     </div>
@@ -75,6 +87,9 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
+                                            @error('job_level')
+                                            <p style="color: red">{{($message)}}</p>
+                                            @enderror
                                             <input class="form-control" name="job_level" type="text" value="{{old('job_level')}}">
                                         </div>
                                     </div>
@@ -83,6 +98,9 @@
                                     </div>
                                     <div class="col-2">
                                         <div class="form-group">
+                                            @error('quantity')
+                                            <p style="color: red">{{($message)}}</p>
+                                            @enderror
                                             <input class="form-control" name="quantity" type="number" value="{{old('quantity')}}">
                                         </div>
                                     </div>
@@ -91,6 +109,9 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
+                                            @error('gender_field')
+                                            <p style="color: red">{{($message)}}</p>
+                                            @enderror
                                             <input name="gender_field" type="radio" value="male"> Male
                                             <input name="gender_field" type="radio" value="female"> Female
                                             <input name="gender_field" type="radio" value="all"> All
@@ -101,6 +122,9 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
+                                            @error('experience')
+                                            <p style="color: red">{{($message)}}</p>
+                                            @enderror
                                             <input class="form-control" type="text" name="experience" value="{{old('experience')}}">
                                         </div>
                                     </div>
@@ -109,6 +133,9 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
+                                            @error('posting_start')
+                                            <p style="color: red">{{($message)}}</p>
+                                            @enderror
                                             <input class="form-control" type="date" name="posting_start" value="{{old('posting_start')}}">
                                         </div>
                                     </div>
@@ -117,6 +144,9 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
+                                            @error('posting_end')
+                                            <p style="color: red">{{($message)}}</p>
+                                            @enderror
                                             <input class="form-control" type="date" name="posting_end" value="{{old('posting_end')}}">
                                         </div>
                                     </div>
@@ -125,10 +155,12 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input type="checkbox" name="business_category_id" value=""> IT
-                                            <input type="checkbox" name="bgenderusiness_category_id" value=""> Marketing
-                                            <input type="checkbox" name="business_category_id" value=""> Retail
-                                            <input type="checkbox" name="business_category_id" value=""> Banking
+                                            @error('business_category_id')
+                                            <p style="color: red">{{($message)}}</p>
+                                            @enderror
+                                            @foreach($buns as $item)
+                                            <input type="checkbox" name="business_category_id" value="{{$item->id}}">{{$item->name}}
+                                            @endforeach
                                         </div>
                                     </div>
                                     <input type="hidden" name="user_id" value="">
