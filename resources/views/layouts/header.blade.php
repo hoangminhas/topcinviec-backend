@@ -9,7 +9,7 @@
     <meta name="keywords" content="accessories, digital products, electronic html, modern, products, responsive"/>
     <meta name="author" content="hastech"/>
 
-    <title>Finate - Job Portal Website Template Using Bootstrap 5</title>
+    <title>TOPCINVIEC - Job Portal Website Template Using Bootstrap 5</title>
 
     <!--== Favicon ==-->
     <link rel="shortcut icon" href="./public/assets/img/favicon.ico" type="image/x-icon" />

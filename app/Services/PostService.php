@@ -21,9 +21,9 @@ class PostService extends BaseService implements PostInterface
         return $this->postRepository->getAll();
     }
 
-    public function getAllDesc()
+    public function getSomeNewest()
     {
-        return $this->postRepository->getAllDesc();
+        return $this->postRepository->getSomeNewest();
     }
 
     public function store($request)

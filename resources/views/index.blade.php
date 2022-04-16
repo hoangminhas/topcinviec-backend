@@ -29,7 +29,6 @@
                               <div class="form-group">
                                 <select class="form-control">
                                   <option value="1" selected>Choose City</option>
-
                                 </select>
                               </div>
                             </div>

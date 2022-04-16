@@ -23,8 +23,8 @@ class HomeController extends Controller
     public function index()
     {
         $businessCategory = $this->homeService->getAllBusinessCategory();
-        $posts = $this->postService->getAllDesc();
-        $totalPosts = count($posts);
+        $posts = $this->postService->getSomeNewest();
+        $totalPosts = count($this->postService->getAll());
         return view('index', compact(['businessCategory', 'posts', 'totalPosts']));
     }
 }
