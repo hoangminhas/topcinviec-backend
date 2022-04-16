@@ -204,6 +204,5 @@
             </div>
         </div>
     </section>
-    <!--== End Job Details Area Wrapper ==-->
 </main>
 @extends('layouts.footer')
