@@ -6,6 +6,8 @@ use App\Models\Recruiter;
 use App\Repositories\BaseRepository;
 use App\Repositories\impl\RecruiterInterface;
 use App\Repositories\RecruiterRepository;
+use Illuminate\Support\Facades\Auth;
+
 
 class RecruiterService extends BaseService implements RecruiterInterface
 {
@@ -21,7 +23,17 @@ class RecruiterService extends BaseService implements RecruiterInterface
     }
     public function store($request)
     {
+        $request->validate([
+            'profile_image' => 'required',
+            'banner_image' => 'required',
+            'company_name' => 'required',
+        ]);
         $recruiter = new Recruiter();
+        $recruiter->company_name = $request->company_name;
+        $recruiter->description = $request->description;
+        $recruiter->company_address = $request->company_address;
+        $recruiter->office = $request->office;
+        $recruiter->employee = $request->employee;
         $recruiter->profile_image = $request->profile_image;
         $recruiter->banner_image = $request->banner_image;
         $recruiter->user_id = $request->user_id;
@@ -31,12 +43,18 @@ class RecruiterService extends BaseService implements RecruiterInterface
     }
     public function update($id, $request)
     {
-//        $request->validate([
-//            'profile_image' => 'required',
-//            'banner_image' => 'required'
-//        ]);
+        $request->validate([
+            'profile_image' => 'required',
+            'banner_image' => 'required',
+            'company_name' => 'required',
+        ]);
 
         $recruiter = $this->recruiterRepository->getById($id);
+        $recruiter->company_name = $request->company_name;
+        $recruiter->description = $request->description;
+        $recruiter->company_address = $request->company_address;
+        $recruiter->office = $request->office;
+        $recruiter->employee = $request->employee;
         $recruiter->profile_image = $request->profile_image;
         $recruiter->banner_image = $request->banner_image;
         $recruiter->user_id = $request->user_id;

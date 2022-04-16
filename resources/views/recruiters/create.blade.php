@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-header-content">
-                        <h2 class="title">Recruiter information update</h2>
+                        <h2 class="title">Recruiter information</h2>
                         <nav class="breadcrumb-area">
                             <ul class="breadcrumb justify-content-center">
                                 <li><a href="../index.blade.php">Home</a></li>
@@ -32,7 +32,7 @@
                             <div class="form-title">
                                 <h4 class="title">Update Information</h4>
                             </div>
-                            <form action="{{route('recruiters.update',$recruiter->id)}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('recruiters.store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-12">
@@ -47,7 +47,7 @@
                                     @endif
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input class="form-control" name="company_name" type="text" value="{{$recruiter->company_name}}">
+                                            <input class="form-control" name="company_name" type="text" value="">
                                         </div>
                                     </div>
 
@@ -56,7 +56,7 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input class="form-control" name="description" type="text" value="{{$recruiter->description}}">
+                                            <input class="form-control" name="description" type="text" value="">
                                         </div>
                                     </div>
 
@@ -65,7 +65,7 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input class="form-control" name="company_address" type="text" value="{{$recruiter->company_address}}">
+                                            <input class="form-control" name="company_address" type="text" value="">
                                         </div>
                                     </div>
 
@@ -74,7 +74,7 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input class="form-control" name="office" type="text" value="{{$recruiter->office}}">
+                                            <input class="form-control" name="office" type="text" value="">
                                         </div>
                                     </div>
 
@@ -101,7 +101,7 @@
                                     @endif
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input name="profile_image" type="file" value="{{$recruiter->profile_image}}">
+                                            <input name="profile_image" type="file" value="">
                                         </div>
                                     </div>
 
@@ -113,13 +113,13 @@
                                     @endif
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input name="banner_image" type="file" value="{{$recruiter->banner_image}}">
+                                            <input name="banner_image" type="file" value="">
                                         </div>
                                     </div>
 
-                                    <input type="hidden" name="user_id" value="{{$recruiter->user_id}}">
-                                    <input type="hidden" name="status_id" value="{{$recruiter->status_id}}">
-                                    <input type="hidden" name="business_category_id" value="{{$recruiter->business_category_id}}">
+                                    <input type="hidden" name="user_id" value="2">
+                                    <input type="hidden" name="status_id" value="1">
+                                    <input type="hidden" name="business_category_id" value="1">
 
                                     <div class="col-12">
                                         <div class="form-group">

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Repositories\RecruiterRepository;
 use App\Services\RecruiterService;
 use Illuminate\Http\Request;
+use App\Models\Business_categories;
+
 
 class RecruiterController extends Controller
 {
@@ -24,7 +27,10 @@ class RecruiterController extends Controller
 
     public function create()
     {
-        return view('recruiters.create');
+        $buns = Business_categories::all();
+
+        $user = User::all();
+        return view('recruiters.create', compact('user', 'buns'));
     }
 
     public function store(Request $request)
@@ -41,8 +47,9 @@ class RecruiterController extends Controller
 
     public function edit($id)
     {
+        $user = User::all();
         $recruiter = $this->recruiterService->getById($id);
-        return view('recruiters.update', compact('recruiter'));
+        return view('recruiters.update', compact('recruiter', 'user'));
 //        return response()->json('success', 201);
     }
 
