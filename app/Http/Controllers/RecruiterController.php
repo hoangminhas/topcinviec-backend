@@ -40,10 +40,10 @@ class RecruiterController extends Controller
 //        return response()->json('success', 200);
     }
 
-    public function show($id)
+    public function detail($id)
     {
-        //
-    }
+        $recruiter = $this->recruiterService->getById($id);
+        return view('recruiters.detail', compact('recruiter'));    }
 
     public function edit($id)
     {
