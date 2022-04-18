@@ -8,9 +8,7 @@ use App\Notifications\WelcomeEmailNotification;
 use App\Services\AuthService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
-
-
+use Illuminate\Support\Facades\Session;
 
 
 class AuthController extends Controller
@@ -28,6 +26,11 @@ class AuthController extends Controller
       if ( $this->authService->login($request))
       {
           return redirect()->route('posts.index');
+      }
+      else
+      {
+          Session::flash('msg','Tài khoản hoặc mật khẩu sai');
+          return redirect()->back();
       }
 //          return response()->json(
 //              [
