@@ -11,7 +11,7 @@ class PostRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,7 +21,7 @@ class PostRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             'title'=>'required|min:8|max:50',
@@ -34,10 +34,10 @@ class PostRequest extends FormRequest
             'experience'=>'required',
             'posting_start'=>'required',
             'posting_end'=>'required',
-//            'business_category_id'=>'required'
+            'business_category_id'=>'required'
         ];
     }
-    public function messages()
+    public function messages(): array
     {
         return [
             'title.required'=>'You must fill the title of the post',
@@ -52,7 +52,7 @@ class PostRequest extends FormRequest
             'experience.required'=>'You must fill the experience of your post',
             'posting_start.required'=>'You must fill the posting_start of your post',
             'posting_end.required'=>'You must fill the posting_end of your post',
-//            'business_category_id.required'=>'You must fill the business_category_id of your post'
+            'business_category_id.required'=>'You must fill the business_category_id of your post'
         ];
     }
 }

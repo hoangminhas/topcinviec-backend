@@ -48,7 +48,7 @@ class PostController extends Controller
         $buns = Business_categories::all();
         return view('posts.create',compact('buns'));
     }
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
         $this->postService->store($request);
         return redirect()->route('posts.index');
@@ -63,7 +63,7 @@ class PostController extends Controller
         return view('posts.update',compact('post','buns'));
     }
 
-    public function update($id , Request $request)
+    public function update($id , PostRequest $request)
     {
         $this->postService->update($id,$request);
 
