@@ -16,10 +16,10 @@ class CreateRecruitersTable extends Migration
         Schema::create('recruiters', function (Blueprint $table) {
             $table->id();
             $table->string('company_name');
-            $table->string('description')->nullable();
-            $table->string('company_address')->nullable();
-            $table->string('office')->nullable();
-            $table->string('employee')->nullable();
+            $table->string('description');
+            $table->string('company_address');
+            $table->string('office');
+            $table->string('employee');
             $table->string('profile_image');
             $table->string('banner_image');
             $table->unsignedBigInteger('user_id');
