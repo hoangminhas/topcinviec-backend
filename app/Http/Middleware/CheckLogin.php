@@ -21,7 +21,7 @@ class CheckLogin
             return redirect()->route('showFormLogin');
         }
         if (Auth::user()->role_id == 1) {
-            return redirect()->route('backend.dashboard');
+            return redirect()->route('dashboard');
         }
         return $next($request);
     }

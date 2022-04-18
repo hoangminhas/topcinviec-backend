@@ -2,7 +2,7 @@
 @extends('layouts.header')
 <main class="main-content">
     <!--== Start Page Header Area Wrapper ==-->
-    <div class="page-header-area sec-overlay sec-overlay-black" data-bg-img="assets/img/photos/bg2.webp">
+    <div class="page-header-area sec-overlay sec-overlay-black" data-bg-img="{{\Illuminate\Support\Facades\Auth::user()->recruiter->banner_image}}">
         <div class="container pt--0 pb--0">
             <div class="row">
                 <div class="col-12">
@@ -30,7 +30,7 @@
                     <div class="employers-details-wrap">
                         <div class="employers-details-info">
                             <div class="thumb">
-                                <img src="assets/img/companies/3.webp" width="130" height="130" alt="Image-HasTech">
+                                <img src="{{\Illuminate\Support\Facades\Auth::user()->recruiter->profile_image}}" width="130" height="130" alt="Image-HasTech">
                             </div>
                             <div class="content">
                                 <h4 class="title">{{\Illuminate\Support\Facades\Auth::user()->name}}.</h4>
