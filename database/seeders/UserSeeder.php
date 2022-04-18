@@ -45,6 +45,6 @@ class UserSeeder extends Seeder
         $user->role_id = 3;
         $user->save();
 
-//        User::factory(5)->create();
+        User::factory(5)->create();
     }
 }
