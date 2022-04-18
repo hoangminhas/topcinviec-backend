@@ -11,7 +11,7 @@ class PostRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize(): bool
+    public function authorize()
     {
         return true;
     }
@@ -48,7 +48,7 @@ class PostRequest extends FormRequest
             'job_type.required'=>'You must fill the job_type of your post',
             'job_level.required'=>'You must fill the job_level of your post',
             'quantity.required'=>'You must fill the quantity of your post',
-            'gender_field.required'=>'You must fill the gender of your post',
+            'gender.required'=>'You must fill the gender of your post',
             'experience.required'=>'You must fill the experience of your post',
             'posting_start.required'=>'You must fill the posting_start of your post',
             'posting_end.required'=>'You must fill the posting_end of your post',

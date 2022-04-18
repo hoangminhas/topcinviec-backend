@@ -121,6 +121,11 @@
                                         <td data-text-color="#03a84e">{{$post->job_type}}</td>
                                     </tr>
                                     <tr>
+                                        <td class="table-name">Category</td>
+                                        <td class="dotted">:</td>
+                                        <td data-text-color="#03a84e">{{$post->businessCategory->name}}</td>
+                                    </tr>
+                                    <tr>
                                         <td class="table-name">Quantity</td>
                                         <td class="dotted">:</td>
                                         <td>{{$post->quantity}}People</td>

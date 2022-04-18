@@ -9,4 +9,9 @@ class BusinessCategory extends Model
 {
     use HasFactory;
     protected $table = 'business_categories';
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }

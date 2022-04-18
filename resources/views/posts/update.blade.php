@@ -109,12 +109,12 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            @error('gender_field')
+                                            @error('gender')
                                             <p style="color: red">{{($message)}}</p>
                                             @enderror
-                                            <input name="gender_field" type="radio" value="male"> Male
-                                            <input name="gender_field" type="radio" value="female"> Female
-                                            <input name="gender_field" type="radio" value="all"> All
+                                            <input name="gender" type="radio" value="male"> Male
+                                            <input name="gender" type="radio" value="female"> Female
+                                            <input name="gender" type="radio" value="all"> All
                                         </div>
                                     </div>
                                     <div class="col-12">

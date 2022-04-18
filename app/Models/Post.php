@@ -34,4 +34,8 @@ class Post extends Model
         return $this->belongsTo(Status::class);
     }
 
+    public function businessCategory()
+    {
+        return $this->belongsTo(BusinessCategory::class);
+    }
 }
