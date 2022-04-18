@@ -22,7 +22,7 @@ use App\Http\Controllers\AuthController;
 */
 Route::get('/dashboard', function () {
     return view('backend.dashboard');
-});
+})->name('dashboard');
 Route::get('/', function () {
     return view('posts.detail');
 });
