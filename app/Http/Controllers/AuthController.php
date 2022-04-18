@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use App\Http\Requests\LoginFormRequest;
@@ -10,42 +11,40 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 
-
-
-
 class AuthController extends Controller
 {
     public $authService;
     public $welcomeEmail;
-    public function __construct(AuthService $authService,
+
+    public function __construct(AuthService  $authService,
                                 WelcomeEmail $welcomeEmail)
     {
         $this->authService = $authService;
         $this->welcomeEmail = $welcomeEmail;
     }
-    public function login (LoginFormRequest $request)
+
+    public function login(LoginFormRequest $request)
     {
-      if ( $this->authService->login($request))
-      {
-          return redirect()->route('posts.index');
-      }
-//          return response()->json(
-//              [
-//                  'status'=>true,
-//                  'msg'=>'Dang nhap thanh cong'
-//              ]
-//          );
-//      }
-//      else
-//      {
-//          return response()->json(
-//              [
-//                  'status'=>false,
-//                  'msg'=>'Sai ten toan khoan hoac mat khau'
-//              ]
-//          );
-//      }
+        if ($this->authService->login($request)) {
+            return redirect()->route('posts.index');
+//            return response()->json(
+//                [
+//                    'status' => true,
+//                    'msg' => 'Dang nhap thanh cong'
+//                ]
+//            );
+//        } else {
+//            return response()->json(
+//                [
+//                    'status' => false,
+//                    'msg' => 'Sai ten toan khoan hoac mat khau'
+//                ]
+//            );
+//        }
+//    }
+        }
     }
+
 
     public function register(RegisterRequest $request)
     {
@@ -56,6 +55,8 @@ class AuthController extends Controller
         return redirect()->route('login');
 //        return response()->json('create user success', 201);
     }
+
+
     public function logout()
     {
         Auth::logout();

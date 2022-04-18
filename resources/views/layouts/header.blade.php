@@ -61,7 +61,7 @@
                   <li><a href="{{route('home')}}"><span>Home</span></a></li>
                   <li class="has-submenu"><a href="#/"><span>Find Jobs</span></a>
                     <ul class="submenu-nav">
-                      <li><a href="job.php"><span>Jobs</span></a></li>
+                      <li><a href="{{route('posts.index')}}"><span>Jobs</span></a></li>
                       <li><a href="job-details.php"><span>Job Details</span></a></li>
                     </ul>
                   </li>
