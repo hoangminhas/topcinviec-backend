@@ -20,7 +20,8 @@ class Post extends Model
         'gender',
         'experience',
         'posting_start',
-        'posting_end'
+        'posting_end',
+        'user_id'
     ];
 
     public function user()
@@ -33,4 +34,8 @@ class Post extends Model
         return $this->belongsTo(Status::class);
     }
 
+    public function businessCategory()
+    {
+        return $this->belongsTo(BusinessCategory::class);
+    }
 }

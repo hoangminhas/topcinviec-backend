@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
-use App\Models\Business_categories;
+use App\Models\BusinessCategory;
 use App\Repositories\PostRepository;
 use App\Services\PostService;
 use Illuminate\Http\Request;
@@ -45,10 +45,10 @@ class PostController extends Controller
     }
     public function create()
     {
-        $buns = Business_categories::all();
+        $buns = BusinessCategory::all();
         return view('posts.create',compact('buns'));
     }
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
         $this->postService->store($request);
         return redirect()->route('posts.index');
@@ -58,12 +58,12 @@ class PostController extends Controller
 
     public function edit($id)
     {
-        $buns = Business_categories::all();
+        $buns = BusinessCategory::all();
         $post = $this->postService->getById($id);
         return view('posts.update',compact('post','buns'));
     }
 
-    public function update($id , Request $request)
+    public function update($id , PostRequest $request)
     {
         $this->postService->update($id,$request);
 
