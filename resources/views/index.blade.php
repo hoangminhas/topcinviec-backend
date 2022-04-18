@@ -137,7 +137,7 @@
                 </div>
               </div>
               <div class="main-content">
-                <h3 class="title"><a href="job-details.blade.php">{{$post->title}}</a></h3>
+                <h3 class="title"><a href="{{route('posts.detail', $post->id)}}">{{$post->title}}</a></h3>
                 <h5 class="work-type">{{$post->job_type}}</h5>
                 <p class="desc">CSS3, HTML5, Javascript, Bootstrap, Jquery</p>
               </div>
