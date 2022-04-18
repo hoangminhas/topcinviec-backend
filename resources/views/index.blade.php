@@ -129,7 +129,7 @@
             <div class="recent-job-item">
               <div class="company-info">
                 <div class="logo">
-                  <a href="company-details.php"><img src="{{$post->user->recruiter->profile_image}}" width="75" height="75" alt="Image-HasTech"></a>
+{{--                  <a href="company-details.php"><img src="{{$post->user->recruiter->profile_image}}" width="75" height="75" alt="Image-HasTech"></a>--}}
                 </div>
                 <div class="content">
                   <h4 class="name"><a href="company-details.php">{{$post->user->name}}</a></h4>

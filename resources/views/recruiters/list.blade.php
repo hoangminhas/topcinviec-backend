@@ -31,24 +31,17 @@
             <!--== Start Team Item ==-->
             <div class="team-item">
               <div class="thumb">
-                <a href="../candidate-details.blade.php">
-                  <img src="assets/img/team/1.webp" width="160" height="160" alt="Image-HasTech">
+                <a href="{{route('recruiters.detail', $recruiter->id)}}">
+                  <img src="{{asset('image')}}/{{$recruiter->profile_image}}" width="160" height="160" alt="Image-HasTech">
                 </a>
               </div>
               <div class="content">
-                <h4 class="title"><a href="../candidate-details.blade.php">Lauran Benitez</a></h4>
-                  <h5 class="sub-title">Web Designer</h5>
-                <div class="rating-box">
-                  <i class="icofont-star"></i>
-                  <i class="icofont-star"></i>
-                  <i class="icofont-star"></i>
-                  <i class="icofont-star"></i>
-                  <i class="icofont-star"></i>
-                </div>
-                <a class="btn-theme btn-white btn-sm" href="../candidate-details.blade.php">View Profile</a>
+                <h4 class="title"><a href="../candidate-details.blade.php">{{$recruiter->company_name}}</a></h4>
+                  <h5 class="sub-title">{{$recruiter->description}}</h5>
+                <a class="btn-theme btn-white btn-sm" href="{{route('recruiters.detail', $recruiter->id)}}">View Profile</a>
               </div>
-              <div class="bookmark-icon"><img src="assets/img/icons/bookmark1.webp" alt="Image-HasTech"></div>
-              <div class="bookmark-icon-hover"><img src="{{asset('assets/img/icons/bookmark2.webp')}}" alt="Image-HasTech"></div>
+              <div class="bookmark-icon"><img src="{{asset('assets/img/icons/bookmark1.webp')}}" alt="Image-HasTech"></div>
+              <div class="bookmark-icon-hover"><img src="{{asset('assets/img/icons/bookmark2.webp')}}"></div>
             </div>
             <!--== End Team Item ==-->
           </div>
