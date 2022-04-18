@@ -73,12 +73,12 @@
                       <li><a href="candidate-details.php"><span>Candidate Details</span></a></li>
                     </ul>
                   </li>
-                  <li class="has-submenu"><a href="#/"><span>Blog</span></a>
+                  <li class="has-submenu"><a href="#/"><span>Recruiters</span></a>
                     <ul class="submenu-nav">
-                      <li><a href="blog-grid.php">Blog Grid</a></li>
-                      <li><a href="blog.php">Blog Left Sidebar</a></li>
-                      <li><a href="blog-right-sidebar.php">Blog Right Sidebar</a></li>
-                      <li><a href="blog-details.php">Blog Details</a></li>
+                      <li><a href="{{route('recruiters.index')}}">Recruiter List</a></li>
+{{--                      <li><a href="blog.php">Blog Left Sidebar</a></li>--}}
+{{--                      <li><a href="blog-right-sidebar.php">Blog Right Sidebar</a></li>--}}
+{{--                      <li><a href="blog-details.php">Blog Details</a></li>--}}
                     </ul>
                   </li>
                   <li class="has-submenu"><a href="#/"><span>Pages</span></a>
