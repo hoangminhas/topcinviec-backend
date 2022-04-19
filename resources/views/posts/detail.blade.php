@@ -32,11 +32,11 @@
                                 <img src="assets/img/companies/10.webp" width="130" height="130" alt="Image-HasTech">
                             </div>
                             <div class="content">
-                                <h4 class="title">{{$post->user->name}}</h4>
-                                <h5 class="sub-title">{{$post->user->email}}</h5>
+                                <h4 class="title">{{$post->user->name ?? ''}}</h4>
+                                <h5 class="sub-title">{{$post->user->email ?? ''}}</h5>
                                 <ul class="info-list">
-                                    <li><i class="icofont-location-pin"></i> {{$post->user->address_detail}}</li>
-                                    <li><i class="icofont-phone"></i> {{$post->user->phone}}</li>
+                                    <li><i class="icofont-location-pin"></i> {{$post->user->address_detail ?? ''}}</li>
+                                    <li><i class="icofont-phone"></i> {{$post->user->phone ?? ''}}</li>
                                 </ul>
                             </div>
                         </div>
@@ -50,8 +50,8 @@
                     <div class="job-details-item">
                         <div class="content">
                             <h4 class="title">Work Content</h4>
-                            <h5>{{$post->title}}</h5>
-                            <p>{{$post->content}}</p>
+                            <h5>{{$post->title ?? ''}}</h5>
+                            <p>{{$post->content ?? ''}}</p>
                         </div>
                         <div class="content">
                             <h4 class="title">Working Hours</h4>
@@ -118,7 +118,7 @@
                                     <tr>
                                         <td class="table-name">Job Type</td>
                                         <td class="dotted">:</td>
-                                        <td data-text-color="#03a84e">{{$post->job_type}}</td>
+                                        <td data-text-color="#03a84e">{{$post->job_type ?? ''}}</td>
                                     </tr>
                                     <tr>
                                         <td class="table-name">Category</td>
@@ -128,39 +128,39 @@
                                     <tr>
                                         <td class="table-name">Quantity</td>
                                         <td class="dotted">:</td>
-                                        <td>{{$post->quantity}}People</td>
+                                        <td>{{$post->quantity ?? ''}}People</td>
                                     </tr>
                                     <tr>
                                         <td class="table-name">Posted</td>
                                         <td class="dotted">:</td>
-                                        <td>{{$post->posting_start}}</td>
+                                        <td>{{$post->posting_start ?? ''}}</td>
                                     </tr>
                                     @if(\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()->role_id !== 1)
                                         <tr>
                                             <td class="table-name">Salary</td>
                                             <td class="dotted">:</td>
-                                            <td>{{$post->salary}} / Monthly</td>
+                                            <td>{{$post->salary ?? ''}} / Monthly</td>
                                         </tr>
                                     @endif
                                         <tr>
                                             <td class="table-name">Experience</td>
                                             <td class="dotted">:</td>
-                                            <td>{{$post->experience}}</td>
+                                            <td>{{$post->experience ?? ''}}</td>
                                         </tr>
                                         <tr>
                                             <td class="table-name">Gender</td>
                                             <td class="dotted">:</td>
-                                            <td>{{$post->gender}}</td>
+                                            <td>{{$post->gender ?? ''}}</td>
                                         </tr>
                                         <tr>
                                             <td class="table-name">Level</td>
                                             <td class="dotted">:</td>
-                                            <td>{{$post->job_level}}</td>
+                                            <td>{{$post->job_level ?? ''}}</td>
                                         </tr>
                                         <tr>
                                             <td class="table-name">Expired</td>
                                             <td class="dotted">:</td>
-                                            <td data-text-color="#ff6000">{{$post->posting_end}}</td>
+                                            <td data-text-color="#ff6000">{{$post->posting_end ?? ''}}</td>
                                         </tr>
                                     </tbody>
                                 </table>
