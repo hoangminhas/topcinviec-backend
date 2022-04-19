@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RecruiterController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,3 +28,4 @@ Route::post('/posts',[PostController::class,'store']);
 Route::get('/candidates', [CandidateController::class, 'index']);
 Route::post('/candidates', [CandidateController::class, 'store']);
 Route::get('/recruiters', [RecruiterController::class, 'index']);
+Route::get('/search',[SearchController::class,'searchJob']);

@@ -18,11 +18,11 @@
                   <div class="col-12">
                     <div class="job-search-wrap">
                       <div class="job-search-form">
-                        <form action="#">
+                        <form action="{{route('searchJob')}}">
                           <div class="row row-gutter-10">
                             <div class="col-lg-auto col-sm-6 col-12 flex-grow-1">
                               <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Job title or keywords">
+                                <input type="text" name="search" class="form-control" placeholder="Job title or keywords">
                               </div>
                             </div>
                             <div class="col-lg-auto col-sm-6 col-12 flex-grow-1">
@@ -44,7 +44,7 @@
                             </div>
                             <div class="col-lg-auto col-sm-6 col-12 flex-grow-1">
                               <div class="form-group">
-                                <button type="button" class="btn-form-search"><i class="icofont-search-1"></i></button>
+                                  <button type="submit" class="btn-form-search"><i class="icofont-search-1"></i></button>
                               </div>
                             </div>
                           </div>

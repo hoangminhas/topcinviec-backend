@@ -17,7 +17,8 @@ class AuthController extends Controller
 {
     public $authService;
     public $welcomeEmail;
-    public function __construct(AuthService $authService,
+
+    public function __construct(AuthService  $authService,
                                 WelcomeEmail $welcomeEmail)
     {
         $this->authService = $authService;
