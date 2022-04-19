@@ -9,7 +9,6 @@ use App\Services\PostService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use mysql_xdevapi\Exception;
 
 class PostController extends Controller
 {
@@ -50,7 +49,9 @@ class PostController extends Controller
     public function detail($id)
     {
         $post = $this->postService->getById($id);
-        return view('posts.detail', compact('post'));
+        return response()->json($post,201);
+
+//        return view('posts.detail', compact('post'));
     }
 
     public function employers()
