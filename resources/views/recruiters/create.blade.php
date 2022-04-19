@@ -59,16 +59,35 @@
                                             <input class="form-control" name="description" type="text" value="">
                                         </div>
                                     </div>
-
+                                    <form action="">
                                     <div class="col-12">
                                         <label>Address</label>
                                     </div>
                                     <div class="col-12">
-                                        <div class="form-group">
-                                            <input class="form-control" name="company_address" type="text" value="">
+                                        <div class="form-group col-3">
+                                            <input class="form-control" name="company_address" type="text" placeholder="Ex: 102 Quang Trung" value="">
+                                        </div>
+                                        <div class="form-group col-3">
+                                            <select class="form-control province_id" name="province_id" id="" >
+                                                @foreach($provinces as $province)
+                                                <option value="{{$province->id}}">{{$province->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+                                        <div class="col-3">
+                                            <select class="form-control district_id" name="district_id" id="">
+                                                <option value="">Select district</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-3">
+                                            <select class="form-control ward_id" name="ward_id" id="">
+                                                <option value="">Select ward</option>
+                                            </select>
                                         </div>
                                     </div>
-
+                                    </form>
                                     <div class="col-12">
                                         <label>Office</label>
                                     </div>
@@ -128,7 +147,6 @@
                                     </div>
                                 </div>
                             </form>
-
                         </div>
                     </div>
                 </div>
@@ -136,5 +154,41 @@
         </div>
     </section>
     <!--== End Team Area Wrapper ==-->
+    <script>
+        jQuery(document).ready(function() {
+            jQuery('.province_id').on('change', function() {
+                var province_id = jQuery(this).val();
+
+                $.ajax({
+                    url: "/api/get_districts/"+province_id,
+                    type: "GET",
+                    success: function(data) {
+                        var districts_html = '<option value="">Select district</option>';
+                        for (const district of data) {
+                            districts_html += '<option value="' + district.id + '">' + district.name + '</option>';
+                        }
+                        jQuery('.district_id').html(districts_html);
+                    }
+                });
+
+            });
+            jQuery('.district_id').on('change', function() {
+                var district_id = jQuery(this).val();
+
+                $.ajax({
+                    url: "/api/get_wards/" + district_id,
+                    type: "GET",
+                    success: function(data) {
+                        var wards_html = '<option value="">Select ward</option>';
+                        for (const ward of data) {
+                            wards_html += '<option value="' + ward.id + '">' + ward.name +
+                                '</option>';
+                        }
+                        jQuery('.ward_id').html(wards_html);
+                    }
+                });
+            });
+        });
+    </script>
 </main>
 @extends('layouts.footer')
