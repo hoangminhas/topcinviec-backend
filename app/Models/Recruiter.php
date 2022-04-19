@@ -4,10 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Kjmtrue\VietnamZone\Models\District;
+use Kjmtrue\VietnamZone\Models\Province;
+use Kjmtrue\VietnamZone\Models\Ward;
 
 class Recruiter extends Model
 {
     use HasFactory;
+
     protected $table = 'recruiters';
     protected $fillable = [
         'company_name',
@@ -30,5 +34,20 @@ class Recruiter extends Model
     public function status()
     {
         return $this->belongsTo(Status::class);
+    }
+
+    public function province()
+    {
+        return $this->belongsTo(Province::class, 'province_id', 'id');
+    }
+
+    public function district()
+    {
+        return $this->belongsTo(District::class, 'district_id', 'id');
+    }
+
+    public function ward()
+    {
+        return $this->belongsTo(Ward::class, 'ward_id', 'id');
     }
 }

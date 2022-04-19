@@ -18,6 +18,9 @@ class RecruiterSeeder extends Seeder
         $recruiter->company_name = 'CodeGym';
         $recruiter->description = 'Lập Trình';
         $recruiter->company_address = 'Hà Nội';
+        $recruiter->province_id = 1;
+        $recruiter->district_id = 1;
+        $recruiter->ward_id = 1;
         $recruiter->office = 'Mon City';
         $recruiter->employee = '20 - 30';
         $recruiter->profile_image = 'cg92.jpeg';
@@ -31,6 +34,9 @@ class RecruiterSeeder extends Seeder
         $recruiter->company_name = 'Lotus';
         $recruiter->description = 'Bán lẻ';
         $recruiter->company_address = 'Hà Nội';
+        $recruiter->province_id = 1;
+        $recruiter->district_id = 1;
+        $recruiter->ward_id = 1;
         $recruiter->office = 'Hà Đông';
         $recruiter->employee = '20 - 30';
         $recruiter->profile_image = 'cg53.jpeg';

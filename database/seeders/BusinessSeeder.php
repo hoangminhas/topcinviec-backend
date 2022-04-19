@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Business_categories;
+use App\Models\BusinessCategory;
 use Illuminate\Database\Seeder;
 
 class BusinessSeeder extends Seeder
@@ -14,19 +14,19 @@ class BusinessSeeder extends Seeder
      */
     public function run()
     {
-        $status = new Business_categories();
+        $status = new BusinessCategory();
         $status->name = 'IT';
         $status->save();
 
-        $status = new Business_categories();
+        $status = new BusinessCategory();
         $status->name = 'MKT';
         $status->save();
 
-        $status = new Business_categories();
+        $status = new BusinessCategory();
         $status->name = 'Sale';
         $status->save();
 
-        $status = new Business_categories();
+        $status = new BusinessCategory();
         $status->name = 'Teachers';
         $status->save();
     }
