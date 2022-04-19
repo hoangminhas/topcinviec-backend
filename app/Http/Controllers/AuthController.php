@@ -10,45 +10,53 @@ use App\Services\AuthService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 
 class AuthController extends Controller
 {
     public $authService;
     public $welcomeEmail;
-    public function __construct(AuthService $authService,
+
+    public function __construct(AuthService  $authService,
                                 WelcomeEmail $welcomeEmail)
     {
         $this->authService = $authService;
         $this->welcomeEmail = $welcomeEmail;
     }
-    public function login (LoginFormRequest $request)
+    public function login (Request $request)
     {
-      if ( $this->authService->login($request))
-      {
-          return redirect()->route('posts.index');
-      }
-      else
-      {
-          Session::flash('msg','Tài khoản hoặc mật khẩu sai');
-          return redirect()->back();
-      }
-//          return response()->json(
-//              [
-//                  'status'=>true,
-//                  'msg'=>'Dang nhap thanh cong'
-//              ]
-//          );
+//      if ( $this->authService->login($request))
+//      {
+//          return redirect()->route('posts.index');
 //      }
 //      else
 //      {
-//          return response()->json(
-//              [
-//                  'status'=>false,
-//                  'msg'=>'Sai ten toan khoan hoac mat khau'
-//              ]
-//          );
+//          Session::flash('msg','Tài khoản hoặc mật khẩu sai');
+//          return redirect()->back();
 //      }
+        $validator = Validator::make($request->all(), [
+            'email'=> 'bail|required|email',
+            'password'=> 'bail|required'
+        ]);
+
+        if ($this->authService->login($request)) {
+
+          return response()->json(
+              [
+                  'status'=> true,
+                  'data'=> Auth::user(),
+                  'msg'=>'Sign in successful!'
+              ]
+          );
+      } else {
+          return response()->json(
+              [
+                  'status'=>false,
+                  'msg'=> $validator->errors()
+              ]
+          );
+      }
     }
 
     public function register(RegisterRequest $request)

@@ -15,7 +15,7 @@ class WelcomeEmail extends Controller
         $user = User::latest()->first();
 
         $welcomeData = [
-            'body'=> 'Welcome to our website',
+            'body'=> 'Welcome to TOPCINVIEC',
             'welcomeText'=> 'You are allowed to register',
             'url'=> url('/'),
             'thankyou'=> 'You have 5 days to verification'

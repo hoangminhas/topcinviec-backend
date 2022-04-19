@@ -4,6 +4,7 @@ use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RecruiterController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\WelcomeEmail;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
@@ -62,5 +63,5 @@ Route::get('/register', function () {
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::get('/send-welcomeEmail', [WelcomeEmail::class, 'sendWelcomeEmail'])->name('welcome-email');
 
-
+Route::get('search',[SearchController::class,'searchJob'])->name('searchJob');
 Route::get('/dashboard/post-list', [PostController::class, 'indexOfAdmin'])->name('backend.post.index');

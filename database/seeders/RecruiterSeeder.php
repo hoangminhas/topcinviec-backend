@@ -25,7 +25,7 @@ class RecruiterSeeder extends Seeder
         $recruiter->employee = '20 - 30';
         $recruiter->profile_image = 'cg92.jpeg';
         $recruiter->banner_image = 'cg92.jpeg';
-        $recruiter->user_id = 3;
+        $recruiter->user_id = rand(2,3);
         $recruiter->status_id = 1;
         $recruiter->business_category_id = 1;
         $recruiter->save();
@@ -41,7 +41,7 @@ class RecruiterSeeder extends Seeder
         $recruiter->employee = '20 - 30';
         $recruiter->profile_image = 'cg53.jpeg';
         $recruiter->banner_image = 'cg53.jpeg';
-        $recruiter->user_id = 3;
+        $recruiter->user_id = rand(2,3);
         $recruiter->status_id = 1;
         $recruiter->business_category_id = 1;
         $recruiter->save();
