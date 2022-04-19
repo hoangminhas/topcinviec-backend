@@ -69,7 +69,6 @@
                                         </div>
                                         <div class="form-group col-3">
                                             <select class="form-control province_id" name="province_id" id="" >
-                                                <option value="">Choose province</option>
                                                 @foreach($provinces as $province)
                                                 <option value="{{$province->id}}">{{$province->name}}</option>
                                                 @endforeach
@@ -78,7 +77,7 @@
 
                                         <div class="col-3">
                                             <select class="form-control district_id" name="district_id" id="">
-                                                    <option value="">Select district</option>
+                                                <option value="">Select district</option>
                                             </select>
                                         </div>
 
@@ -161,13 +160,12 @@
                 var province_id = jQuery(this).val();
 
                 $.ajax({
-                    url: "/api/get_districts/" + province_id,
+                    url: "/api/get_districts/"+province_id,
                     type: "GET",
                     success: function(data) {
                         var districts_html = '<option value="">Select district</option>';
                         for (const district of data) {
-                            districts_html += '<option value="' + district.id + '">' +
-                                district.name + '</option>';
+                            districts_html += '<option value="' + district.id + '">' + district.name + '</option>';
                         }
                         jQuery('.district_id').html(districts_html);
                     }

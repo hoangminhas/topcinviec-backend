@@ -43,14 +43,9 @@ class District extends Model
         'published' => 'boolean',
     ];
 
-    public function province()
-    {
-        return $this->belongsTo(Province::class, 'province_id');
-    }
-
     public function wards()
     {
-        return $this->hasMany(Ward::class, 'district_id');
+        return $this->hasMany(Ward::class);
     }
 
     public function recruiters()

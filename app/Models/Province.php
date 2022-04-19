@@ -39,9 +39,9 @@ class Province extends Model
         'published' => 'boolean',
     ];
 
-    public function districts()
+    public function district()
     {
-        return $this->hasMany(District::class,  'province_id');
+        return $this->hasMany(District::class);
     }
 
     public function recruiters()
