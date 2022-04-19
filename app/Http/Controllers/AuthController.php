@@ -10,6 +10,7 @@ use App\Services\AuthService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 
 class AuthController extends Controller
@@ -23,8 +24,7 @@ class AuthController extends Controller
         $this->authService = $authService;
         $this->welcomeEmail = $welcomeEmail;
     }
-
-    public function login(LoginFormRequest $request)
+    public function login (Request $request)
     {
 //      if ( $this->authService->login($request))
 //      {
@@ -35,23 +35,28 @@ class AuthController extends Controller
 //          Session::flash('msg','Tài khoản hoặc mật khẩu sai');
 //          return redirect()->back();
 //      }
+        $validator = Validator::make($request->all(), [
+            'email'=> 'bail|required|email',
+            'password'=> 'bail|required'
+        ]);
 
         if ($this->authService->login($request)) {
-            return response()->json(
-                [
-                    'status' => true,
-                    'data'=> Auth::user(),
-                    'msg' => 'Dang nhap thanh cong'
-                ]
-            );
-        } else {
-            return response()->json(
-                [
-                    'status' => false,
-                    'msg' => 'Sai ten toan khoan hoac mat khau'
-                ]
-            );
-        }
+
+          return response()->json(
+              [
+                  'status'=> true,
+                  'data'=> Auth::user(),
+                  'msg'=>'Sign in successful!'
+              ]
+          );
+      } else {
+          return response()->json(
+              [
+                  'status'=>false,
+                  'msg'=> $validator->errors()
+              ]
+          );
+      }
     }
 
     public function register(RegisterRequest $request)
@@ -63,7 +68,6 @@ class AuthController extends Controller
         return redirect()->route('login');
 //        return response()->json('create user success', 201);
     }
-
     public function logout()
     {
         Auth::logout();
