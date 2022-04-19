@@ -13,6 +13,13 @@ class PostRepository extends BaseRepository implements BaseInterface
         return Post::class;
     }
 
+    public function getAll()
+    {
+        $posts = Post::join('users', 'posts.user_id', '=', 'users.id')
+            ->get(['posts.*', 'users.name']);
+        return $posts;
+    }
+
     public function getSomeNewest()
     {
 //        return $this->model::all()->sortByDesc('id')->values();
