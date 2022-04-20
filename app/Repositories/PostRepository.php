@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Post;
+use App\Models\User;
 use App\Repositories\impl\BaseInterface;
 
 class PostRepository extends BaseRepository implements BaseInterface
@@ -16,9 +17,28 @@ class PostRepository extends BaseRepository implements BaseInterface
     public function getAll()
     {
         $posts = Post::join('users', 'posts.user_id', '=', 'users.id')
-            ->get(['posts.*', 'users.name']);
+            ->get(['posts.*', 'users.name', 'users.address_detail']);
         return $posts;
     }
+
+    public function getById($id)
+    {
+        $post = Post::join('users', 'posts.user_id', '=', 'users.id')
+            ->join('business_categories','posts.business_category_id', '=', 'business_categories.id' )
+            ->where('posts.id', $id)
+            ->first(['posts.*', 'users.name as userName','users.address_detail',
+                'users.phone','users.email','business_categories.name as category']);
+        return $post;
+    }
+
+
+    public function getAllPostOfUser($id)
+    {
+        $user = User::find($id);
+        $posts = $user->posts;
+        return $posts;
+    }
+
 
     public function getSomeNewest()
     {
