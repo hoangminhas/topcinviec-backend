@@ -27,8 +27,13 @@ Route::post('/login',[AuthController::class,'login']);
 Route::post('register',[AuthController::class, 'register']);
 Route::get('/posts',[PostController::class,'index']);
 Route::post('/posts',[PostController::class,'store']);
+
 Route::get('/candidates', [CandidateController::class, 'index']);
 Route::post('/candidates', [CandidateController::class, 'store']);
+Route::get('/candidates/{id}', [CandidateController::class, 'detail']);
+Route::get('/candidates/edit/{id}', [CandidateController::class, 'edit']);
+Route::put('/candidates/edit/{id}', [CandidateController::class, 'update']); //lỗi
+
 Route::get('/recruiters', [RecruiterController::class, 'index']);
 
 Route::get('/get_districts/{province_id}',[DistrictController::class,'get_districts_by_province_id']);
