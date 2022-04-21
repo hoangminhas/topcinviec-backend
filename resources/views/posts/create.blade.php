@@ -173,7 +173,9 @@
                                     </div>
                                 </div>
                             </form>
-
+                            @error('title')
+                            <p style="color: red">{{($message)}}</p>
+                            @enderror
                         </div>
                     </div>
                 </div>

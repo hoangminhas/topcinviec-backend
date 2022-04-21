@@ -97,6 +97,7 @@ class PostController extends Controller
     public function store(PostRequest $request)
     {
         $this->postService->store($request);
+        toastr()->success('Thêm mới thành công');
         return redirect()->route('posts.index');
 //        return response()->json("Success",201);
     }
