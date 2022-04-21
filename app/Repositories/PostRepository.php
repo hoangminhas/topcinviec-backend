@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Post;
+use App\Models\Recruiter;
 use App\Models\User;
 use App\Repositories\impl\BaseInterface;
 
