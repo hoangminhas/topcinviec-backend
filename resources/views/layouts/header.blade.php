@@ -66,7 +66,7 @@
                     </ul>
                   </li>
 
-                  <li><a href="{{route('posts.employers')}}"><span>Employers Details</span></a></li>
+                  <li><a href="{{route('posts.recruiters')}}"><span>Employers Details</span></a></li>
                   <li class="has-submenu"><a href="#/"><span>Candidates</span></a>
                     <ul class="submenu-nav">
                       <li><a href="{{route('candidates.index')}}"><span>Candidates</span></a></li>
