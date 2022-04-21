@@ -39,22 +39,7 @@
                                     <li><i class="icofont-location-pin"></i> {{\Illuminate\Support\Facades\Auth::user()->address_detail}}</li>
                                     <li><i class="icofont-phone"></i> +{{\Illuminate\Support\Facades\Auth::user()->phone}}</li>
                                 </ul>
-                                <button type="button" class="btn-theme">Follow Us</button>
-                                <button type="button" class="btn-theme btn-white">Add Review</button>
-                            </div>
-                        </div>
-                        <div class="employers-counter">
-                            <div class="counter-item">
-                                <h4 class="counter">86</h4>
-                                <h5 class="title">Total jobs</h5>
-                            </div>
-                            <div class="counter-item">
-                                <h4 class="counter">27</h4>
-                                <h5 class="title">Review</h5>
-                            </div>
-                            <div class="counter-item">
-                                <h4 class="counter">452</h4>
-                                <h5 class="title">Views</h5>
+                                <a href="" type="button" class="btn-theme">Edit</a>
                             </div>
                         </div>
                     </div>

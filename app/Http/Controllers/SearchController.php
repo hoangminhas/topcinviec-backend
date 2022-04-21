@@ -12,12 +12,15 @@ class SearchController extends Controller
     {
         $search = $request->input('search');
         $searchProvince = $request->input('province_id');
+        $searchCategory = $request->input('searchCategory');
 
-        $posts = Post::query()->orwhere('province_id','like', "%$searchProvince%")
+        $posts = Post::query()->where('province_id','like', "%$searchProvince%")
             ->where('title','like',"%$search%")
-            ->orWhere('salary','like',"%$search%")
+            ->where('salary','like',"%$search%")
+            ->where('business_category_id', 'like', "%$searchCategory%")
             ->paginate(4);
 //        dd($posts);
+
         return view('posts.list',compact('posts'));
     }
 }
