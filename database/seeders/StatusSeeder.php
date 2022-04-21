@@ -16,11 +16,11 @@ class StatusSeeder extends Seeder
     {
 
         $status = new Status();
-        $status->name = 'On';
+        $status->name = 'on';
         $status->save();
 
         $status = new Status();
-        $status->name = 'Off';
+        $status->name = 'off';
         $status->save();
     }
 }

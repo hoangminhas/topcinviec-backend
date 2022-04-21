@@ -1,5 +1,5 @@
-
-@extends('layouts.header')
+@extends('layouts.app')
+@section('content')
 <main class="main-content">
     <!--== Start Page Header Area Wrapper ==-->
     <div class="page-header-area sec-overlay sec-overlay-black" data-bg-img="assets/img/photos/bg2.webp">
@@ -37,7 +37,7 @@
                   <div class="row">
                     <div class="col-12">
                       <div class="form-group">
-                        <input class="form-control" name="email" type="email" placeholder="Email">
+                        <input class="form-control" value="{{old('email')}}" name="email" type="email" placeholder="Email">
                       </div>
                         @error('email')
                         <p style="color:red">{{$message}}</p>
@@ -82,4 +82,4 @@
     </section>
     <!--== End Login Area Wrapper ==-->
   </main>
-@extends('layouts.footer')
+@endsection

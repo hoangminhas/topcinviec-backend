@@ -1,4 +1,3 @@
-<?php //include('layouts/header.blade.php') ?>
 @extends('layouts.app')
 @section('content')
   <main class="main-content">

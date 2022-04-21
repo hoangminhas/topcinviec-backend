@@ -15,7 +15,6 @@ use Illuminate\Pagination\Paginator;
 
 class PostController extends Controller
 {
-
     protected $postService;
     protected $postRepository;
     public function __construct(PostService $postService, PostRepository $postRepository)
