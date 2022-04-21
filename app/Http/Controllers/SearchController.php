@@ -12,8 +12,8 @@ class SearchController extends Controller
         $search = $request->input('search');
         $searchProvince = $request->input('province_id');
 
-        $posts = Post::query()->where('title','like',"%{$search}%")
-            ->where('province_id', 'like', "{$searchProvince}")
+        $posts = Post::query()->orwhere('province_id','like', "%$searchProvince%")
+            ->where('title','like',"%$search%")
             ->orWhere('salary','like',"%$search%")
             ->get();
 //        dd($posts);

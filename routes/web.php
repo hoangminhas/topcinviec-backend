@@ -36,6 +36,8 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('CheckLogin')->group(function () {
     Route::get('candidates', [CandidateController::class, 'index'])->name('candidates.index');
+    Route::get('apply', [CandidateController::class, 'create'])->name('candidates.create');
+    Route::post('apply', [CandidateController::class, 'store'])->name('candidates.store');
 
 
     Route::prefix('/recruiters')->group(function () {
@@ -54,7 +56,7 @@ Route::middleware('CheckLogin')->group(function () {
         Route::get('edit/{id}', [PostController::class, 'edit'])->name('posts.edit');
         Route::post('update/{id}', [PostController::class, 'update'])->name('posts.update');
         Route::get('detail/{id}', [PostController::class, 'detail'])->name('posts.detail');
-        Route::get('recruiters/', [PostController::class, 'getAllPostOfRecruiter'])->name('posts.recruiters');
+        Route::get('employers/', [PostController::class, 'employers'])->name('posts.employers');
         Route::get('delete/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
     });
 });
@@ -66,3 +68,5 @@ Route::get('/send-welcomeEmail', [WelcomeEmail::class, 'sendWelcomeEmail'])->nam
 
 Route::get('search',[SearchController::class,'searchJob'])->name('searchJob');
 Route::get('/dashboard/post-list', [PostController::class, 'indexOfAdmin'])->name('backend.post.index');
+
+

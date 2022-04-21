@@ -60,9 +60,4 @@ class PostService extends BaseService implements PostInterface
     {
         return $this->postRepository->getById($id);
     }
-
-//    public function getAllPostOfUser($id)
-//    {
-//        return $this->postRepository->getAllPostOfUser($id);
-//    }
 }

@@ -117,6 +117,21 @@
                                             <input name="gender" type="radio" value="all"> All
                                         </div>
                                     </div>
+
+                                    <div class="col-12">
+                                        <div>
+                                            @error('address')
+                                            <p style="color: red">{{($message)}}</p>
+                                            @enderror
+                                            <label>Office<font style="color:red;">*</font></label>
+                                            <select name="province_id" class="form-control">
+                                                @foreach($provinces as $province)
+                                                    <option value="{{$province->id}}">{{$province->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
                                     <div class="col-12">
                                         <label>Working experience<font style="color:red;">*</font></label>
                                     </div>
@@ -158,9 +173,11 @@
                                             @error('business_category_id')
                                             <p style="color: red">{{($message)}}</p>
                                             @enderror
-                                            @foreach($buns as $item)
-                                                <input type="checkbox" name="business_category_id" value="{{$item->id}}">{{$item->name}}
-                                            @endforeach
+                                            <select class="form-control" name="business_category_id" id="">
+                                                @foreach($buns as $item)
+                                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                     <input type="hidden" name="user_id" value="">
