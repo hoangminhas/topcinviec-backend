@@ -1,5 +1,5 @@
-
-@extends('layouts.header')
+@extends('layouts.app')
+@section('content')
 <main class="main-content">
     <!--== Start Page Header Area Wrapper ==-->
     <div class="page-header-area sec-overlay sec-overlay-black" data-bg-img="{{\Illuminate\Support\Facades\Auth::user()->recruiter->banner_image?? ''}}">
@@ -244,4 +244,4 @@
     </section>
     <!--== End Employers Details Area Wrapper ==-->
 </main>
-@extends('layouts.footer')
+@endsection
