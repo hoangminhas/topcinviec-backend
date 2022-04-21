@@ -14,6 +14,34 @@ class PostSeeder extends Seeder
      */
     public function run()
     {
-        Post::factory(5)->create();
+        $post = new Post();
+        $post->title = 'PHP Developer';
+        $post->content = 'We are looking for a PHP Developer responsible for managing back-end services';
+        $post->salary = 10000;
+        $post->job_type = 'IT';
+        $post->job_level = 'Senior';
+        $post->quantity = 2;
+        $post->gender = 'all';
+        $post->province_id = 1;
+        $post->experience = '2 years';
+        $post->posting_start = '2022/4/4';
+        $post->posting_end = '2022/5/1';
+        $post->user_id = 1;
+        $post->save();
+
+        $post = new Post();
+        $post->title = 'Acouting';
+        $post->content = 'We are looking for a Acouting responsible for managing our services and the interchange of data between the server and the users.';
+        $post->salary = 10000;
+        $post->job_type = 'Acouting';
+        $post->job_level = 'Master';
+        $post->quantity = 2;
+        $post->gender = 'all';
+        $post->province_id = 1;
+        $post->experience = '2 years';
+        $post->posting_start = '2022/4/4';
+        $post->posting_end = '2022/5/1';
+        $post->user_id = 1;
+        $post->save();
     }
 }

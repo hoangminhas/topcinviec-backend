@@ -26,6 +26,10 @@ class AuthController extends Controller
     }
     public function login (Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'email'=> 'bail|required|email',
+            'password'=> 'bail|required'
+        ]);
       if ( $this->authService->login($request))
       {
           return redirect()->route('posts.index');
@@ -35,10 +39,6 @@ class AuthController extends Controller
           Session::flash('msg','Tài khoản hoặc mật khẩu sai');
           return redirect()->back();
       }
-//        $validator = Validator::make($request->all(), [
-//            'email'=> 'bail|required|email',
-//            'password'=> 'bail|required'
-//        ]);
 //
 //        if ($this->authService->login($request)) {
 //

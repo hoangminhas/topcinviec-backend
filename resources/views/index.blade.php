@@ -1,5 +1,6 @@
 <?php //include('layouts/header.blade.php') ?>
-@extends('layouts.header')
+@extends('layouts.app')
+@section('content')
   <main class="main-content">
     <!--== Start Hero Area Wrapper ==-->
     <section class="home-slider-area">
@@ -18,7 +19,7 @@
                   <div class="col-12">
                     <div class="job-search-wrap">
                       <div class="job-search-form">
-                        <form action="{{route('searchJob')}}">
+                        <form action="{{route('searchJob')}}" method="get">
                           <div class="row row-gutter-10">
                             <div class="col-lg-auto col-sm-6 col-12 flex-grow-1">
                               <div class="form-group">
@@ -27,10 +28,10 @@
                             </div>
                             <div class="col-lg-auto col-sm-6 col-12 flex-grow-1">
                               <div class="form-group">
-                                <select class="form-control">
+                                <select class="form-control" name="province_id">
                                   <option value="" selected>Choose City</option>
                                     @foreach($provinces as $province)
-                                    <option value="{{$province->name}}">{{$province->name}}</option>
+                                    <option value="{{$province->id}}">{{$province->name}}</option>
                                     @endforeach
                                 </select>
                               </div>
@@ -130,19 +131,15 @@
           <div class="col-md-6 col-lg-4">
             <!--== Start Recent Job Item ==-->
             <div class="recent-job-item">
-              <div class="company-info">
-                <div class="logo">
+{{--              <div class="company-info">--}}
+{{--                <div class="logo">--}}
 {{--                  <a href="company-details.php"><img src="{{$post->user->recruiter->profile_image}}" width="75" height="75" alt="Image-HasTech"></a>--}}
-                </div>
-                <div class="content">
-                  <h4 class="name"><a href="company-details.php">{{$post->user->name}}</a></h4>
-                  <p class="address">New York, USA</p>
-                </div>
-              </div>
+{{--                </div>--}}
+{{--              </div>--}}
               <div class="main-content">
-                <h3 class="title"><a href="{{route('posts.detail', $post->id)}}">{{$post->title}}</a></h3>
+                <h3 class="title text-center"><a href="{{route('posts.detail', $post->id)}}">{{$post->title}}</a></h3>
                 <h5 class="work-type">{{$post->job_type}}</h5>
-                <p class="desc">CSS3, HTML5, Javascript, Bootstrap, Jquery</p>
+                <p class="desc">{{$post->content}}</p>
               </div>
               <div class="recent-job-info">
                   @if(\Illuminate\Support\Facades\Auth::check())
@@ -734,6 +731,4 @@
     </section>
     <!--== End Blog Area Wrapper ==-->
   </main>
-@extends('layouts.footer')
-<?php //include('layouts/footer.blade.php') ?>
-
+@endsection

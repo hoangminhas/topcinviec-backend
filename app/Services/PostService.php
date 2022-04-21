@@ -44,6 +44,7 @@ class PostService extends BaseService implements PostInterface
         $post->salary = $request->salary;
         $post->job_type = $request->job_type;
         $post->job_level = $request->job_level;
+        $post->province_id = $request->province_id;
         $post->quantity = $request->quantity;
         $post->gender = $request->gender;
         $post->experience = $request->experience;

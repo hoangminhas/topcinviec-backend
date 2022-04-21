@@ -25,14 +25,9 @@ use Illuminate\Support\Facades\Route;
 Route::post('/login',[AuthController::class,'login']);
 
 Route::post('register',[AuthController::class, 'register']);
-
-
-
-
 Route::get('/posts',[PostController::class,'index']);
-Route::get('/posts/{id}/recruiter',[PostController::class,'getAllPostOfRecruiter']);
-Route::get('posts/{id}/detail',[PostController::class,'detail']);
 Route::post('/posts',[PostController::class,'store']);
+
 Route::get('/candidates', [CandidateController::class, 'index']);
 Route::post('/candidates', [CandidateController::class, 'store']);
 Route::get('/candidates/{id}', [CandidateController::class, 'detail']);
