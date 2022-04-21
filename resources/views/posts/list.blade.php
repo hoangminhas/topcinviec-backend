@@ -1,6 +1,6 @@
-@extends('layouts.header')
+@extends('layouts.app')
 
-
+@section('content')
 <main class="main-content">
     <!--== Start Page Header Area Wrapper ==-->
     <div class="page-header-area sec-overlay sec-overlay-black" data-bg-img="assets/img/photos/bg2.webp">
@@ -30,25 +30,25 @@
                 <div class="col-xl-8">
                     <div class="row row-gutter-70">
                         @foreach($posts as $post)
-                        <div class="col-sm-6 col-lg-4 col-xl-6">
-                            <!--== Start Blog Post Item ==-->
-                            <div class="post-item">
-                                <div class="thumb">
-{{--                                    <a href="blog-details.blade.php"><img src="assets/img/blog/7.webp" alt="Image" width="30" height="30"></a>--}}
-                                </div>
-                                <div class="content">
+                            <div class="col-sm-6 col-lg-4 col-xl-6">
+                                <!--== Start Blog Post Item ==-->
+                                <div class="post-item">
+                                    <div class="thumb">
+                                        {{--                                    <a href="blog-details.blade.php"><img src="assets/img/blog/7.webp" alt="Image" width="30" height="30"></a>--}}
+                                    </div>
+                                    <div class="content">
 
-                                    <h4 class="title"><a href="{{route('posts.detail',$post->id)}}">{{$post->title}}</a></h4>
-                                    <p>{{$post->content}}</p>
-                                    <div class="meta">
-                                        <span class="post-date">{{$post->user->name}}</span>
-                                        <span class="dots"></span>
-                                        <span class="post-time"><span style="color: red ">expire:</span>{{$post->posting_end}}</span>
+                                        <h4 class="title"><a href="{{route('posts.detail',$post->id)}}">{{$post->title}}</a></h4>
+                                        <p>{{$post->content}}</p>
+                                        <div class="meta">
+                                            <span class="post-date">{{$post->user->name}}</span>
+                                            <span class="dots"></span>
+                                            <span class="post-time"><span style="color: red ">expire:</span>{{$post->posting_end}}</span>
+                                        </div>
                                     </div>
                                 </div>
+                                <!--== End Blog Post Item ==-->
                             </div>
-                            <!--== End Blog Post Item ==-->
-                        </div>
                         @endforeach
                         <div class="col-12 text-left">
 
@@ -94,42 +94,42 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="widget-item">
-                            <div class="widget-title">
-                                <h3 class="title">Post Category</h3>
-                            </div>
-                            <div class="widget-body">
-                                <div class="widget-categories">
-                                    <ul>
-                                        @foreach($business_categories as $business_category)
-                                        <li><a href="job.blade.php">{{$business_category->name}}</a></li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="widget-item">
-                            <div class="widget-title">
-                                <h3 class="title">Recent Post</h3>
-                            </div>
-                            <div class="widget-body">
-                                <div class="widget-post">
-                                    @foreach($recent_posts as $recent_post)
-                                    <div class="widget-blog-post">
-                                        <div class="thumb">
-                                            <a href="blog-details.blade.php"><img src="assets/img/blog/s1.webp" alt="Image" width="71" height="70"></a>
-                                        </div>
-                                        <div class="content">
-                                            <h4><a href="{{route('posts.detail',$recent_post->id)}}">{{$recent_post->title}}</a></h4>
-                                            <div class="meta">
-                                                <span class="post-date"><i class="icofont-ui-calendar"></i> {{$recent_post->posting_start}}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
+{{--                        <div class="widget-item">--}}
+{{--                            <div class="widget-title">--}}
+{{--                                <h3 class="title">Post Category</h3>--}}
+{{--                            </div>--}}
+{{--                            <div class="widget-body">--}}
+{{--                                <div class="widget-categories">--}}
+{{--                                    <ul>--}}
+{{--                                        @foreach($business_categories as $business_category)--}}
+{{--                                            <li><a href="job.blade.php">{{$business_category->name}}</a></li>--}}
+{{--                                        @endforeach--}}
+{{--                                    </ul>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="widget-item">--}}
+{{--                            <div class="widget-title">--}}
+{{--                                <h3 class="title">Recent Post</h3>--}}
+{{--                            </div>--}}
+{{--                            <div class="widget-body">--}}
+{{--                                <div class="widget-post">--}}
+{{--                                    @foreach($recent_posts as $recent_post)--}}
+{{--                                        <div class="widget-blog-post">--}}
+{{--                                            <div class="thumb">--}}
+{{--                                                <a href="blog-details.blade.php"><img src="assets/img/blog/s1.webp" alt="Image" width="71" height="70"></a>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="content">--}}
+{{--                                                <h4><a href="{{route('posts.detail',$recent_post->id)}}">{{$recent_post->title}}</a></h4>--}}
+{{--                                                <div class="meta">--}}
+{{--                                                    <span class="post-date"><i class="icofont-ui-calendar"></i> {{$recent_post->posting_start}}</span>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    @endforeach--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
             </div>
@@ -137,5 +137,5 @@
     </section>
     <!--== End Blog Area Wrapper ==-->
 </main>
+@endsection
 
-@extends('layouts.footer')

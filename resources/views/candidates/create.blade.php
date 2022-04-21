@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-header-content">
-                        <h2 class="title">Recruiter information</h2>
+                        <h2 class="title">Candidate information</h2>
                         <nav class="breadcrumb-area">
                             <ul class="breadcrumb justify-content-center">
                                 <li><a href="../index.blade.php">Home</a></li>
@@ -30,88 +30,44 @@
                     <div class="login-register-form-wrap">
                         <div class="login-register-form">
                             <div class="form-title">
-                                <h4 class="title">Update Information</h4>
+                                <h4 class="title">Information</h4>
                             </div>
-                            <form action="{{route('recruiters.store')}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('candidates.store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-12">
-                                        <h4>Recruiter Information</h4>
+                                        <h4>Candidate Information</h4>
                                     </div>
 
                                     <div class="col-12">
-                                        <label>Company Name<font style="color:red;">*</font></label>
+                                        <label>Experience<font style="color:red;">*</font></label>
                                     </div>
                                     @if ($errors->any())
-                                        <p style="color:red">{{ $errors->first('company_name') }}</p>
+                                        <p style="color:red">{{ $errors->first('experience') }}</p>
                                     @endif
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input class="form-control" name="company_name" type="text" value="">
+                                            <input class="form-control" name="experience" type="text" value="">
                                         </div>
                                     </div>
 
                                     <div class="col-12">
-                                        <label>Description</label>
+                                        <label>Education</label>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input class="form-control" name="description" type="text" value="">
+                                            <input class="form-control" name="education" type="text" value="">
                                         </div>
                                     </div>
-                                    <form action="">
                                     <div class="col-12">
-                                        <label>Address</label>
+                                        <label>Skills</label>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group col-3">
-                                            <input class="form-control" name="company_address" type="text" placeholder="Ex: 102 Quang Trung" value="">
-                                        </div>
-                                        <div class="form-group col-3">
-                                            <select class="form-control province_id" name="province_id" id="" >
-                                                @foreach($provinces as $province)
-                                                <option value="{{$province->id}}">{{$province->name}}</option>
-                                                @endforeach
-                                            </select>
+                                            <input class="form-control" name="skills" type="text" value="">
                                         </div>
 
-                                        <div class="col-3">
-                                            <select class="form-control district_id" name="district_id" id="">
-                                                <option value="">Select district</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="col-3">
-                                            <select class="form-control ward_id" name="ward_id" id="">
-                                                <option value="">Select ward</option>
-                                            </select>
-                                        </div>
                                     </div>
-                                    </form>
-                                    <div class="col-12">
-                                        <label>Office</label>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <input class="form-control" name="office" type="text" value="">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <label>Employees</label>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <select class="form-control" name="employee">
-                                                <option value="20 - 30">20 - 30</option>
-                                                <option value="31 - 100">31 - 100</option>
-                                                <option value="101 - 200">101 - 200</option>
-                                                <option value="201 - 300">201 - 300</option>
-                                                <option value="300+">300+</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
                                     <div class="col-12">
                                         <label>Profile Image<font style="color:red;">*</font></label>
                                     </div>
@@ -125,20 +81,20 @@
                                     </div>
 
                                     <div class="col-12">
-                                        <label>Banner Image<font style="color:red;">*</font></label>
+                                        <label>Resume<font style="color:red;">*</font></label>
                                     </div>
                                     @if ($errors->any())
-                                        <p style="color:red">{{ $errors->first('banner_image') }}</p>
+                                        <p style="color:red">{{ $errors->first('resume') }}</p>
                                     @endif
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input name="banner_image" type="file" value="">
+                                            <input name="resume" type="file" value="">
                                         </div>
                                     </div>
 
                                     <input type="hidden" name="user_id" value="2">
                                     <input type="hidden" name="status_id" value="1">
-                                    <input type="hidden" name="business_category_id" value="1">
+{{--                                    <input type="hidden" name="business_category_id" value="1">--}}
 
                                     <div class="col-12">
                                         <div class="form-group">
