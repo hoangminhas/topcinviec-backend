@@ -26,7 +26,8 @@ class PostFactory extends Factory
             'posting_end'=>$this->faker->date(),
             'business_category_id'=>rand(1,4),
             'user_id'=>rand(5,7),
-            'status_id'=>rand(1,2)
+            'status_id'=>rand(1,2),
+            'province_id'=>rand(1,63)
         ];
     }
 }
