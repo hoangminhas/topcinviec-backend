@@ -37,7 +37,7 @@
                   <div class="row">
                     <div class="col-12">
                       <div class="form-group">
-                        <input class="form-control" name="email" type="email" placeholder="Email">
+                        <input class="form-control" value="{{old('email')}}" name="email" type="email" placeholder="Email">
                       </div>
                         @error('email')
                         <p style="color:red">{{$message}}</p>

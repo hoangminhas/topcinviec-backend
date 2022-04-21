@@ -23,19 +23,19 @@ class PostController extends Controller
     public function index()
     {
         $posts = $this->postService->getAll();
-        if($posts) {
-            return response()->json([
-               'success'=> true,
-               'data'=> $posts,
-                'msg'=> 'get all posts!'
-            ]);
-        } else {
-            return response()->json([
-                'success'=> false,
-                'msg'=> 'get posts fail'
-            ]);
-        }
-//        return view('posts.list',compact('posts'));
+//        if($posts) {
+//            return response()->json([
+//               'success'=> true,
+//               'data'=> $posts,
+//                'msg'=> 'get all posts!'
+//            ]);
+//        } else {
+//            return response()->json([
+//                'success'=> false,
+//                'msg'=> 'get posts fail'
+//            ]);
+//        }
+        return view('posts.list',compact('posts'));
 //        return response()->json($posts,201);
 //                return response()->json("Success",201);
     }
@@ -49,9 +49,9 @@ class PostController extends Controller
     public function detail($id)
     {
         $post = $this->postService->getById($id);
-        return response()->json($post,201);
+//        return response()->json($post,201);
 
-//        return view('posts.detail', compact('post'));
+        return view('posts.detail', compact('post'));
     }
 
     public function employers()
