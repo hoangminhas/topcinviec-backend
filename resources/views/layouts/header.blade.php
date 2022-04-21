@@ -49,7 +49,7 @@
           <div class="header-align">
             <div class="header-align-start">
               <div class="header-logo-area">
-                <a href="index.php">
+                <a href="{{route('home')}}">
                   <img class="logo-main" src="{{asset('assets/img/logo-light.webp')}}" alt="Logo" />
                   <img class="logo-light" src="{{asset('assets/img/logo-light.webp')}}" alt="Logo" />
                 </a>
@@ -58,26 +58,18 @@
             <div class="header-align-center">
               <div class="header-navigation-area position-relative">
                 <ul class="main-menu nav">
-                  <li><a href="{{route('home')}}"><span>Home</span></a></li>
-                  <li class="has-submenu"><a href="#/"><span>Find Jobs</span></a>
-                    <ul class="submenu-nav">
-                      <li><a href="{{route('posts.index')}}"><span>Jobs</span></a></li>
-                      <li><a href="job-details.php"><span>Job Details</span></a></li>
-                    </ul>
+                  <li><a style="font-size: 20px" href="{{route('home')}}"><span>Home</span></a></li>
+                  <li class="has-submenu"><a style="font-size: 20px" href="{{route('posts.index')}}"><span>Jobs</span></a></a>
                   </li>
 
-                  <li><a href="{{route('posts.employers')}}"><span>Employers Details</span></a></li>
-                  <li class="has-submenu"><a href="#/"><span>Candidates</span></a>
-                    <ul class="submenu-nav">
-                      <li><a href="{{route('candidates.index')}}"><span>Candidates</span></a></li>
-                      <li><a href="candidate-details.php"><span>Candidate Details</span></a></li>
-                    </ul>
-                  </li>
-                    <li class="has-submenu"><a href="#/"><span>Recruiters</span></a>
-                        <ul class="submenu-nav">
-                            <li><a href="{{route('recruiters.index')}}">Recruiter List</a></li>
-                            <li><a href="blog.php">Blog Left Sidebar</a></li>
-                        </ul>
+{{--                  <li><a href="{{route('posts.employers')}}"><span>Employers Details</span></a></li>--}}
+{{--                  <li class="has-submenu"><a href="{{route('candidates.index')}}"><span>Candidates</span></a>--}}
+{{--                  </li>--}}
+                    <li class="has-submenu"><a style="font-size: 20px" href="{{route('recruiters.index')}}">Recruiters</a></a>
+{{--                        <ul class="submenu-nav">--}}
+{{--                            <li><a href="{{route('recruiters.index')}}">Recruiter List</a></li>--}}
+{{--                            <li><a href="blog.php">Blog Left Sidebar</a></li>--}}
+{{--                        </ul>--}}
                     </li>
 {{--                  <li class="has-submenu"><a href="#/"><span>Blog</span></a>--}}
 {{--                    <ul class="submenu-nav">--}}
@@ -87,26 +79,28 @@
 {{--                      <li><a href="blog-details.php">Blog Details</a></li>--}}
 {{--                    </ul>--}}
 {{--                  </li>--}}
-                  <li class="has-submenu"><a href="#/"><span>Pages</span></a>
-                    <ul class="submenu-nav">
-                      <li><a href="about-us.php"><span>About us</span></a></li>
-                      <li><a href="{{route('showFormLogin')}}"><span>Login</span></a></li>
-                      <li><a href="{{route('logout')}}"><span>Logout</span></a></li>
-                      <li><a href="registration.php"><span>Registration</span></a></li>
-                      <li><a href="page-not-found.php"><span>Page Not Found</span></a></li>
-                    </ul>
-                  </li>
-                  <li><a href="contact.php"><span>Contact</span></a></li>
+{{--                  <li class="has-submenu"><a href="#/"><span>Pages</span></a>--}}
+{{--                    <ul class="submenu-nav">--}}
+{{--                      <li><a href="about-us.php"><span>About us</span></a></li>--}}
+{{--                      <li><a href="{{route('showFormLogin')}}"><span>Login</span></a></li>--}}
+{{--                      <li><a href="{{route('logout')}}"><span>Logout</span></a></li>--}}
+{{--                      <li><a href="registration.php"><span>Registration</span></a></li>--}}
+{{--                      <li><a href="page-not-found.php"><span>Page Not Found</span></a></li>--}}
+{{--                    </ul>--}}
+{{--                  </li>--}}
+                  <li><a style="font-size: 20px" href="contact.php"><span>Contact</span></a></li>
                 </ul>
               </div>
             </div>
             <div class="header-align-end">
               <div class="header-action-area">
                   @if(\Illuminate\Support\Facades\Auth::check())
-                <a class="btn-registration" href="{{route('posts.create')}}"><span>+</span>New Post</a>
+                <a class="btn-registration" href="{{route('posts.create')}}"><span></span>New Post</a>
                 <a class="btn-registration" href="{{route('logout')}}"><span>+</span>Logout</a>
                   @else
-                      <a class="btn-registration" href="{{route('formRegister')}}"><span>+</span>Register</a>
+                      <a class="btn-registration" href="{{route('showFormLogin')}}"><span></span>Login</a>
+
+                      <a class="btn-registration" href="{{route('formRegister')}}"><span></span>Register</a>
                   @endif
                       <button class="btn-menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasMenu" aria-controls="AsideOffcanvasMenu">
                   <i class="icofont-navigation-menu"></i>

@@ -22,6 +22,7 @@ class CreatePostsTable extends Migration
             $table->string('job_level');
             $table->integer('quantity');
             $table->string('gender');
+            $table->unsignedBigInteger('province_id');
             $table->string('experience');
             $table->date('posting_start');
             $table->date('posting_end');
@@ -29,6 +30,7 @@ class CreatePostsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('status_id')->nullable();
             $table->foreign('business_category_id')->references('id')->on('business_categories');
+            $table->foreign('province_id')->references('id')->on('provinces');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('status_id')->references('id')->on('status');
             $table->timestamps();

@@ -4,14 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
 use App\Models\BusinessCategory;
+use App\Models\Post;
 use App\Repositories\PostRepository;
 use App\Services\PostService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Kjmtrue\VietnamZone\Models\Province;
+use Illuminate\Pagination\Paginator;
 
 class PostController extends Controller
 {
+
     protected $postService;
     protected $postRepository;
     public function __construct(PostService $postService, PostRepository $postRepository)
@@ -23,19 +27,22 @@ class PostController extends Controller
     public function index()
     {
         $posts = $this->postService->getAll();
-        if($posts) {
-            return response()->json([
-               'success'=> true,
-               'data'=> $posts,
-                'msg'=> 'get all posts!'
-            ]);
-        } else {
-            return response()->json([
-                'success'=> false,
-                'msg'=> 'get posts fail'
-            ]);
-        }
-//        return view('posts.list',compact('posts'));
+    $business_categories = BusinessCategory::all();
+    $recent_posts = $this->postService->getSomeNewest();
+
+        return view('posts.list',compact('posts', 'business_categories', 'recent_posts'));
+        //        if($posts) {
+//            return response()->json([
+//               'success'=> true,
+//               'data'=> $posts,
+//                'msg'=> 'get all posts!'
+//            ]);
+//        } else {
+//            return response()->json([
+//                'success'=> false,
+//                'msg'=> 'get posts fail'
+//            ]);
+//        }
 //        return response()->json($posts,201);
 //                return response()->json("Success",201);
     }
@@ -49,9 +56,9 @@ class PostController extends Controller
     public function detail($id)
     {
         $post = $this->postService->getById($id);
-        return response()->json($post,201);
+//        return response()->json($post,201);
 
-//        return view('posts.detail', compact('post'));
+        return view('posts.detail', compact('post'));
     }
 
     public function employers()
@@ -62,7 +69,8 @@ class PostController extends Controller
     public function create()
     {
         $buns = BusinessCategory::all();
-        return view('posts.create',compact('buns'));
+        $provinces = Province::all();
+        return view('posts.create',compact('buns', 'provinces'));
     }
     public function store(PostRequest $request)
     {
