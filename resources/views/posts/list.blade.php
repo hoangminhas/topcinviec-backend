@@ -64,9 +64,9 @@
                         <div class="widget-item">
                             <div class="widget-body">
                                 <div class="widget-search-box">
-                                    <form action="#" method="post">
+                                    <form action="{{route('searchJob')}}" method="get">
                                         <div class="form-input-item">
-                                            <input type="search" id="search2" placeholder="Search here">
+                                            <input name="search" type="search" id="search2" placeholder="Search here">
                                             <button type="submit" class="btn-src">
                                                 <i class="icofont-search"></i>
                                             </button>
