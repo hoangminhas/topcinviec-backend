@@ -104,7 +104,7 @@ class PostController extends Controller
     {
         $this->postService->update($id, $request);
         $provinces = Province::all();
-        return redirect()->route('posts.index', compact('provinces'));
+        return redirect()->route('posts.employers', compact('provinces'));
     }
 
     public function destroy($id)
