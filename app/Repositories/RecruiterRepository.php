@@ -4,6 +4,8 @@ namespace App\Repositories;
 
 use App\Models\Recruiter;
 use App\Repositories\impl\BaseInterface;
+use Illuminate\Pagination\Paginator;
+Paginator::useBootstrap();
 
 class RecruiterRepository extends BaseRepository implements BaseInterface
 {
