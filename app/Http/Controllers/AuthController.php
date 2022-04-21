@@ -26,37 +26,37 @@ class AuthController extends Controller
     }
     public function login (Request $request)
     {
-//      if ( $this->authService->login($request))
-//      {
-//          return redirect()->route('posts.index');
-//      }
-//      else
-//      {
-//          Session::flash('msg','Tài khoản hoặc mật khẩu sai');
-//          return redirect()->back();
-//      }
-        $validator = Validator::make($request->all(), [
-            'email'=> 'bail|required|email',
-            'password'=> 'bail|required'
-        ]);
-
-        if ($this->authService->login($request)) {
-
-          return response()->json(
-              [
-                  'status'=> true,
-                  'data'=> Auth::user(),
-                  'msg'=>'Sign in successful!'
-              ]
-          );
-      } else {
-          return response()->json(
-              [
-                  'status'=>false,
-                  'msg'=> $validator->errors()
-              ]
-          );
+      if ( $this->authService->login($request))
+      {
+          return redirect()->route('posts.index');
       }
+      else
+      {
+          Session::flash('msg','Tài khoản hoặc mật khẩu sai');
+          return redirect()->back();
+      }
+//        $validator = Validator::make($request->all(), [
+//            'email'=> 'bail|required|email',
+//            'password'=> 'bail|required'
+//        ]);
+//
+//        if ($this->authService->login($request)) {
+//
+//          return response()->json(
+//              [
+//                  'status'=> true,
+//                  'data'=> Auth::user(),
+//                  'msg'=>'Sign in successful!'
+//              ]
+//          );
+//      } else {
+//          return response()->json(
+//              [
+//                  'status'=>false,
+//                  'msg'=> $validator->errors()
+//              ]
+//          );
+//      }
     }
 
     public function register(RegisterRequest $request)

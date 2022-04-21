@@ -69,9 +69,9 @@ class PostController extends Controller
     }
 
 
-    public function getAllPostOfRecruiter($id)
+    public function getAllPostOfRecruiter()
     {
-        $posts = $this->postService->getAllPostOfUser($id);
+        $posts = $this->postService->getAll();
         return view('posts.recruiters',compact('posts'));
 //        if ($posts) {
 //            return response()->json([
@@ -113,13 +113,13 @@ class PostController extends Controller
     {
         $this->postService->update($id, $request);
 
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.recruiters');
     }
 
     public function destroy($id)
     {
         $this->postRepository->deleteById($id);
-        return redirect()->route('posts.employers');
+        return redirect()->route('posts.recruiters');
     }
 
 

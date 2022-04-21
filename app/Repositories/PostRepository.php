@@ -33,12 +33,12 @@ class PostRepository extends BaseRepository implements BaseInterface
     }
 
 
-    public function getAllPostOfUser($id)
-    {
-        $user = User::find($id);
-        $posts = $user->posts;
-        return $posts;
-    }
+//    public function getAllPostOfUser($id)
+//    {
+//        $user = User::find($id);
+//        $posts = $user->posts;
+//        return $posts;
+//    }
 
 
     public function getSomeNewest()
