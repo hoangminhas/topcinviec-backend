@@ -39,7 +39,9 @@
                                     <li><i class="icofont-location-pin"></i> {{\Illuminate\Support\Facades\Auth::user()->address_detail}}</li>
                                     <li><i class="icofont-phone"></i> +{{\Illuminate\Support\Facades\Auth::user()->phone}}</li>
                                 </ul>
+                                @if (\Illuminate\Support\Facades\Auth::user()->id !== 2)
                                 <a href="{{route('recruiters.edit',\Illuminate\Support\Facades\Auth::user()->id)}}" type="button" class="btn-theme">Edit</a>
+                                @endif
                             </div>
                         </div>
                     </div>
