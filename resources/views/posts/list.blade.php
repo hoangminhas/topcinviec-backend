@@ -43,7 +43,7 @@
                                         <div class="meta">
                                             <span class="post-date">{{$post->user->name}}</span>
                                             <span class="dots"></span>
-                                            <span class="post-time"><span style="color: red ">expire:</span>{{$post->posting_end}}</span>
+                                            <span class="post-time"><span style="color: red ">Expire:</span> {{$post->posting_end}}</span>
                                         </div>
                                     </div>
                                 </div>

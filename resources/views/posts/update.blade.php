@@ -79,7 +79,10 @@
                                             @error('job_type')
                                             <p style="color: red">{{($message)}}</p>
                                             @enderror
-                                            <input class="form-control" name="job_type" type="text" value="{{$post->job_type}}">
+                                            <select class="form-control" name="job_type">
+                                                <option value="Full time">Full time</option>
+                                                <option value="Part time">Part time</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -108,13 +111,15 @@
                                         <label>Gender<font style="color:red;">*</font></label>
                                     </div>
                                     <div class="col-12">
-                                        <div class="form-group">
+                                        <div>
                                             @error('gender')
                                             <p style="color: red">{{($message)}}</p>
                                             @enderror
-                                            <input name="gender" type="radio" value="male"> Male
-                                            <input name="gender" type="radio" value="female"> Female
-                                            <input name="gender" type="radio" value="all"> All
+                                            <select class="form-control" name="gender">
+                                                <option value="male">Male</option>
+                                                <option value="female">Female</option>
+                                                <option value="all">All</option>
+                                            </select>
                                         </div>
                                     </div>
 
