@@ -4,6 +4,8 @@ namespace App\Repositories;
 
 use App\Models\Post;
 use App\Repositories\impl\BaseInterface;
+use Illuminate\Pagination\Paginator;
+Paginator::useBootstrap();
 
 class PostRepository extends BaseRepository implements BaseInterface
 {
@@ -16,7 +18,10 @@ class PostRepository extends BaseRepository implements BaseInterface
     public function getAll()
     {
         $posts = Post::join('users', 'posts.user_id', '=', 'users.id')
-            ->get(['posts.*', 'users.name']);
+
+
+            ->paginate(4);
+
         return $posts;
     }
 
