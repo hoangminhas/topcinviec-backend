@@ -30,15 +30,15 @@ class AuthController extends Controller
             'email'=> 'bail|required|email',
             'password'=> 'bail|required'
         ]);
-      if ( $this->authService->login($request))
-      {
-          return redirect()->route('posts.index');
-      }
-      else
-      {
-          Session::flash('msg','Tài khoản hoặc mật khẩu sai');
-          return redirect()->back();
-      }
+        if ( $this->authService->login($request))
+        {
+            return redirect()->route('posts.index');
+        }
+        else
+        {
+            Session::flash('msg','Tài khoản hoặc mật khẩu sai');
+            return redirect()->back();
+        }
 //
 //        if ($this->authService->login($request)) {
 //

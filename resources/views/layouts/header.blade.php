@@ -88,7 +88,7 @@
 {{--                      <li><a href="page-not-found.php"><span>Page Not Found</span></a></li>--}}
 {{--                    </ul>--}}
 {{--                  </li>--}}
-                  <li><a style="font-size: 20px" href="contact.php"><span>Contact</span></a></li>
+                    <li><a style="font-size: 20px" href="{{route('posts.employers')}}"><span>My posts</span></a></li>
                 </ul>
               </div>
             </div>

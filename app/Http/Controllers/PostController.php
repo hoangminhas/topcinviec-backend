@@ -27,8 +27,8 @@ class PostController extends Controller
     public function index()
     {
         $posts = $this->postService->getAll();
-    $business_categories = BusinessCategory::all();
-    $recent_posts = $this->postService->getSomeNewest();
+        $business_categories = BusinessCategory::all();
+        $recent_posts = $this->postService->getSomeNewest();
 
         return view('posts.list',compact('posts', 'business_categories', 'recent_posts'));
         //        if($posts) {
@@ -64,7 +64,7 @@ class PostController extends Controller
     public function employers()
     {
         $posts = $this->postService->getAll();
-        return view('posts.employers',compact('posts'));
+        return view('posts.recruiters',compact('posts'));
     }
     public function create()
     {
@@ -75,7 +75,8 @@ class PostController extends Controller
     public function store(PostRequest $request)
     {
         $this->postService->store($request);
-        return redirect()->route('posts.index');
+        $provinces = Province::all();
+        return redirect()->route('posts.index',compact('provinces'));
 //        return response()->json("Success",201);
 
     }
@@ -83,15 +84,16 @@ class PostController extends Controller
     public function edit($id)
     {
         $buns = BusinessCategory::all();
+        $provinces = Province::all();
         $post = $this->postService->getById($id);
-        return view('posts.update',compact('post','buns'));
+        return view('posts.update',compact('post','buns', 'provinces'));
     }
 
     public function update($id , PostRequest $request)
     {
         $this->postService->update($id,$request);
-
-        return redirect()->route('posts.index');
+        $provinces = Province::all();
+        return redirect()->route('posts.index', compact('provinces'));
     }
 
     public function destroy($id)
