@@ -94,12 +94,13 @@
             </div>
             <div class="header-align-end">
               <div class="header-action-area">
-                  @if(\Illuminate\Support\Facades\Auth::check())
+                  @if(\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()->role_id !== 1  && \Illuminate\Support\Facades\Auth::user()->role_id !== 2)
                 <a class="btn-registration" href="{{route('posts.create')}}"><span></span>New Post</a>
-                <a class="btn-registration" href="{{route('logout')}}"><span>+</span>Logout</a>
+                      <a class="btn-registration" href="{{route('logout')}}"><span></span>Logout</a>
+                  @elseif(\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()->role_id !== 1)
+                      <a class="btn-registration" href="{{route('logout')}}"><span></span>Logout</a>
                   @else
                       <a class="btn-registration" href="{{route('showFormLogin')}}"><span></span>Login</a>
-
                       <a class="btn-registration" href="{{route('formRegister')}}"><span></span>Register</a>
                   @endif
                       <button class="btn-menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasMenu" aria-controls="AsideOffcanvasMenu">

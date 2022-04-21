@@ -115,7 +115,7 @@
                                             <tr>
                                                 <td class="table-name">Salary</td>
                                                 <td class="dotted">:</td>
-                                                <td>{{$post->salary ?? ''}} / Monthly</td>
+                                                <td>{{$post->salary}} / Monthly</td>
                                             </tr>
                                         @endif
                                         <tr>
