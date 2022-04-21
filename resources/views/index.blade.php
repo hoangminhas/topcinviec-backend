@@ -28,7 +28,10 @@
                             <div class="col-lg-auto col-sm-6 col-12 flex-grow-1">
                               <div class="form-group">
                                 <select class="form-control">
-                                  <option value="1" selected>Choose City</option>
+                                  <option value="" selected>Choose City</option>
+                                    @foreach($provinces as $province)
+                                    <option value="{{$province->name}}">{{$province->name}}</option>
+                                    @endforeach
                                 </select>
                               </div>
                             </div>

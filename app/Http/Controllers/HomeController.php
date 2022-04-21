@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Services\HomeService;
 use App\Services\PostService;
 use Illuminate\Http\Request;
+use Kjmtrue\VietnamZone\Models\Province;
 
 class HomeController extends Controller
 {
@@ -25,6 +26,7 @@ class HomeController extends Controller
         $businessCategory = $this->homeService->getAllBusinessCategory();
         $posts = $this->postService->getSomeNewest();
         $totalPosts = count($this->postService->getAll());
-        return view('index', compact(['businessCategory', 'posts', 'totalPosts']));
+        $provinces = Province::get();
+        return view('index', compact(['businessCategory', 'posts', 'totalPosts', 'provinces']));
     }
 }

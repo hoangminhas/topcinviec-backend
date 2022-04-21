@@ -67,6 +67,5 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'CheckLogin'=> CheckLogin::class,
         'auth.jwt' => \Tymon\JWTAuth\Http\Middleware\Authenticate::class,
-
     ];
 }

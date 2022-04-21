@@ -37,6 +37,7 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::middleware('CheckLogin')->group(function () {
     Route::get('candidates', [CandidateController::class, 'index'])->name('candidates.index');
 
+
     Route::prefix('/recruiters')->group(function () {
         Route::get('/', [RecruiterController::class, 'index'])->name('recruiters.index');
         Route::get('/create', [RecruiterController::class, 'create'])->name('recruiters.create');
