@@ -18,7 +18,7 @@ class PostSeeder extends Seeder
         $post->title = 'PHP Developer';
         $post->content = 'We are looking for a PHP Developer responsible for managing back-end services';
         $post->salary = 10000;
-        $post->job_type = 'IT';
+        $post->job_type = 'Full time';
         $post->job_level = 'Senior';
         $post->quantity = 2;
         $post->gender = 'all';
@@ -26,6 +26,7 @@ class PostSeeder extends Seeder
         $post->experience = '2 years';
         $post->posting_start = '2022/4/4';
         $post->posting_end = '2022/5/1';
+        $post->business_category_id = 1;
         $post->user_id = 1;
         $post->save();
 
@@ -33,7 +34,7 @@ class PostSeeder extends Seeder
         $post->title = 'Acouting';
         $post->content = 'We are looking for a Acouting responsible for managing our services and the interchange of data between the server and the users.';
         $post->salary = 10000;
-        $post->job_type = 'Acouting';
+        $post->job_type = 'Part time';
         $post->job_level = 'Master';
         $post->quantity = 2;
         $post->gender = 'all';
@@ -41,6 +42,7 @@ class PostSeeder extends Seeder
         $post->experience = '2 years';
         $post->posting_start = '2022/4/4';
         $post->posting_end = '2022/5/1';
+        $post->business_category_id = 2;
         $post->user_id = 1;
         $post->save();
     }

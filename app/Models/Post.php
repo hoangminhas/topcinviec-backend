@@ -22,7 +22,8 @@ class Post extends Model
         'experience',
         'posting_start',
         'posting_end',
-        'user_id'
+        'user_id',
+        'business_category_id'
     ];
 
     public function user()

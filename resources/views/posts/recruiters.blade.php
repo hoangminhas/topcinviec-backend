@@ -49,9 +49,8 @@
                 <div class="col-lg-7 col-xl-8">
                     <div class="employers-details-item">
                         <div class="content">
-                            <h4 class="title">About Employers</h4>
-                            <p class="desc">It is a long established fact that a reader will be distracted the readable content of page when looking atits layout. The point of using is that has more-or-less normal a distribution of letters, as opposed to usin content publishing packages web page editors. It is a long established fact that a reader will be distracts by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that has look like readable publishing packages and web page editors.</p>
-                            <p class="desc">It is a long established fact that a reader will be distracted the readable content of a page when looking atits layout. The point of using is that has more-or-less normal a distribution of letters, as opposed to usin content publishing packages web page editors.</p>
+                            <h4 class="title">About Company</h4>
+                            <p class="desc">{{\Illuminate\Support\Facades\Auth::user()->recruiter->description}}</p>
                             <ul class="employers-details-list">
                                 <li><i class="icofont-check"></i> Developing custom themes (WordPress.org & ThemeForest Standards)</li>
                                 <li><i class="icofont-check"></i> Creating reactive website designs</li>
@@ -87,8 +86,8 @@
                                     </div>
 
                                     <div class="main-content">
-                                        <h3 class="title"><a href="job-details.blade.php">{{$post->title}}</a></h3>
-                                        <h5 class="work-type">Full-time</h5>
+                                        <h3 class="title"><a href="{{route('posts.detail',$post->id)}}">{{$post->title}}</a></h3>
+                                        <h5 class="work-type">{{$post->job_type}}</h5>
                                         <p class="desc">{{$post->content}}</p>
                                     </div>
                                     <div class="recent-job-info">
@@ -118,9 +117,9 @@
                                 <table class="table">
                                     <tbody>
                                     <tr>
-                                        <td class="table-name">Categories</td>
+                                        <td class="table-name">Company Name</td>
                                         <td class="dotted">:</td>
-                                        <td>Design & Software</td>
+                                        <td>{{\Illuminate\Support\Facades\Auth::user()->recruiter->company_name}}</td>
                                     </tr>
                                     <tr>
                                         <td class="table-name">Since</td>
@@ -145,12 +144,12 @@
                                     <tr>
                                         <td class="table-name">Location</td>
                                         <td class="dotted">:</td>
-                                        <td>New York, USA</td>
+                                        <td>{{\Illuminate\Support\Facades\Auth::user()->recruiter->company_address}}</td>
                                     </tr>
                                     <tr>
-                                        <td class="table-name">Team Members</td>
+                                        <td class="table-name">Members</td>
                                         <td class="dotted">:</td>
-                                        <td>300-500</td>
+                                        <td>{{\Illuminate\Support\Facades\Auth::user()->recruiter->employee}} People</td>
                                     </tr>
                                     <tr>
                                         <td class="table-name">Job Success</td>
@@ -160,12 +159,12 @@
                                     <tr>
                                         <td class="table-name">Phone</td>
                                         <td class="dotted">:</td>
-                                        <td>+00 568 467 843</td>
+                                        <td>+{{$post->user->phone}}</td>
                                     </tr>
                                     <tr>
                                         <td class="table-name">Email</td>
                                         <td class="dotted">:</td>
-                                        <td>yourmail@gmail.com</td>
+                                        <td>{{$post->user->email}}</td>
                                     </tr>
                                     <tr>
                                         <td class="table-name">Website</td>
