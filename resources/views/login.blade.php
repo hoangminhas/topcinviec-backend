@@ -1,5 +1,5 @@
-
-@extends('layouts.header')
+@extends('layouts.app')
+@section('content')
 <main class="main-content">
     <!--== Start Page Header Area Wrapper ==-->
     <div class="page-header-area sec-overlay sec-overlay-black" data-bg-img="assets/img/photos/bg2.webp">
@@ -82,4 +82,4 @@
     </section>
     <!--== End Login Area Wrapper ==-->
   </main>
-@extends('layouts.footer')
+@endsection
