@@ -15,6 +15,7 @@ class RecruiterFactory extends Factory
     {
         return [
             //
+            'company_name' => $this->faker->name(),
             'description'=> $this->faker->text(),
             'company_address'=> $this->faker->address(),
             'province_id'=> rand(1, 10),

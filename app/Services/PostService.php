@@ -2,13 +2,15 @@
 
 namespace App\Services;
 
-use App\Models\Business_categories;
+use App\Models\BusinessCategory;
 use App\Models\Post;
 use App\Repositories\BaseRepository;
 use App\Repositories\impl\PostInterface;
 use App\Repositories\PostRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Pagination\Paginator;
+Paginator::useBootstrap();
 
 class PostService extends BaseService implements PostInterface
 {
