@@ -1,6 +1,6 @@
-@extends('layouts.header')
+@extends('layouts.app')
 
-
+@section('content')
 <main class="main-content">
     <!--== Start Page Header Area Wrapper ==-->
     <div class="page-header-area sec-overlay sec-overlay-black" data-bg-img="assets/img/photos/bg2.webp">
@@ -30,28 +30,28 @@
                 <div class="col-xl-8">
                     <div class="row row-gutter-70">
                         @foreach($posts as $post)
-                        <div class="col-sm-6 col-lg-4 col-xl-6">
-                            <!--== Start Blog Post Item ==-->
-                            <div class="post-item">
-                                <div class="thumb">
-{{--                                    <a href="blog-details.blade.php"><img src="assets/img/blog/7.webp" alt="Image" width="30" height="30"></a>--}}
-                                </div>
-                                <div class="content">
-                                    <div class="text-center"><h3>{{$post->user->name}}</h3></div>
+                            <div class="col-sm-6 col-lg-4 col-xl-6">
+                                <!--== Start Blog Post Item ==-->
+                                <div class="post-item">
+                                    <div class="thumb">
+                                        {{--                                    <a href="blog-details.blade.php"><img src="assets/img/blog/7.webp" alt="Image" width="30" height="30"></a>--}}
+                                    </div>
+                                    <div class="content">
 
-                                    <h4 class="title"><a href="{{route('posts.detail',$post->id)}}">{{$post->title}}</a></h4>
-                                    <p>{{$post->content}}</p>
-                                    <div class="meta">
-                                        <span class="post-date">03 April, 2022</span>
-                                        <span class="dots"></span>
-                                        <span class="post-time">10 min read</span>
+                                        <h4 class="title"><a href="{{route('posts.detail',$post->id)}}">{{$post->title}}</a></h4>
+                                        <p>{{$post->content}}</p>
+                                        <div class="meta">
+                                            <span class="post-date">{{$post->user->name}}</span>
+                                            <span class="dots"></span>
+                                            <span class="post-time"><span style="color: red ">expire:</span>{{$post->posting_end}}</span>
+                                        </div>
                                     </div>
                                 </div>
+                                <!--== End Blog Post Item ==-->
                             </div>
-                            <!--== End Blog Post Item ==-->
-                        </div>
                         @endforeach
                         <div class="col-12 text-left">
+
                             <div class="pagination-area">
                                 <nav>
                                     <ul class="page-numbers d-inline-flex">
@@ -94,95 +94,42 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="widget-item">
-                            <div class="widget-title">
-                                <h3 class="title">Post Category</h3>
-                            </div>
-                            <div class="widget-body">
-                                <div class="widget-categories">
-                                    <ul>
-                                        <li><a href="job.blade.php">Commercial Movers<span>(16)</span></a></li>
-                                        <li><a href="job.blade.php">Air Freight Services<span>(03)</span></a></li>
-                                        <li><a href="job.blade.php">Drone Services<span>(08)</span></a></li>
-                                        <li><a href="job.blade.php">Road Freight<span>(18)</span></a></li>
-                                        <li><a href="job.blade.php">Warehousing<span>(02)</span></a></li>
-                                        <li><a href="job.blade.php">Consulting Storage<span>(14)</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="widget-item">
-                            <div class="widget-title">
-                                <h3 class="title">Recent Post</h3>
-                            </div>
-                            <div class="widget-body">
-                                <div class="widget-post">
-                                    <div class="widget-blog-post">
-                                        <div class="thumb">
-                                            <a href="blog-details.blade.php"><img src="assets/img/blog/s1.webp" alt="Image" width="71" height="70"></a>
-                                        </div>
-                                        <div class="content">
-                                            <h4><a href="blog-details.blade.php">This includes shipment <br>of raw materials.</a></h4>
-                                            <div class="meta">
-                                                <span class="post-date"><i class="icofont-ui-calendar"></i> 10 August, 2021</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="widget-blog-post">
-                                        <div class="thumb">
-                                            <a href="blog-details.blade.php"><img src="assets/img/blog/s2.webp" alt="Image" width="71" height="70"></a>
-                                        </div>
-                                        <div class="content">
-                                            <h4><a href="blog-details.blade.php">All of these amazing <br>features come price.</a></h4>
-                                            <div class="meta">
-                                                <span class="post-date"><i class="icofont-ui-calendar"></i> 18 August, 2021</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="widget-blog-post">
-                                        <div class="thumb">
-                                            <a href="blog-details.blade.php"><img src="assets/img/blog/s3.webp" alt="Image" width="71" height="70"></a>
-                                        </div>
-                                        <div class="content">
-                                            <h4><a href="blog-details.blade.php">This includes shipment <br>of raw materials.</a></h4>
-                                            <div class="meta">
-                                                <span class="post-date"><i class="icofont-ui-calendar"></i> 19 August, 2021</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="widget-blog-post">
-                                        <div class="thumb">
-                                            <a href="blog-details.blade.php"><img src="assets/img/blog/s4.webp" alt="Image" width="71" height="70"></a>
-                                        </div>
-                                        <div class="content">
-                                            <h4><a href="blog-details.blade.php">All of these amazing <br>features come price.</a></h4>
-                                            <div class="meta">
-                                                <span class="post-date"><i class="icofont-ui-calendar"></i> 10 August, 2021</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="widget-item mb-md-0">
-                            <div class="widget-title">
-                                <h3 class="title">Popular Tags</h3>
-                            </div>
-                            <div class="widget-body">
-                                <div class="widget-tags">
-                                    <ul>
-                                        <li><a href="job.blade.php">Animal</a></li>
-                                        <li><a class="tags-padding mr-0" href="job.blade.php">Bird’s</a></li>
-                                        <li><a class="tags-padding" href="job.blade.php">Charity</a></li>
-                                        <li><a class="mr-0" href="job.blade.php">Forest</a></li>
-                                        <li><a href="job.blade.php">Water</a></li>
-                                        <li><a class="tags-padding mr-0" href="job.blade.php">Children</a></li>
-                                        <li><a class="tags-padding" href="job.blade.php">Human</a></li>
-                                        <li><a href="job.blade.php">Jungle</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+{{--                        <div class="widget-item">--}}
+{{--                            <div class="widget-title">--}}
+{{--                                <h3 class="title">Post Category</h3>--}}
+{{--                            </div>--}}
+{{--                            <div class="widget-body">--}}
+{{--                                <div class="widget-categories">--}}
+{{--                                    <ul>--}}
+{{--                                        @foreach($business_categories as $business_category)--}}
+{{--                                            <li><a href="job.blade.php">{{$business_category->name}}</a></li>--}}
+{{--                                        @endforeach--}}
+{{--                                    </ul>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="widget-item">--}}
+{{--                            <div class="widget-title">--}}
+{{--                                <h3 class="title">Recent Post</h3>--}}
+{{--                            </div>--}}
+{{--                            <div class="widget-body">--}}
+{{--                                <div class="widget-post">--}}
+{{--                                    @foreach($recent_posts as $recent_post)--}}
+{{--                                        <div class="widget-blog-post">--}}
+{{--                                            <div class="thumb">--}}
+{{--                                                <a href="blog-details.blade.php"><img src="assets/img/blog/s1.webp" alt="Image" width="71" height="70"></a>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="content">--}}
+{{--                                                <h4><a href="{{route('posts.detail',$recent_post->id)}}">{{$recent_post->title}}</a></h4>--}}
+{{--                                                <div class="meta">--}}
+{{--                                                    <span class="post-date"><i class="icofont-ui-calendar"></i> {{$recent_post->posting_start}}</span>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    @endforeach--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
             </div>
@@ -190,5 +137,5 @@
     </section>
     <!--== End Blog Area Wrapper ==-->
 </main>
+@endsection
 
-@extends('layouts.footer')

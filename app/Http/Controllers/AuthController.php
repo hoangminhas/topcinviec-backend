@@ -79,6 +79,7 @@ class AuthController extends Controller
         return redirect()->route('login');
     }
 
+
     public function showFormLogin()
     {
         return view('login');

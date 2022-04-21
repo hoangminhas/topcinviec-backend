@@ -24,11 +24,11 @@ use App\Http\Controllers\AuthController;
 Route::get('/dashboard', function () {
     return view('backend.dashboard');
 })->name('dashboard');
-Route::get('/', function () {
-    return view('posts.detail');
-});
+//Route::get('/', function () {
+//    return view('posts.detail');
+//});
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('', [HomeController::class, 'index'])->name('home');
 
 Route::get('login', [AuthController::class, 'showFormLogin'])->name('showFormLogin');
 Route::post('login', [AuthController::class, 'login'])->name('login');
@@ -36,6 +36,9 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('CheckLogin')->group(function () {
     Route::get('candidates', [CandidateController::class, 'index'])->name('candidates.index');
+    Route::get('apply', [CandidateController::class, 'create'])->name('candidates.create');
+    Route::post('apply', [CandidateController::class, 'store'])->name('candidates.store');
+
 
     Route::prefix('/recruiters')->group(function () {
         Route::get('/', [RecruiterController::class, 'index'])->name('recruiters.index');
@@ -65,3 +68,5 @@ Route::get('/send-welcomeEmail', [WelcomeEmail::class, 'sendWelcomeEmail'])->nam
 
 Route::get('search',[SearchController::class,'searchJob'])->name('searchJob');
 Route::get('/dashboard/post-list', [PostController::class, 'indexOfAdmin'])->name('backend.post.index');
+
+

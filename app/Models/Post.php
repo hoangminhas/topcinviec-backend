@@ -18,6 +18,7 @@ class Post extends Model
         'job_level',
         'quantity',
         'gender',
+        'province_id',
         'experience',
         'posting_start',
         'posting_end',

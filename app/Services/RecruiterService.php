@@ -25,8 +25,8 @@ class RecruiterService extends BaseService implements RecruiterInterface
     {
         $request->validate([
             'profile_image' => 'required',
-            'banner_image' => 'required',
-            'company_name' => 'required',
+            'banner_image'  => 'required',
+            'company_name'  => 'required',
         ]);
         $recruiter = new Recruiter();
         $recruiter->company_name = $request->company_name;
@@ -39,6 +39,22 @@ class RecruiterService extends BaseService implements RecruiterInterface
         $recruiter->user_id = $request->user_id;
         $recruiter->status_id = $request->status_id;
         $recruiter->business_category_id = $request->business_category_id;
+        if ($request->hasFile('profile_image')) {
+            $get_image = $request->profile_image;
+            $get_name_image = $get_image->getClientOriginalName();
+            $name_image = current(explode('.', $get_name_image));
+            $new_image = $name_image . rand(0, 99) . '.' . $get_image->getClientOriginalExtension();
+            $get_image->move(public_path('image'), $new_image);
+            $recruiter->profile_image = $new_image;
+        }
+        if ($request->hasFile('banner_image')) {
+            $get_image = $request->banner_image;
+            $get_name_image = $get_image->getClientOriginalName();
+            $name_image = current(explode('.', $get_name_image));
+            $new_image = $name_image . rand(0, 99) . '.' . $get_image->getClientOriginalExtension();
+            $get_image->move('image', $new_image);
+            $recruiter->banner_image = $new_image;
+        }
         $recruiter->save();
     }
     public function update($id, $request)
@@ -76,8 +92,8 @@ class RecruiterService extends BaseService implements RecruiterInterface
             $new_image = $name_image . rand(0, 99) . '.' . $get_image->getClientOriginalExtension();
             $get_image->move('image', $new_image);
             $recruiter->banner_image = $new_image;
-            $recruiter->save();
         }
+            $recruiter->save();
     }
     public function getById($id)
     {

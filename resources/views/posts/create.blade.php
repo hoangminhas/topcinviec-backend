@@ -1,4 +1,5 @@
-@extends('layouts.header')
+@extends('layouts.app')
+@section('content')
 <main class="main-content">
     <!--== Start Page Header Area Wrapper ==-->
     <div class="page-header-area sec-overlay sec-overlay-black" data-bg-img="{{asset('assets/img/photos/bg2.webp')}}">
@@ -45,7 +46,8 @@
                                             @error('title')
                                             <p style="color: red">{{($message)}}</p>
                                             @enderror
-                                            <input class="form-control" name="title" type="text" value="{{old('title')}}">
+                                            <input class="form-control" name="title" type="text"
+                                                   value="{{old('title')}}">
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -56,7 +58,8 @@
                                             @error('content')
                                             <p style="color: red">{{($message)}}</p>
                                             @enderror
-                                            <textarea class="form-control" name="content" type="text">{{old('content')}}</textarea>
+                                            <textarea class="form-control" name="content"
+                                                      type="text">{{old('content')}}</textarea>
                                         </div>
                                     </div>
                                     <div class="col-6">
@@ -70,7 +73,8 @@
                                             @error('salary')
                                             <p style="color: red">{{($message)}}</p>
                                             @enderror
-                                            <input class="form-control" name="salary" type="text" value="{{old('salary')}}">
+                                            <input class="form-control" name="salary" type="text"
+                                                   value="{{old('salary')}}">
                                         </div>
                                     </div>
 
@@ -79,7 +83,8 @@
                                             @error('job_type')
                                             <p style="color: red">{{($message)}}</p>
                                             @enderror
-                                            <input class="form-control" name="job_type" type="text" value="{{old('job_type')}}">
+                                            <input class="form-control" name="job_type" type="text"
+                                                   value="{{old('job_type')}}">
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -90,7 +95,8 @@
                                             @error('job_level')
                                             <p style="color: red">{{($message)}}</p>
                                             @enderror
-                                            <input class="form-control" name="job_level" type="text" value="{{old('job_level')}}">
+                                            <input class="form-control" name="job_level" type="text"
+                                                   value="{{old('job_level')}}">
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -101,20 +107,36 @@
                                             @error('quantity')
                                             <p style="color: red">{{($message)}}</p>
                                             @enderror
-                                            <input class="form-control" name="quantity" type="number" value="{{old('quantity')}}">
+                                            <input class="form-control" name="quantity" type="number"
+                                                   value="{{old('quantity')}}">
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <label>Gender<font style="color:red;">*</font></label>
                                     </div>
                                     <div class="col-12">
-                                        <div class="form-group">
+                                        <div>
                                             @error('gender')
                                             <p style="color: red">{{($message)}}</p>
                                             @enderror
-                                            <input name="gender" type="radio" value="male"> Male
-                                            <input name="gender" type="radio" value="female"> Female
-                                            <input name="gender" type="radio" value="all"> All
+                                            <select class="form-control" name="gender">
+                                                <option value="male">Male</option>
+                                                <option value="female">Female</option>
+                                                <option value="all">All</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div>
+                                            @error('address')
+                                            <p style="color: red">{{($message)}}</p>
+                                            @enderror
+                                            <label>Office<font style="color:red;">*</font></label>
+                                            <select name="province_id" class="form-control">
+                                                @foreach($provinces as $province)
+                                                    <option value="{{$province->id}}">{{$province->name}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -125,7 +147,8 @@
                                             @error('experience')
                                             <p style="color: red">{{($message)}}</p>
                                             @enderror
-                                            <input class="form-control" type="text" name="experience" value="{{old('experience')}}">
+                                            <input class="form-control" type="text" name="experience"
+                                                   value="{{old('experience')}}">
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -136,7 +159,8 @@
                                             @error('posting_start')
                                             <p style="color: red">{{($message)}}</p>
                                             @enderror
-                                            <input class="form-control" type="date" name="posting_start" value="{{old('posting_start')}}">
+                                            <input class="form-control" type="date" name="posting_start"
+                                                   value="{{old('posting_start')}}">
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -147,7 +171,8 @@
                                             @error('posting_end')
                                             <p style="color: red">{{($message)}}</p>
                                             @enderror
-                                            <input class="form-control" type="date" name="posting_end" value="{{old('posting_end')}}">
+                                            <input class="form-control" type="date" name="posting_end"
+                                                   value="{{old('posting_end')}}">
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -158,9 +183,11 @@
                                             @error('business_category_id')
                                             <p style="color: red">{{($message)}}</p>
                                             @enderror
-                                            @foreach($buns as $item)
-                                            <input type="radio" name="business_category_id" value="{{$item->id}}">{{$item->name}}
-                                            @endforeach
+                                            <select class="form-control" name="business_category_id" id="">
+                                                @foreach($buns as $item)
+                                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                     <input type="hidden" name="user_id" value="">
@@ -182,4 +209,4 @@
     </section>
     <!--== End Login Area Wrapper ==-->
 </main>
-@extends('layouts.footer')
+@endsection
