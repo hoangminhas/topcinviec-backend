@@ -1,4 +1,4 @@
-<?php include('layouts/header.blade.php') ?>
+@extends('layouts.header')
 
 <main class="main-content">
     <!--== Start Page Header Area Wrapper ==-->
@@ -115,4 +115,4 @@
     </section>
     <!--== End Contact Area Wrapper ==-->
   </main>
-<?php include('layouts/footer.blade.php') ?>
+@extends('layouts.footer')

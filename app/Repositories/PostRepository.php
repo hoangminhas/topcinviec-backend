@@ -44,6 +44,6 @@ class PostRepository extends BaseRepository implements BaseInterface
     public function getSomeNewest()
     {
 //        return $this->model::all()->sortByDesc('id')->values();
-        return $this->model::latest()->take(9)->get();
+        return $this->model::latest()->take(4)->get();
     }
 }

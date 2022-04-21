@@ -24,11 +24,11 @@ use App\Http\Controllers\AuthController;
 Route::get('/dashboard', function () {
     return view('backend.dashboard');
 })->name('dashboard');
-Route::get('/', function () {
-    return view('posts.detail');
-});
+//Route::get('/', function () {
+//    return view('posts.detail');
+//});
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('', [HomeController::class, 'index'])->name('home');
 
 Route::get('login', [AuthController::class, 'showFormLogin'])->name('showFormLogin');
 Route::post('login', [AuthController::class, 'login'])->name('login');
