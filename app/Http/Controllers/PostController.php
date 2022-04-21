@@ -24,19 +24,19 @@ class PostController extends Controller
     public function index()
     {
         $posts = $this->postService->getAll();
-        if ($posts) {
-            return response()->json([
-                'success' => true,
-                'data' => $posts,
-                'msg' => 'get all posts!'
-            ]);
-        } else {
-            return response()->json([
-                'success' => false,
-                'msg' => 'get posts fail'
-            ]);
-        }
-//        return view('posts.list',compact('posts'));
+        return view('posts.list',compact('posts'));
+//        if ($posts) {
+//            return response()->json([
+//                'success' => true,
+//                'data' => $posts,
+//                'msg' => 'get all posts!'
+//            ]);
+//        } else {
+//            return response()->json([
+//                'success' => false,
+//                'msg' => 'get posts fail'
+//            ]);
+//        }
 //        return response()->json($posts,201);
 //                return response()->json("Success",201);
     }
@@ -52,39 +52,39 @@ class PostController extends Controller
     public function detail($id)
     {
         $post = $this->postService->getById($id);
-        if ($post) {
-            return response()->json([
-                'success' => true,
-                'data' => $post,
-                'msg' => 'get detail post!'
-            ]);
-        } else {
-            return response()->json([
-                'success' => false,
-                'msg' => 'get detail fail'
-            ]);
-        }
+        return view('posts.detail', compact('post'));
+//        if ($post) {
+//            return response()->json([
+//                'success' => true,
+//                'data' => $post,
+//                'msg' => 'get detail post!'
+//            ]);
+//        } else {
+//            return response()->json([
+//                'success' => false,
+//                'msg' => 'get detail fail'
+//            ]);
+//        }
 //        return response()->json($post,201);
-//        return view('posts.detail', compact('post'));
     }
 
 
-    public function getAllPostOfRecruiter($id)
+    public function getAllPostOfRecruiter()
     {
-        $posts = $this->postService->getAllPostOfUser($id);
-        if ($posts) {
-            return response()->json([
-                'success' => true,
-                'data' => $posts,
-                'msg' => 'get all posts!'
-            ]);
-        } else {
-            return response()->json([
-                'success' => false,
-                'msg' => 'get posts fail'
-            ]);
-//        return view('posts.recruiters',compact('posts'));
-        }
+        $posts = $this->postService->getAll();
+        return view('posts.recruiters',compact('posts'));
+//        if ($posts) {
+//            return response()->json([
+//                'success' => true,
+//                'data' => $posts,
+//                'msg' => 'get all posts!'
+//            ]);
+//        } else {
+//            return response()->json([
+//                'success' => false,
+//                'msg' => 'get posts fail'
+//            ]);
+//        }
     }
 
     public function create()
@@ -113,13 +113,13 @@ class PostController extends Controller
     {
         $this->postService->update($id, $request);
 
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.recruiters');
     }
 
     public function destroy($id)
     {
         $this->postRepository->deleteById($id);
-        return redirect()->route('posts.employers');
+        return redirect()->route('posts.recruiters');
     }
 
 
