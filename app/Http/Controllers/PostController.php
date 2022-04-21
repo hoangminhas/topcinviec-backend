@@ -12,12 +12,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Kjmtrue\VietnamZone\Models\Province;
 use Illuminate\Pagination\Paginator;
+
 Paginator::useBootstrap();
 
 class PostController extends Controller
 {
     protected $postService;
     protected $postRepository;
+
     public function __construct(PostService $postService, PostRepository $postRepository)
     {
         $this->postService = $postService;
@@ -28,9 +30,9 @@ class PostController extends Controller
     {
         $posts = $this->postService->getAll();
         $business_categories = BusinessCategory::all();
-        $recent_posts = $this->postService->getSomeNewest();
+//        $recent_posts = $this->postService->getSomeNewest();
 
-        return view('posts.list',compact('posts', 'business_categories', 'recent_posts'));
+        return view('posts.list', compact('posts', 'business_categories'));
         //        if($posts) {
 //            return response()->json([
 //               'success'=> true,
@@ -53,6 +55,12 @@ class PostController extends Controller
         return view('backend.posts.list', compact('posts'));
     }
 
+    public function adminPostDelete($id)
+    {
+        $this->postRepository->deleteById($id);
+        return redirect('dashboard');
+    }
+
     public function detail($id)
     {
         $post = $this->postService->getById($id);
@@ -64,19 +72,22 @@ class PostController extends Controller
     public function employers()
     {
         $posts = $this->postService->getAll();
-        return view('posts.recruiters',compact('posts'));
+        return view('posts.recruiters', compact('posts'));
     }
+
     public function create()
     {
         $buns = BusinessCategory::all();
         $provinces = Province::all();
-        return view('posts.create',compact('buns', 'provinces'));
+        return view('posts.create', compact('buns', 'provinces'));
     }
+
     public function store(PostRequest $request)
     {
         $this->postService->store($request);
         $provinces = Province::all();
-        return redirect()->route('posts.index',compact('provinces'));
+        toastr()->success('Success create new post!');
+        return redirect()->route('posts.index', compact('provinces'));
 //        return response()->json("Success",201);
 
     }
@@ -86,12 +97,12 @@ class PostController extends Controller
         $buns = BusinessCategory::all();
         $provinces = Province::all();
         $post = $this->postService->getById($id);
-        return view('posts.update',compact('post','buns', 'provinces'));
+        return view('posts.update', compact('post', 'buns', 'provinces'));
     }
 
-    public function update($id , PostRequest $request)
+    public function update($id, PostRequest $request)
     {
-        $this->postService->update($id,$request);
+        $this->postService->update($id, $request);
         $provinces = Province::all();
         return redirect()->route('posts.employers', compact('provinces'));
     }

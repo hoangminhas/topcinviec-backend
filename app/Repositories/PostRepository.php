@@ -18,8 +18,10 @@ class PostRepository extends BaseRepository implements BaseInterface
     public function getAll()
     {
         $posts = Post::join('users', 'posts.user_id', '=', 'users.id')
-//            ->get(['posts.*', 'users.name'])
+            ->select('posts.*', 'users.name')
+//            ->get(['posts.*', 'users.name']);
             ->paginate(4);
+
 
         return $posts;
     }

@@ -30,7 +30,7 @@
                     <div class="employers-details-wrap">
                         <div class="employers-details-info">
                             <div class="thumb">
-                                <img src="{{\Illuminate\Support\Facades\Auth::user()->recruiter->profile_image ?? ''}}" width="130" height="130" alt="Image-HasTech">
+                                <img src="{{asset('image')}}/{{\Illuminate\Support\Facades\Auth::user()->recruiter->profile_image}}" width="130" height="130" alt="Image-HasTech">
                             </div>
                             <div class="content">
                                 <h4 class="title">{{\Illuminate\Support\Facades\Auth::user()->name}}.</h4>
@@ -39,7 +39,7 @@
                                     <li><i class="icofont-location-pin"></i> {{\Illuminate\Support\Facades\Auth::user()->address_detail}}</li>
                                     <li><i class="icofont-phone"></i> +{{\Illuminate\Support\Facades\Auth::user()->phone}}</li>
                                 </ul>
-                                <a href="" type="button" class="btn-theme">Edit</a>
+                                <a href="{{route('recruiters.edit',\Illuminate\Support\Facades\Auth::user()->id)}}" type="button" class="btn-theme">Edit</a>
                             </div>
                         </div>
                     </div>
