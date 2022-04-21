@@ -47,7 +47,7 @@
                                     @endif
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input class="form-control" name="company_name" type="text" value="{{$recruiter->company_name}}">
+                                            <input class="form-control" name="company_name" type="text" value="{{\Illuminate\Support\Facades\Auth::user()->recruiter->company_name}}">
                                         </div>
                                     </div>
 
@@ -56,7 +56,7 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input class="form-control" name="description" type="text" value="{{$recruiter->description}}">
+                                            <input class="form-control" name="description" type="text" value="{{\Illuminate\Support\Facades\Auth::user()->recruiter->description}}">
                                         </div>
                                     </div>
 
@@ -65,7 +65,7 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input class="form-control" name="company_address" type="text" value="{{$recruiter->company_address}}">
+                                            <input class="form-control" name="company_address" type="text" value="{{\Illuminate\Support\Facades\Auth::user()->recruiter->company_address}}">
                                         </div>
                                     </div>
 
@@ -74,7 +74,7 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input class="form-control" name="office" type="text" value="{{$recruiter->office}}">
+                                            <input class="form-control" name="office" type="text" value="{{\Illuminate\Support\Facades\Auth::user()->recruiter->office}}">
                                         </div>
                                     </div>
 
@@ -101,7 +101,7 @@
                                     @endif
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input name="profile_image" type="file" value="{{$recruiter->profile_image}}">
+                                            <input name="profile_image" type="file" value="{{\Illuminate\Support\Facades\Auth::user()->recruiter->profile_image}}">
                                         </div>
                                     </div>
 
@@ -113,13 +113,13 @@
                                     @endif
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input name="banner_image" type="file" value="{{$recruiter->banner_image}}">
+                                            <input name="banner_image" type="file" value="{{\Illuminate\Support\Facades\Auth::user()->recruiter->banner_image}}">
                                         </div>
                                     </div>
 
-                                    <input type="hidden" name="user_id" value="{{$recruiter->user_id}}">
-                                    <input type="hidden" name="status_id" value="{{$recruiter->status_id}}">
-                                    <input type="hidden" name="business_category_id" value="{{$recruiter->business_category_id}}">
+                                    <input type="hidden" name="user_id" value="{{\Illuminate\Support\Facades\Auth::user()->recruiter->user_id}}">
+                                    <input type="hidden" name="status_id" value="{{\Illuminate\Support\Facades\Auth::user()->recruiter->status_id}}">
+                                    <input type="hidden" name="business_category_id" value="{{\Illuminate\Support\Facades\Auth::user()->recruiter->business_category_id}}">
 
                                     <div class="col-12">
                                         <div class="form-group">
