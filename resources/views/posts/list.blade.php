@@ -51,30 +51,11 @@
                             </div>
                         @endforeach
                         <div class="col-12 text-left">
-
-                            <div class="pagination-area">
-                                <nav>
-                                    <ul class="page-numbers d-inline-flex">
-                                        <li>
-                                            <a class="page-number active" href="blog.blade.php">1</a>
-                                        </li>
-                                        <li>
-                                            <a class="page-number" href="blog.blade.php">2</a>
-                                        </li>
-                                        <li>
-                                            <a class="page-number" href="blog.blade.php">3</a>
-                                        </li>
-                                        <li>
-                                            <a class="page-number" href="blog.blade.php">4</a>
-                                        </li>
-                                        <li>
-                                            <a class="page-number next" href="blog.blade.php">
-                                                <i class="icofont-long-arrow-right"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    <span aria-hidden="true"> {{ $posts->links() }}</span>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </div>
