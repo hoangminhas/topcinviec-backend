@@ -160,7 +160,7 @@
                                             <p>/monthly</p>
                                         </div>
                                     @endif
-                                    <a class="btn-theme btn-sm" href="job-details.blade.php">Apply Now</a>
+                                    <a class="btn-theme btn-sm" href="{{route('candidates.create')}}">Apply Now</a>
                                 </div>
                             </div>
                             <!--== End Recent Job Item ==-->

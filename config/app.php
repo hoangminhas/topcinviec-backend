@@ -135,6 +135,7 @@ return [
     */
 
     'providers' => [
+        Yoeunes\Toastr\ToastrServiceProvider::class,
 
         /*
          * Laravel Framework Service Providers...

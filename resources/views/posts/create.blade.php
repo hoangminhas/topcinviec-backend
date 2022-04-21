@@ -183,7 +183,7 @@
                                             @error('business_category_id')
                                             <p style="color: red">{{($message)}}</p>
                                             @enderror
-                                            <select class="form-control" name="business_category_id" id="">
+                                            <select class="form-control" name="business_category_id">
                                                 @foreach($buns as $item)
                                                     <option value="{{$item->id}}">{{$item->name}}</option>
                                                 @endforeach

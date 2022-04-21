@@ -21,9 +21,9 @@ use App\Http\Controllers\AuthController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/dashboard', function () {
-    return view('backend.dashboard');
-})->name('dashboard');
+
+Route::get('dashboard', [PostController::class, 'indexOfAdmin'])->name('dashboard');
+Route::get('/dashboard/{id}', [PostController::class, 'adminPostDelete'])->name('admin.delete');
 //Route::get('/', function () {
 //    return view('posts.detail');
 //});

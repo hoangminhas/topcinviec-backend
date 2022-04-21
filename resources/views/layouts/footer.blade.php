@@ -215,7 +215,9 @@
 <!--=== jQuery Custom Js ===-->
 <script src="{{asset('assets/js/custom.js')}}"></script>
 
-
+@jquery
+@toastr_js
+@toastr_render
 </body>
 
 </html>

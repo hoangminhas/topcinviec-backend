@@ -45,7 +45,7 @@ class CandidateController extends Controller
     public function edit($id)
     {
         $candidate = $this->candidateService->getById($id);
-        return view('candidates.update', compact('candidate', 'user'));
+        return view('candidates.update', compact('candidate'));
 //        return response()->json($candidate, 200);
     }
 

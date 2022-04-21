@@ -4,9 +4,7 @@
 @section('content')
 
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-        </div>
+
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -33,16 +31,23 @@
                     <tbody>
                     @foreach($posts as $key=> $post)
                     <tr>
-                        <td>{{$post-> $key+1}}</td>
+                        <td>{{ $loop->index+1 }}</td>
                         <td>{{$post->title}}</td>
                         <td>{{$post->user->name}}</td>
                         <td>{{$post->posting_start}}</td>
                         <td>{{$post->posting_end}}</td>
-                        <td></td>
+                        <td>
+                            <a type="button" href="{{route('admin.delete', $post->id)}}" onclick="return confirm('Are you sure?')" class="btn btn-danger">Delete</a>
+                        </td>
                     </tr>
                     @endforeach
                     </tbody>
                 </table>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <span aria-hidden="true"> {{ $posts->links() }}</span>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>
