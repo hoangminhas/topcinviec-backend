@@ -24,21 +24,19 @@ class AuthController extends Controller
         $this->authService = $authService;
         $this->welcomeEmail = $welcomeEmail;
     }
-    public function login (Request $request)
+
+    public function login(LoginFormRequest $request)
     {
-        $validator = Validator::make($request->all(), [
-            'email'=> 'bail|required|email',
-            'password'=> 'bail|required'
-        ]);
-        if ( $this->authService->login($request))
-        {
+        if ($this->authService->login($request)) {
             return redirect()->route('posts.index');
-        }
-        else
-        {
-            Session::flash('msg','Tài khoản hoặc mật khẩu sai');
+        } else {
+            Session::flash('msg', 'Tài khoản hoặc mật khẩu sai');
             return redirect()->back();
         }
+//        $validator = Validator::make($request->all(), [
+//            'email'=> 'bail|required|email',
+//            'password'=> 'bail|required'
+//        ]);
 //
 //        if ($this->authService->login($request)) {
 //
@@ -62,12 +60,19 @@ class AuthController extends Controller
     public function register(RegisterRequest $request)
     {
         $user = $request->only('name', 'email', 'password', 'role_id', 'phone');
-        $this->authService->register($user);
+        if ($this->authService->register($user)) {
+            $this->welcomeEmail->sendWelcomeEmail();
+            return redirect()->route('login');
+        } else {
+            return redirect()->back();
+        }
 //        $user->notify(new WelcomeEmailNotification());
-        $this->welcomeEmail->sendWelcomeEmail();
-        return redirect()->route('login');
-//        return response()->json('create user success', 201);
+//        return response()->json([
+//            'success'=> true,
+//            'msd'=> 'Register successful!'
+//        ]);
     }
+
     public function logout()
     {
         Auth::logout();

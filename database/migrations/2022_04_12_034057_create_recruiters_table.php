@@ -15,7 +15,7 @@ class CreateRecruitersTable extends Migration
     {
         Schema::create('recruiters', function (Blueprint $table) {
             $table->id();
-            $table->string('company_name');
+//            $table->string('company_name');
             $table->string('description');
             $table->string('company_address');
             $table->unsignedBigInteger('province_id');
