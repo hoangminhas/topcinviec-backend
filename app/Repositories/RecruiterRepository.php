@@ -13,4 +13,10 @@ class RecruiterRepository extends BaseRepository implements BaseInterface
     {
         return Recruiter::class;
     }
+    public function getAll()
+    {
+        $posts = Recruiter::paginate(4);
+
+        return $posts;
+    }
 }

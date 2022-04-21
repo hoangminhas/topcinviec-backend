@@ -2,8 +2,7 @@
 namespace App\Repositories;
 
 use App\Repositories\impl\BaseInterface;
-use Illuminate\Pagination\Paginator;
-Paginator::useBootstrap();
+
 abstract class BaseRepository implements BaseInterface
 {
     public $model;
@@ -17,7 +16,7 @@ abstract class BaseRepository implements BaseInterface
 
     public function getAll()
     {
-        return $this->model::paginate(1);
+        return $this->model::all();
     }
 
 
