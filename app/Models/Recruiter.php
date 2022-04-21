@@ -50,4 +50,6 @@ class Recruiter extends Model
     {
         return $this->belongsTo(Ward::class, 'ward_id', 'id');
     }
+
+
 }

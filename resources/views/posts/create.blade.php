@@ -83,8 +83,10 @@
                                             @error('job_type')
                                             <p style="color: red">{{($message)}}</p>
                                             @enderror
-                                            <input class="form-control" name="job_type" type="text"
-                                                   value="{{old('job_type')}}">
+                                            <select class="form-control" name="job_type">
+                                                <option value="Full time">Full time</option>
+                                                <option value="Part time">Part time</option>
+                                                </select>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -183,7 +185,7 @@
                                             @error('business_category_id')
                                             <p style="color: red">{{($message)}}</p>
                                             @enderror
-                                            <select class="form-control" name="business_category_id" id="">
+                                            <select class="form-control" name="business_category_id" id="business_category_id">
                                                 @foreach($buns as $item)
                                                     <option value="{{$item->id}}">{{$item->name}}</option>
                                                 @endforeach
@@ -200,7 +202,6 @@
                                     </div>
                                 </div>
                             </form>
-
                         </div>
                     </div>
                 </div>
