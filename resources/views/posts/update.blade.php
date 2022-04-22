@@ -186,7 +186,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <input type="hidden" name="user_id" value="">
+                                    <input type="hidden" name="user_id" value="{{$post->user_id}}">
                                     <input type="hidden" name="status_id" value="">
 
                                     <div class="col-12">

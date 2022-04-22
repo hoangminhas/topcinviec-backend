@@ -14,7 +14,6 @@
     <!--== Favicon ==-->
     <link rel="shortcut icon" href="./public/assets/img/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">
-    @toastr_css
     <!--== Google Fonts ==-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

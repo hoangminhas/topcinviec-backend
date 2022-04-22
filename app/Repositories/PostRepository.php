@@ -5,6 +5,8 @@ namespace App\Repositories;
 use App\Models\Post;
 use App\Repositories\impl\BaseInterface;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Auth;
+
 Paginator::useBootstrap();
 
 class PostRepository extends BaseRepository implements BaseInterface
@@ -17,13 +19,11 @@ class PostRepository extends BaseRepository implements BaseInterface
 
     public function getAll()
     {
-        $posts = Post::join('users', 'posts.user_id', '=', 'users.id')
-            ->select('posts.*', 'users.name')
-//            ->get(['posts.*', 'users.name']);
-            ->paginate(4);
+        //$userLogin = Auth::user();
+        $posts = Post::with(['user']);
+            //->select(['posts.*', 'users.name']);
 
-
-        return $posts;
+        return $posts->paginate(4);
     }
 
     public function getSomeNewest()

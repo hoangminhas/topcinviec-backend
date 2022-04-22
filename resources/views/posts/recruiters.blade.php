@@ -39,7 +39,9 @@
                                     <li><i class="icofont-location-pin"></i> {{\Illuminate\Support\Facades\Auth::user()->address_detail}}</li>
                                     <li><i class="icofont-phone"></i> +{{\Illuminate\Support\Facades\Auth::user()->phone}}</li>
                                 </ul>
+                                @if (\Illuminate\Support\Facades\Auth::user()->id !== 2)
                                 <a href="{{route('recruiters.edit',\Illuminate\Support\Facades\Auth::user()->id)}}" type="button" class="btn-theme">Edit</a>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -64,17 +66,15 @@
                                     <h4 class="title">Open Position</h4>
                                 </div>
                             </div>
-
-
                             @foreach($posts as $post)
-                                @if ($post->user_id == \Illuminate\Support\Facades\Auth::user()->id)
+                                @if($post->user_id == \Illuminate\Support\Facades\Auth::id())
                             <div class="col-12 col-md-6 col-lg-12 col-xl-6">
                                 <!--== Start Recent Job Item ==-->
                                 <div class="recent-job-item recent-job-style3-item">
                                     <div class="company-info">
-                                        <div class="logo">
-                                            <a href="company-details.php"><img src="assets/img/companies/w1.webp" width="75" height="75" alt="Image-HasTech"></a>
-                                        </div>
+                                            <div class="logo">
+                                                <a href="company-details.php"><img src="assets/img/companies/w1.webp" width="75" height="75" alt="Image-HasTech"></a>
+                                            </div>
                                         <div class="content mb--0">
                                             <h4 class="name"><a href="company-details.php">{{$post->user->name}}</a></h4>
                                             <h5 class="sub-title">{{$post->user->email}}</h5>
@@ -103,6 +103,7 @@
                             </div>
                                 @endif
                             @endforeach
+                            {{ $posts->links() }}
                         </div>
                     </div>
                 </div>
