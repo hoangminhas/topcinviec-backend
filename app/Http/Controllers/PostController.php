@@ -29,6 +29,8 @@ class PostController extends Controller
     public function index()
     {
         $posts = $this->postService->getAll();
+
+
         $business_categories = BusinessCategory::all();
 //        $recent_posts = $this->postService->getSomeNewest();
 
@@ -86,8 +88,8 @@ class PostController extends Controller
     {
         $this->postService->store($request);
         $provinces = Province::all();
-        toastr()->success('Success create new post!');
-        return redirect()->route('posts.index', compact('provinces'));
+//        toastr()->success('Success create new post!');
+        return redirect()->route('posts.employers', compact('provinces'));
 //        return response()->json("Success",201);
 
     }
