@@ -37,7 +37,7 @@
                         <td>{{$post->posting_start}}</td>
                         <td>{{$post->posting_end}}</td>
                         <td>
-                            <a type="button" href="{{route('admin.delete', $post->id)}}" onclick="return confirm('Are you sure?')" class="btn btn-danger">Delete</a>
+                            <a type="button" href="{{route('admin.delete', $post->id)}}" onclick="return confirm('Are you sure?')" style="color: red">Delete</a>
                         </td>
                     </tr>
                     @endforeach

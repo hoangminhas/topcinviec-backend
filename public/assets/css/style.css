@@ -3483,6 +3483,11 @@ table p {
     padding: 2px;
   }
 }
+
+.btnn{
+    background-color: red;
+}
+
 .employers-details-info .btn-theme.btn-white {
   border-color: #eef0f5;
   color: #272a33;

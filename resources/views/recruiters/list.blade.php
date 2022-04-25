@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="content">
                                     <h4 class="title"><a
-                                            href="../candidate-details.blade.php">{{$recruiter->company_name}}</a></h4>
+                                            href="{{route('recruiters.detail',$recruiter->id)}}">{{$recruiter->company_name}}</a></h4>
                                     <h5 class="sub-title">{{$recruiter->description}}</h5>
                                     <a class="btn-theme btn-white btn-sm"
                                        href="{{route('recruiters.detail', $recruiter->id)}}">View Profile</a>

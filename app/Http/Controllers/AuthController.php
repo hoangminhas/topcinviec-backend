@@ -28,6 +28,7 @@ class AuthController extends Controller
     public function login(LoginFormRequest $request)
     {
         if ($this->authService->login($request)) {
+            toastr()->success('Welcome !');
             return redirect()->route('posts.index');
         } else {
             Session::flash('msg', 'Tài khoản hoặc mật khẩu sai');
@@ -60,12 +61,12 @@ class AuthController extends Controller
     public function register(RegisterRequest $request)
     {
         $user = $request->only('name', 'email', 'password', 'role_id', 'phone');
-        if ($this->authService->register($user)) {
-            $this->welcomeEmail->sendWelcomeEmail();
-            return redirect()->route('login');
-        } else {
-            return redirect()->back();
-        }
+        $this->authService->register($user);
+        $this->welcomeEmail->sendWelcomeEmail();
+        toastr()->success('Register Successful');
+
+        return redirect()->route('login');
+
 //        $user->notify(new WelcomeEmailNotification());
 //        return response()->json([
 //            'success'=> true,
