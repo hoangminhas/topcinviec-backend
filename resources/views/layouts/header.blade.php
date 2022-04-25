@@ -34,6 +34,9 @@
 
     <!--== Main Style CSS ==-->
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">
+    @toastr_css
 </head>
 
 <body>
@@ -112,6 +115,9 @@
         </div>
       </div>
     </div>
+      @jquery
+      @toastr_js
+      @toastr_render
   </header>
   <!--== End Header Wrapper ==-->
 </div>

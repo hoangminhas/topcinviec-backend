@@ -88,7 +88,7 @@ class PostController extends Controller
     {
         $this->postService->store($request);
         $provinces = Province::all();
-//        toastr()->success('Success create new post!');
+        toastr()->success('Success create new post!');
         return redirect()->route('posts.employers', compact('provinces'));
 //        return response()->json("Success",201);
 
@@ -106,12 +106,14 @@ class PostController extends Controller
     {
         $this->postService->update($id, $request);
         $provinces = Province::all();
+        toastr()->success('Success!');
         return redirect()->route('posts.employers', compact('provinces'));
     }
 
     public function destroy($id)
     {
         $this->postRepository->deleteById($id);
+        toastr()->success('Destroy Success');
         return redirect()->route('posts.employers');
     }
 
